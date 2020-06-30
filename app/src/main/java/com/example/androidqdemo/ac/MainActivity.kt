@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.androidqdemo.R
+import java.io.FileOutputStream
+import java.io.InputStream
+
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,10 +47,26 @@ class MainActivity : AppCompatActivity() {
             data?.data?.let {
                 //copy 一份到本地文件夹
                 val inputStream = contentResolver.openInputStream(it)
-
-
+                if (inputStream != null) {
+                    writeToLocal(externalCacheDir?.path+System.currentTimeMillis()+".db",inputStream)
+                };
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
+    fun writeToLocal(destination: String?, input: InputStream) {
+        var index: Int
+        val bytes = ByteArray(1024)
+        val downloadFile = FileOutputStream(destination)
+        while (input.read(bytes).also { index = it } != -1) {
+            downloadFile.run {
+                write(bytes, 0, index)
+                flush()
+            }
+        }
+        input.close()
+        downloadFile.close()
+    }
+
 }
