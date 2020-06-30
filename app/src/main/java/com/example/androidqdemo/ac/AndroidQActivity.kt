@@ -1,6 +1,5 @@
 package com.example.androidqdemo.ac
 
-import android.content.ContentResolver
 import android.content.Context
 import android.database.Cursor
 import android.os.Bundle
@@ -16,8 +15,10 @@ import com.example.androidqdemo.adapter.FileAdapter
 import com.example.androidqdemo.base.util.UiHandler
 import com.example.androidqdemo.bean.FileEntity
 import java.io.File
+import java.io.FileDescriptor
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class AndroidQActivity : AppCompatActivity() {
     @JvmField
@@ -56,18 +57,9 @@ class AndroidQActivity : AppCompatActivity() {
         var c: Cursor? = null
         try {
             var mContentResolver = context.contentResolver
-            var select = "(" + MediaStore.Files.FileColumns.DATA + " LIKE '%.zip'" + " or " + MediaStore.Files.FileColumns.DATA + " LIKE '%.zip'" + ")"
-            select = buildOfficeSelectionStr()
-            //相当于我们常用sql where 后面的写法
-            val selection = (MediaStore.Files.FileColumns.MIME_TYPE + "= ? "
-                    + " or " + MediaStore.Files.FileColumns.MIME_TYPE + " = ? "
-                    + " or " + MediaStore.Files.FileColumns.MIME_TYPE + " = ? "
-                    + " or " + MediaStore.Files.FileColumns.MIME_TYPE + " = ? "
-                    + " or " + MediaStore.Files.FileColumns.MIME_TYPE + " = ? ")
-            val projection = arrayOf(MediaStore.Files.FileColumns._ID, MediaStore.Files.FileColumns.DATA, MediaStore.Files.FileColumns.TITLE, MediaStore.Files.FileColumns.MIME_TYPE)
-            val selectionArgs = arrayOf("text/plain", "application/msword", "application/pdf", "application/vnd.ms-powerpoint", "application/vnd.ms-excel")
-            c = mContentResolver.query(MediaStore.Files.getContentUri("external"), projection, selection, selectionArgs, MediaStore.Files.FileColumns.DATE_MODIFIED + " desc")
-            //            c = mContentResolver.query(MediaStore.Files.getContentUri("external"), null, select, null, null);
+            var select = "(" + MediaStore.Files.FileColumns.DATA + " LIKE '%.db'" + " or " + MediaStore.Files.FileColumns.DATA + " LIKE '%.db'" + ")"
+
+             c = mContentResolver.query(MediaStore.Files.getContentUri("external"), null, select, null, null);
             val columnIndexOrThrow_ID = c!!.getColumnIndexOrThrow(MediaStore.Files.FileColumns._ID)
             val columnIndexOrThrow_MIME_TYPE = c.getColumnIndexOrThrow(MediaStore.Files.FileColumns.MIME_TYPE)
             val columnIndexOrThrow_DATA = c.getColumnIndexOrThrow(MediaStore.Files.FileColumns.DATA)

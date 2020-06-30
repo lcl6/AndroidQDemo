@@ -17,6 +17,12 @@
             android:text="测试安卓Q"
             />
         <TextView
+            android:id="@+id/tv_test_saf"
+            style="@style/main_text"
+            android:text="调用SAF"
+            />
+
+        <TextView
             android:id="@+id/tv_ts_cj"
             style="@style/main_text"
             android:text="测试沉浸状态栏"
