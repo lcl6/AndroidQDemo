@@ -27,5 +27,10 @@
             style="@style/main_text"
             android:text="测试沉浸状态栏"
             />
+        <TextView
+            android:id="@+id/tv_ts_cache"
+            style="@style/main_text"
+            android:text="cache测试"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

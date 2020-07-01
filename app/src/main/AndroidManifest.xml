@@ -27,6 +27,7 @@
          </activity>
         <activity android:name=".ac.AndroidQActivity" />
         <activity android:name=".ac.StatusActivity" />
+        <activity android:name=".ac.CacheActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
