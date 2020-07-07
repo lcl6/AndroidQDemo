@@ -29,7 +29,9 @@
         <activity android:name=".ac.StatusActivity" />
         <activity android:name=".ac.CacheActivity" />
         <activity android:name=".ac.DownLoadPicActivity" />
-
+<!--        <meta-data-->
+<!--            android:name="com.example.androidqdemo.base.util.MyAppGlideModule"-->
+<!--            android:value="GlideModule" />-->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.androidqdemo.fileprovider"

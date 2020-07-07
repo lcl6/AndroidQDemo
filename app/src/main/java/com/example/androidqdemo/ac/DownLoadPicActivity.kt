@@ -21,6 +21,7 @@ import com.bumptech.glide.request.FutureTarget
 import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.example.androidqdemo.R
 import com.example.androidqdemo.adapter.DownLoadPicAdapter
+import com.example.androidqdemo.adapter.setListener
 import com.example.androidqdemo.base.util.ToastUtils
 import com.example.androidqdemo.base.util.UiHandler
 import com.example.androidqdemo.bean.MeiziBean
@@ -129,12 +130,17 @@ class DownLoadPicActivity : AppCompatActivity() {
                         fileAdapter?.notifyItemChanged(ben)
                     }
                 }catch (e : Exception){
-                    get.prgoress=0.5f
+                    UiHandler.post {
+                        get.prgoress=0.5f
+                        fileAdapter?.notifyItemChanged(ben)
+                    }
                     e.printStackTrace()
                 }
             }).start()
         }
     }
+
+
 
     private fun initRecyclerView() {
         mList = ArrayList()
@@ -142,6 +148,31 @@ class DownLoadPicActivity : AppCompatActivity() {
         fileAdapter = DownLoadPicAdapter(this)
         mRecyclerView!!.adapter = fileAdapter
         fileAdapter!!.data = mList as List<MeiziDetailBean?>?
+        fileAdapter!!.setListener(object :DownLoadPicAdapter.Listener{
+            override fun click(item: MeiziDetailBean, position: Int) {
+                Thread(Runnable {
+                    val get1: FutureTarget<Bitmap> = Glide.with(this@DownLoadPicActivity).asBitmap()
+                            .load(item.url)
+                            .submit()
+                    try {
+                        val get2 = get1.get()
+                        UiHandler.post {
+                            item.prgoress=1f
+                            item.bm=get2
+                            fileAdapter?.notifyItemChanged(position)
+                        }
+                    }catch (e : Exception){
+                        UiHandler.post {
+                            item.prgoress=0.5f
+                            fileAdapter?.notifyItemChanged(position)
+                        }
+                        e.printStackTrace()
+                    }
+                }).start()
+
+            }
+
+        })
     }
 
     companion object {

@@ -308,8 +308,8 @@ class OkHttpUtils private constructor(c: Context) {
                 .addNetworkInterceptor(NetCacheInterceptor)
                 .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
                 .cache( okhttp3.Cache(okhttpCache, 8 * 1024 * 1024))
-                .connectTimeout(10, TimeUnit.SECONDS).writeTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(10, TimeUnit.SECONDS).build()
+                .connectTimeout(30, TimeUnit.SECONDS).writeTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS).build()
     }
 
 

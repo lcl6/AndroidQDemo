@@ -20,17 +20,28 @@ import com.example.androidqdemo.view.ProgressImageView
  * Created by liancl on 2020/6/11 0011.
  */
 class DownLoadPicAdapter(context: Context?) : BaseRecyclerViewAdapter<MeiziDetailBean?>(context) {
+
+    lateinit var  listener : Listener
+
     override fun onBind(holder: ViewHolder, position: Int) {
-        setItem(holder as Viewholder, getItem(position))
+        setItem(holder as Viewholder, getItem(position),position)
     }
 
-    private fun setItem(holder: Viewholder, item: MeiziDetailBean?) {
+    private fun setItem(holder: Viewholder, item: MeiziDetailBean?,position: Int) {
         holder.tvTitle!!.text = item!!.views
         holder.tvPath!!.text = item.likeCounts
 
         item.prgoress?.let { holder.img_a?.setPer(it) }
 
         holder.img_a?.setImageBitmap(item.bm)
+
+
+        holder.img_a?.setOnClickListener {
+            if (listener != null) {
+                holder.img_a?.setPer(0f)
+                listener?.click(item,position)
+            }
+        }
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
@@ -51,4 +62,13 @@ class DownLoadPicAdapter(context: Context?) : BaseRecyclerViewAdapter<MeiziDetai
             ButterKnife.bind(this, itemView)
         }
     }
+
+
+    public interface Listener{
+        fun click(item: MeiziDetailBean,position: Int)
+    }
+}
+
+public fun DownLoadPicAdapter.setListener(li: DownLoadPicAdapter.Listener){
+    this.listener=li
 }
