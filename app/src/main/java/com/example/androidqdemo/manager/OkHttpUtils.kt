@@ -182,7 +182,6 @@ class OkHttpUtils private constructor(c: Context) {
                 .url(url!!)
                 .post(body)
                 .addHeader("Content-Type", "application/json")
-                .addHeader("Authorization", "Bearer $token")
                 .addHeader("Terminal-Type", "app").build()
     }
 
@@ -297,7 +296,7 @@ class OkHttpUtils private constructor(c: Context) {
                             .build()
 
                 }else{
-                    val onlineCacheTime =30 //在线的时候的缓存过期时间，如果想要不缓存，直接时间设置为0
+                    val onlineCacheTime =300 //在线的时候的缓存过期时间，如果想要不缓存，直接时间设置为0
                     response.newBuilder()
                             .header("Cache-Control", "public, max-age=$onlineCacheTime")
                             .removeHeader("Pragma")
