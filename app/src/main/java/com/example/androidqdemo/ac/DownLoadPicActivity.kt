@@ -22,6 +22,7 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.example.androidqdemo.R
 import com.example.androidqdemo.adapter.DownLoadPicAdapter
 import com.example.androidqdemo.adapter.setListener
+import com.example.androidqdemo.base.util.GlideApp
 import com.example.androidqdemo.base.util.ToastUtils
 import com.example.androidqdemo.base.util.UiHandler
 import com.example.androidqdemo.bean.MeiziBean
@@ -114,13 +115,18 @@ class DownLoadPicActivity : AppCompatActivity() {
     private fun downLoadPic() {
 
 
+
+
+
+
         for (ben in 0 until mList!!.size){
 
             val get = mList!![ben]
             var  v=0F;
             Thread(Runnable {
-                val get1: FutureTarget<Bitmap> = Glide.with(this).asBitmap()
-                        .load(get.url)
+                val get1: FutureTarget<Bitmap> = GlideApp.with(this).asBitmap()
+//                        .load(get.url)
+                        .load("http://192.168.5.228:8080/fileserver/file/get/1594351588182.jpg")
                         .submit()
                 try {
                     val get2 = get1.get()

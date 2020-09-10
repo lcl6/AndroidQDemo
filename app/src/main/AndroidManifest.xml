@@ -7,6 +7,11 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
 
+    <!-- 粗略的位置权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
+    <!-- 精确的位置权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="false"
@@ -29,9 +34,11 @@
         <activity android:name=".ac.StatusActivity" />
         <activity android:name=".ac.CacheActivity" />
         <activity android:name=".ac.DownLoadPicActivity" />
-<!--        <meta-data-->
-<!--            android:name="com.example.androidqdemo.base.util.MyAppGlideModule"-->
-<!--            android:value="GlideModule" />-->
+        <activity android:name=".ac.LocationActivity" />
+
+        <meta-data
+            android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
+            android:value="GlideModule" />
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.androidqdemo.fileprovider"

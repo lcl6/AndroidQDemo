@@ -37,5 +37,10 @@
             style="@style/main_text"
             android:text="图片下载测试"
             />
+        <TextView
+            android:id="@+id/tv_location"
+            style="@style/main_text"
+            android:text="原生定位"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

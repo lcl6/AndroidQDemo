@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         ButterKnife.bind(this)
     }
 
-    @OnClick(R.id.tv_test_q, R.id.tv_ts_cj,R.id.tv_test_saf,R.id.tv_ts_cache,R.id.tv_down_pic)
+    @OnClick(R.id.tv_test_q, R.id.tv_ts_cj,R.id.tv_test_saf,R.id.tv_ts_cache,R.id.tv_down_pic,R.id.tv_location)
     fun onclick(v: View) {
         when (v.id) {
             R.id.tv_test_q -> startActivity(Intent(this@MainActivity, AndroidQActivity::class.java))
@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
             R.id.tv_test_saf -> showFileChooser()
             R.id.tv_ts_cache ->CacheActivity.start(this@MainActivity)
             R.id.tv_down_pic ->DownLoadPicActivity.start(this@MainActivity)
+            R.id.tv_location ->LocationActivity.start(this@MainActivity)
+
         }
     }
 
