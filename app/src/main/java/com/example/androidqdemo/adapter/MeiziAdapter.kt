@@ -19,7 +19,12 @@ import com.example.androidqdemo.bean.MeiziDetailBean
  */
 class MeiziAdapter(context: Context?) : BaseRecyclerViewAdapter<MeiziDetailBean?>(context) {
     override fun onBind(holder: ViewHolder, position: Int) {
-        setItem(holder as Viewholder, getItem(position))
+
+        if (data.isEmpty()) {
+            onBindViewHolder(holder,position);
+        }else{
+            setItem(holder as Viewholder, getItem(position))
+        }
     }
 
     private fun setItem(holder: Viewholder, item: MeiziDetailBean?) {
@@ -36,7 +41,8 @@ class MeiziAdapter(context: Context?) : BaseRecyclerViewAdapter<MeiziDetailBean?
         return Viewholder(getLayoutView(viewGroup, R.layout.it_meizi))
     }
 
-     class Viewholder(itemView: View) : ViewHolder(itemView) {
+
+    class Viewholder(itemView: View) : ViewHolder(itemView) {
          @JvmField
         @BindView(R.id.tv_title)
         var tvTitle: TextView? = null

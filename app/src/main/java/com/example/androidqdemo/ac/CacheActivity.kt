@@ -2,9 +2,7 @@ package com.example . androidqdemo.ac
 
 import android.content.Context
 import android.content.Intent
-import android.database.Cursor
 import android.os.Bundle
-import android.provider.MediaStore
 import android.util.Log
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -15,24 +13,18 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.alibaba.fastjson.JSON
 import com.example.androidqdemo.R
-import com.example.androidqdemo.adapter.FileAdapter
 import com.example.androidqdemo.adapter.MeiziAdapter
+import com.example.androidqdemo.base.adapter.BaseRecyclerViewAdapter
 import com.example.androidqdemo.base.util.ToastUtils
 import com.example.androidqdemo.base.util.UiHandler
-import com.example.androidqdemo.bean.FileEntity
 import com.example.androidqdemo.bean.MeiziBean
 import com.example.androidqdemo.bean.MeiziDetailBean
-import com.example.androidqdemo.constant.ApiConstant
 import com.example.androidqdemo.manager.OkHttpUtils
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Response
-import java.io.File
-import java.io.FileDescriptor
 import java.io.IOException
-import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.math.log
 
 
 class CacheActivity : AppCompatActivity() {
@@ -113,6 +105,10 @@ class CacheActivity : AppCompatActivity() {
         fileAdapter = MeiziAdapter(this)
         mRecyclerView!!.adapter = fileAdapter
         fileAdapter!!.data = mList as List<MeiziDetailBean?>?
+        fileAdapter!!.setOnItemClickListener { viewHolder, item, position ->
+            item?.views ="4444444444";
+            fileAdapter!!.notifyItemChanged(position,"2")
+        }
     }
 
     companion object {
@@ -122,4 +118,6 @@ class CacheActivity : AppCompatActivity() {
         }
     }
 
+
 }
+
