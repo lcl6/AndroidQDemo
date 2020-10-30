@@ -42,5 +42,10 @@
             style="@style/main_text"
             android:text="原生定位"
             />
+        <TextView
+            android:id="@+id/webview"
+            style="@style/main_text"
+            android:text="webview 加载本地图片"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

@@ -35,6 +35,7 @@
         <activity android:name=".ac.CacheActivity" />
         <activity android:name=".ac.DownLoadPicActivity" />
         <activity android:name=".ac.LocationActivity" />
+        <activity android:name=".ac.WebViewActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
