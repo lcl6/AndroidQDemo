@@ -47,5 +47,10 @@
             style="@style/main_text"
             android:text="webview 加载本地图片"
             />
+        <TextView
+            android:id="@+id/websocket"
+            style="@style/main_text"
+            android:text="websocket测试用例"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

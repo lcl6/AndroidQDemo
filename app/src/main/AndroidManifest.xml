@@ -36,6 +36,7 @@
         <activity android:name=".ac.DownLoadPicActivity" />
         <activity android:name=".ac.LocationActivity" />
         <activity android:name=".ac.WebViewActivity" />
+        <activity android:name=".ac.WebSocketActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
