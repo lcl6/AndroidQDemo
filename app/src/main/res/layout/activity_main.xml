@@ -52,5 +52,11 @@
             style="@style/main_text"
             android:text="websocket测试用例"
             />
+        <TextView
+            android:id="@+id/rv_ed"
+            style="@style/main_text"
+            android:text="列表editext测试用例"
+            />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

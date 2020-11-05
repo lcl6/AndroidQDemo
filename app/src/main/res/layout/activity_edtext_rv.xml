@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/recycler_view"
+        />
+    <LinearLayout
+        android:id="@+id/vg_loadmore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:id="@+id/tv_add"
+            android:layout_width="100dp"
+            android:padding="10dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="添加"
+            />
+        <TextView
+
+            android:id="@+id/tv_delete"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="删除"
+            />
+    </LinearLayout>
+</LinearLayout>

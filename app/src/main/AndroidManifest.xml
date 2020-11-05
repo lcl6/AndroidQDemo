@@ -37,6 +37,7 @@
         <activity android:name=".ac.LocationActivity" />
         <activity android:name=".ac.WebViewActivity" />
         <activity android:name=".ac.WebSocketActivity" />
+        <activity android:name=".ac.EditextRecyclerViewPicActivity"     android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"

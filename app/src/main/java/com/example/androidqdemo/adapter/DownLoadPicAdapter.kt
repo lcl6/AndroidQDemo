@@ -67,8 +67,8 @@ class DownLoadPicAdapter(context: Context?) : BaseRecyclerViewAdapter<MeiziDetai
     public interface Listener{
         fun click(item: MeiziDetailBean,position: Int)
     }
-}
 
+}
 public fun DownLoadPicAdapter.setListener(li: DownLoadPicAdapter.Listener){
     this.listener=li
 }
