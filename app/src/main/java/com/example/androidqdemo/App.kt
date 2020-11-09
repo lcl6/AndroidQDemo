@@ -16,5 +16,13 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         MultiDex.install(this);
+        Companion.inst =this
     }
+    companion object{
+        private lateinit var inst :App;
+        fun getInstance(): App{
+            return inst
+        }
+    }
+
 }

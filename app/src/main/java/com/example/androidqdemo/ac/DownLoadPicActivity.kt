@@ -125,8 +125,8 @@ class DownLoadPicActivity : AppCompatActivity() {
             var  v=0F;
             Thread(Runnable {
                 val get1: FutureTarget<Bitmap> = GlideApp.with(this).asBitmap()
-//                        .load(get.url)
-                        .load("http://192.168.5.228:8080/fileserver/file/get/1594351588182.jpg")
+                        .load(get.url)
+//                        .load("http://192.168.5.228:8080/fileserver/file/get/1594351588182.jpg")
                         .submit()
                 try {
                     val get2 = get1.get()

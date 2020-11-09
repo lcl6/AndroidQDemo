@@ -37,7 +37,7 @@ dependencies {
 
 
     implementation 'com.lodz:pandora:1.4.9'
-    implementation 'com.lodz:imageloader-kt:1.1.5'
+//    implementation 'com.lodz:imageloader-kt:1.1.5'
 
 
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
