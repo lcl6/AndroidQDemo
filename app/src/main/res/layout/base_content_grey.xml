@@ -6,13 +6,13 @@
     android:orientation="vertical">
 
 
-        <com.example.androidqdemo.view.GreyLinearlayout
+        <LinearLayout
             android:id="@+id/base_vg_content_grey"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:visibility="visible">
-        </com.example.androidqdemo.view.GreyLinearlayout>
+        </LinearLayout>
 
 
 </LinearLayout>

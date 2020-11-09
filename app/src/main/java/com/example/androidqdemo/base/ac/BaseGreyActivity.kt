@@ -1,7 +1,9 @@
 package com.example.androidqdemo.base.ac
 
-import android.os.Bundle
+import android.content.Context
+import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.annotation.LayoutRes
@@ -17,8 +19,14 @@ import com.lodz.android.pandora.base.activity.AbsActivity
 
 abstract class BaseGreyActivity : AbsActivity() {
 
+    /**
+     * 开启变灰模式
+     */
+    private var mOpenGray: Boolean=true
+
+
     /** 内容布局 */
-    private val mGreyContentLayout by bindView<GreyLinearlayout>(R.id.base_vg_content_grey)
+    private val mGreyContentLayout by bindView<LinearLayout>(R.id.base_vg_content_grey)
 
     final override fun afterSetContentView() {
         super.afterSetContentView()
@@ -38,8 +46,32 @@ abstract class BaseGreyActivity : AbsActivity() {
          mGreyContentLayout.addView(view, layoutParams)
     }
 
-    fun openGray(open: Boolean){
-        mGreyContentLayout.openGray(open)
+    fun openGray(openGray: Boolean){
+        this.mOpenGray=openGray;
+    }
+
+    /**
+     * 实现变灰
+     */
+    override fun onCreateView(parent: View?, name: String, context: Context, attrs: AttributeSet): View? {
+        if (mOpenGray) {
+            if("FrameLayout" == name){
+                val attributeCount = attrs.attributeCount
+                for (i in 0 until attributeCount){
+                    val attributeName = attrs.getAttributeName(i)
+                    val attributeValue = attrs.getAttributeValue(i)
+                    if("id" == attributeName){
+                        val id = Integer.parseInt(attributeValue.substring(1))
+                        val idValue = resources.getResourceName(id)
+                        if("android:id/content" == idValue){
+                            return GreyLinearlayout(getContext(), attrs)
+                        }
+                    }
+                }
+            }
+        }
+        return super.onCreateView(parent, name, context, attrs)
+
     }
 
     @LayoutRes

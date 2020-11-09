@@ -20,6 +20,7 @@ import com.example.androidqdemo.fragment.ContentFragment
 import com.example.androidqdemo.fragment.HomeFragment
 import com.example.androidqdemo.fragment.MineFragment
 import com.google.android.material.tabs.TabLayout
+import com.lodz.android.pandora.base.activity.AbsActivity
 import com.lodz.android.pandora.base.activity.BaseActivity
 import java.util.ArrayList
 
@@ -27,7 +28,7 @@ import java.util.ArrayList
  *Created by liancl on 2020/11/9 0009.
  */
 
-class MainTabActivity : BaseGreyActivity() {
+class MainTabActivity : AbsActivity() {
 
     @JvmField
     @BindView(R.id.vp)
@@ -51,17 +52,14 @@ class MainTabActivity : BaseGreyActivity() {
 
     private var mFragments: MutableList<Fragment>? = null
 
-
-    override fun getGreyLayoutId(): Int {
-        return R.layout.activity_main_tab
-    }
-
     override fun findViews(savedInstanceState: Bundle?) {
         super.findViews(savedInstanceState)
         ButterKnife.bind(this)
-
         initViewPage();
+    }
 
+    override fun getAbsLayoutId(): Int {
+        return R.layout.activity_main_tab
     }
 
     private fun initViewPage() {

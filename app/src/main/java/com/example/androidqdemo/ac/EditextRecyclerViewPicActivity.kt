@@ -14,13 +14,14 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.andr.EditextAdapter
 import com.example.androidqdemo.R
+import com.example.androidqdemo.base.ac.BaseGreyActivity
 import com.example.androidqdemo.util.KeyBoardUtil
 import java.util.*
 
 /**
  * editext 列表问题
  */
-class EditextRecyclerViewPicActivity : AppCompatActivity() {
+class EditextRecyclerViewPicActivity : BaseGreyActivity() {
     @JvmField
     @BindView(R.id.recycler_view)
     var mRecyclerView: RecyclerView? = null
@@ -30,12 +31,19 @@ class EditextRecyclerViewPicActivity : AppCompatActivity() {
 
     var mList: MutableList<String>? = null
     var mAdapter: EditextAdapter? = null
+    override fun getGreyLayoutId(): Int {
+        return R.layout.activity_edtext_rv
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edtext_rv)
+    override fun findViews(savedInstanceState: Bundle?) {
+        super.findViews(savedInstanceState)
         ButterKnife.bind(this)
         initRecyclerView()
+
+    }
+    override fun initData() {
+        super.initData()
+
         queryData()
     }
 

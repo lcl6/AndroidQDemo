@@ -4,11 +4,13 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.androidqdemo.R
 import com.example.androidqdemo.ac.*
+import com.example.androidqdemo.base.ac.BaseGreyActivity
 import com.lodz.android.pandora.base.fragment.BaseFragment
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -19,7 +21,10 @@ import java.io.InputStream
 
 class MineFragment : BaseFragment() {
 
-    var change:Boolean = false;
+
+    @JvmField
+    @BindView(R.id.tv_change)
+    var tvChange: TextView? = null
 
     companion object{
         fun  getInstance():MineFragment{
@@ -50,8 +55,6 @@ class MineFragment : BaseFragment() {
      * 换肤
      */
     private fun changeAll() {
-        change=!change;
-
     }
 
 
