@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androidqdemo.ac.MainActivity
+import com.example.androidqdemo.ac.MainTabActivity
 import com.example.androidqdemo.base.util.AppUtils.isPermissionGranted
 import com.example.androidqdemo.base.util.ToastUtils.show
 import permissions.dispatcher.*
@@ -37,7 +38,7 @@ class WelComeActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, MainTabActivity::class.java)
         startActivity(intent)
         finish()
     }

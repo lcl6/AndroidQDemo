@@ -38,6 +38,7 @@
         <activity android:name=".ac.WebViewActivity" />
         <activity android:name=".ac.WebSocketActivity" />
         <activity android:name=".ac.EditextRecyclerViewPicActivity"     android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+        <activity android:name=".ac.MainTabActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"

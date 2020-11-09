@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ac.MainActivity">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/tv_test_q"
+            style="@style/main_text"
+            android:text="测试安卓Q"
+            />
+        <TextView
+            android:id="@+id/tv_test_saf"
+            style="@style/main_text"
+            android:text="调用SAF"
+            />
+
+        <TextView
+            android:id="@+id/tv_ts_cj"
+            style="@style/main_text"
+            android:text="测试沉浸状态栏"
+            />
+        <TextView
+            android:id="@+id/tv_ts_cache"
+            style="@style/main_text"
+            android:text="cache测试"
+            />
+        <TextView
+            android:id="@+id/tv_down_pic"
+            style="@style/main_text"
+            android:text="图片下载测试"
+            />
+        <TextView
+            android:id="@+id/tv_location"
+            style="@style/main_text"
+            android:text="原生定位"
+            />
+        <TextView
+            android:id="@+id/webview"
+            style="@style/main_text"
+            android:text="webview 加载本地图片"
+            />
+        <TextView
+            android:id="@+id/websocket"
+            style="@style/main_text"
+            android:text="websocket测试用例"
+            />
+        <TextView
+            android:id="@+id/rv_ed"
+            style="@style/main_text"
+            android:text="列表editext测试用例"
+            />
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
