@@ -3,10 +3,9 @@ package com.example.androidqdemo.ac
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.text.Selection
+import android.util.DisplayMetrics
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
@@ -15,7 +14,8 @@ import butterknife.OnClick
 import com.example.andr.EditextAdapter
 import com.example.androidqdemo.R
 import com.example.androidqdemo.base.ac.BaseGreyActivity
-import com.example.androidqdemo.util.KeyBoardUtil
+import com.example.androidqdemo.dl.TipsDialog
+import com.example.androidqdemo.util.ScreenUtils
 import java.util.*
 
 /**
@@ -38,6 +38,7 @@ class EditextRecyclerViewPicActivity : BaseGreyActivity() {
     override fun findViews(savedInstanceState: Bundle?) {
         super.findViews(savedInstanceState)
         ButterKnife.bind(this)
+
         initRecyclerView()
 
     }
@@ -65,7 +66,16 @@ class EditextRecyclerViewPicActivity : BaseGreyActivity() {
 
     @ExperimentalStdlibApi
     private fun deleteItem() {
-        mAdapter?.notifyItemRemovedChanged(mList!!.size-1)
+
+        val tipsDialog = TipsDialog(getContext())
+        tipsDialog.setListener(object :TipsDialog.Listener{
+            override fun onClicSure() {
+                mAdapter?.notifyItemRemovedChanged(mList!!.size-1)
+                tipsDialog.dismiss()
+
+            }
+        })
+        tipsDialog.show()
     }
 
     private fun addItem() {

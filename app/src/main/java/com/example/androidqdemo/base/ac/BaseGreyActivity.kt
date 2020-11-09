@@ -1,7 +1,11 @@
 package com.example.androidqdemo.base.ac
 
 import android.content.Context
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
+import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +15,7 @@ import com.example.androidqdemo.R
 import com.example.androidqdemo.view.GreyLinearlayout
 import com.lodz.android.corekt.anko.bindView
 import com.lodz.android.pandora.base.activity.AbsActivity
+import kotlin.math.log
 
 /**
  *Created by liancl on 2020/11/9 0009.
@@ -34,6 +39,16 @@ abstract class BaseGreyActivity : AbsActivity() {
             throw RuntimeException("you already use anko layout , please extends AbsActivity and use @UseAnkoLayout annotation")
         }
         setContainerView()
+        initGray()
+    }
+
+    //实现变灰 dlalog 不能变灰 状态栏可以变色
+    private fun initGray() {
+        val paint = Paint()
+        val cm = ColorMatrix()
+        cm.setSaturation(0f)
+        paint.colorFilter = ColorMatrixColorFilter(cm)
+        window.decorView.setLayerType(View.LAYER_TYPE_HARDWARE, paint)
     }
 
      private fun setContainerView(){
@@ -50,15 +65,16 @@ abstract class BaseGreyActivity : AbsActivity() {
         this.mOpenGray=openGray;
     }
 
-    /**
-     * 实现变灰
-     */
+//    /**
+//     * 实现变灰 dialog 可以边灰 状态栏不能变色
+//     */
     override fun onCreateView(parent: View?, name: String, context: Context, attrs: AttributeSet): View? {
         if (mOpenGray) {
             if("FrameLayout" == name){
                 val attributeCount = attrs.attributeCount
                 for (i in 0 until attributeCount){
                     val attributeName = attrs.getAttributeName(i)
+                    Log.e("attributeName",attributeName+"")
                     val attributeValue = attrs.getAttributeValue(i)
                     if("id" == attributeName){
                         val id = Integer.parseInt(attributeValue.substring(1))
