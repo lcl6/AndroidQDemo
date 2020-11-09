@@ -39,7 +39,10 @@ abstract class BaseGreyActivity : AbsActivity() {
             throw RuntimeException("you already use anko layout , please extends AbsActivity and use @UseAnkoLayout annotation")
         }
         setContainerView()
-        initGray()
+        if (mOpenGray) {
+            initGray()
+        }
+
     }
 
     //实现变灰 dlalog 不能变灰 状态栏可以变色

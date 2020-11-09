@@ -6,6 +6,7 @@ import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.view.View
 import android.widget.LinearLayout
 
 /**
@@ -18,17 +19,18 @@ class GreyLinearlayout : LinearLayout {
     val paint = Paint()
 
     constructor(context: Context?): super(context){
-        initGray()
+        initGray(context)
     }
     constructor(context: Context?, attrs: AttributeSet?): super(context, attrs){
-        initGray()
+        initGray(context)
     }
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes){
-        initGray()
+        initGray(context)
+
     }
 
 
-    fun initGray(){
+    fun initGray(context: Context?) {
         val colorMatrix = ColorMatrix()
         grayValue?.let { colorMatrix.setSaturation(it) }
         paint.colorFilter = ColorMatrixColorFilter(colorMatrix)
