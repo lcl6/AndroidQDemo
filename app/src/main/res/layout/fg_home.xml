@@ -57,6 +57,10 @@
             style="@style/main_text"
             android:text="列表editext测试用例"
             />
-
+        <TextView
+            android:id="@+id/tv_ssqh"
+            style="@style/main_text"
+            android:text="手势切换背景"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

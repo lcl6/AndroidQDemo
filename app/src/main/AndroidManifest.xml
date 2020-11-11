@@ -40,10 +40,18 @@
         <activity android:name=".ac.WebSocketActivity" />
         <activity android:name=".ac.EditextRecyclerViewPicActivity"     android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
         <activity android:name=".ac.MainTabActivity" />
+        <activity android:name=".ac.FingerTabActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
             android:value="GlideModule" />
+
+
+        <!--华为机器学习-->
+        <meta-data
+            android:name="com.huawei.hms.ml.DEPENDENCY"
+            android:value="imgseg,handkeypoint" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.androidqdemo.fileprovider"

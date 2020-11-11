@@ -18,10 +18,13 @@ buildscript {
             url "https://repo.eclipse.org/content/repositories/paho-releases/"
         }
 
+        maven {url 'https://developer.huawei.com/repo/'}
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
         classpath"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.huawei.agconnect:agcp:1.4.1.300'
     }
 }
 
@@ -42,6 +45,7 @@ allprojects {
         maven {
             url "https://repo.eclipse.org/content/repositories/paho-releases/"
         }
+        maven {url 'https://developer.huawei.com/repo/'}
     }
 }
 
