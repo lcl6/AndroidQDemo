@@ -62,5 +62,10 @@
             style="@style/main_text"
             android:text="手势切换背景"
             />
+        <TextView
+            android:id="@+id/tv_ffsj"
+            style="@style/main_text"
+            android:text="事件分发事件"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

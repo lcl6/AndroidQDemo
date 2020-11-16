@@ -44,7 +44,12 @@ class HomeFragment : BaseFragment() {
         super.setListeners(view)
     }
 
-    @OnClick(R.id.tv_test_q, R.id.tv_ts_cj,R.id.tv_test_saf,R.id.tv_ts_cache,R.id.tv_down_pic,R.id.tv_location, R.id.webview,R.id.websocket ,R.id.rv_ed,R.id.tv_ssqh)
+    @OnClick(R.id.tv_test_q, R.id.tv_ts_cj,R.id.tv_test_saf,
+            R.id.tv_ts_cache,R.id.tv_down_pic,R.id.tv_location,
+            R.id.webview,R.id.websocket ,R.id.rv_ed,R.id.tv_ssqh,
+            R.id.tv_ffsj
+
+    )
     fun onclick(v: View) {
         when (v.id) {
             R.id.tv_test_q -> startActivity(Intent(context, AndroidQActivity::class.java))
@@ -57,6 +62,7 @@ class HomeFragment : BaseFragment() {
             R.id.websocket -> WebSocketActivity.start(context)
             R.id.rv_ed-> EditextRecyclerViewPicActivity.start(context)
             R.id.tv_ssqh-> FingerTabActivity.Companion.start(context)
+            R.id.tv_ffsj-> DisaptchActivity.Companion.start(context)
 
         }
     }

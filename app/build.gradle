@@ -29,12 +29,20 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    sourceSets {
+        //这里主要是添加存放kotlin的测试文件夹，不然我们在test里创建kotlin文件夹是没什么效果的
+        test.java.srcDirs += 'src/test/kotlin'
+    }
+
 }
 kapt {
     generateStubs = true
 }
 dependencies {
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
 
 
     implementation 'com.lodz:pandora:1.4.9'

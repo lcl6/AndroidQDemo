@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,7 @@ import com.example.andr.EditextAdapter
 import com.example.androidqdemo.R
 import com.example.androidqdemo.base.ac.BaseGreyActivity
 import com.example.androidqdemo.dl.TipsDialog
+import com.example.androidqdemo.util.KeyBoardUtil
 import com.example.androidqdemo.util.ScreenUtils
 import java.util.*
 
@@ -101,6 +103,13 @@ class EditextRecyclerViewPicActivity : BaseGreyActivity() {
             val starter = Intent(context, EditextRecyclerViewPicActivity::class.java)
             context.startActivity(starter)
         }
+    }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if(ev?.action==MotionEvent.ACTION_DOWN){
+            mRecyclerView?.let { KeyBoardUtil.hideInputMethod(it) };
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
 }

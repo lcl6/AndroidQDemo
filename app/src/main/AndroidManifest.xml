@@ -41,6 +41,7 @@
         <activity android:name=".ac.EditextRecyclerViewPicActivity"     android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
         <activity android:name=".ac.MainTabActivity" />
         <activity android:name=".ac.FingerTabActivity" />
+        <activity android:name=".ac.DisaptchActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
