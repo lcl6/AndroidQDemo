@@ -1,16 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.androidqdemo.view.MyNoneScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:fillViewport="true"
+    android:id="@+id/scroll"
   >
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         >
+
+            <com.example.androidqdemo.view.MyScrollView
+                android:layout_width="match_parent"
+                android:fillViewport="true"
+                android:layout_height="300dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="#ff00"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:text="背景"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+
+                        android:text="背景"
+                        />
+                </LinearLayout>
+
+            </com.example.androidqdemo.view.MyScrollView>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:text="背景222222"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:text="背景222222"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:text="背景222222"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:text="背景222222"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:text="背景222222"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:text="背景222222"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:text="背景"
+            />
 
         <EditText
             android:layout_width="match_parent"
@@ -20,4 +199,4 @@
             />
 
     </LinearLayout>
-</androidx.core.widget.NestedScrollView >
+</com.example.androidqdemo.view.MyNoneScrollView >

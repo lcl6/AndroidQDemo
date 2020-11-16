@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.widget.EditText
+import android.widget.ScrollView
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.BindView
 import butterknife.ButterKnife
@@ -30,12 +31,15 @@ class DisaptchActivity : AppCompatActivity() {
     @JvmField
     @BindView(R.id.ed_ed)
     var edtv:EditText?=null;
+    @JvmField
+    @BindView(R.id.scroll)
+    var sv:ScrollView?=null;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dispatch)
         ButterKnife.bind(this)
-
 
     }
 
