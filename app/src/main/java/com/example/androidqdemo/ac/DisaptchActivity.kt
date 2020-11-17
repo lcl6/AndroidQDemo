@@ -2,6 +2,7 @@ package com.example . androidqdemo.ac
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.widget.EditText
 import android.widget.ScrollView
@@ -31,9 +32,6 @@ class DisaptchActivity : AppCompatActivity() {
     @JvmField
     @BindView(R.id.ed_ed)
     var edtv:EditText?=null;
-    @JvmField
-    @BindView(R.id.scroll)
-    var sv:ScrollView?=null;
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,9 +53,24 @@ class DisaptchActivity : AppCompatActivity() {
             val v = currentFocus
             edtv?.let { KeyBoardUtil.hideInputMethod(it) };
         }
+        Log.e("DisaptchActivity","dispatchTouchEvent");
         return super.dispatchTouchEvent(ev)
+//        return false
     }
 
+
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        //todo  没有到这个方法
+        Log.e("DisaptchActivity","onTouchEvent");
+        return super.onTouchEvent(event)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val callback = window.callback;
+    }
 
 }
 

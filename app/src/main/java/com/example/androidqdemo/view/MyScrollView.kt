@@ -26,15 +26,15 @@ class MyScrollView : ScrollView {
     }
 
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val mode = MeasureSpec.getMode(heightMeasureSpec)
-        if(mode== MeasureSpec.UNSPECIFIED){
-            Log.e("onMeasure"," MeasureSpec.UNSPECIFIED");
-        }else if(mode== MeasureSpec.EXACTLY){
-            Log.e("onMeasure"," MeasureSpec.EXACTLY");
-        }else if(mode== MeasureSpec.AT_MOST){
-            Log.e("onMeasure"," MeasureSpec.AT_MOST");
-        }
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-    }
+//    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+//        val mode = MeasureSpec.getMode(heightMeasureSpec)
+//        if(mode== MeasureSpec.UNSPECIFIED){
+//            Log.e("onMeasure"," MeasureSpec.UNSPECIFIED");
+//        }else if(mode== MeasureSpec.EXACTLY){
+//            Log.e("onMeasure"," MeasureSpec.EXACTLY");
+//        }else if(mode== MeasureSpec.AT_MOST){
+//            Log.e("onMeasure"," MeasureSpec.AT_MOST");
+//        }
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+//    }
 }
