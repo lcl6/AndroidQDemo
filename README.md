@@ -1,1 +1,45 @@
 ###添加
+
+####笔记整理 
+##### 换肤  1.标记换肤控件   2.重写 InflaterLayout d的oncreatView  找到属性 替换   
+            qes1:  ac何时调用调用layutInflaterFactory 的oncreatview    rep:ac的 oncreatview   ...--->layoutinflater.inflate 
+            qes2:  怎么做到无需重启ac            rep  自定义属性 替换 更新
+            qes3: 清单enable 作用  标记
+##### 事件分发
+            1.  https://img-blog.csdnimg.cn/2019012400325845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2dlZHVvXzgz,size_16,color_FFFFFF,t_70          
+            实例：1.触摸非键盘部分收起键盘   2.触摸Scrollview  没有回调 ontouchEvent
+   
+   
+##### view 测量
+            1. 父控件  1.Exactly  ---->  子控件 {  
+                                                    1. 有确切值 ----->   Exactly
+                                                    2.  match ----->   Exactly
+                                                    3. wrap_content----->  Al_MOST
+                                                    4. unspecified----->  unspecified
+                                                 } 
+                                                 
+                                                 
+            1. 父控件  1.At_MOst  ---->  子控件 {  
+                                                    1. 有确切值 ----->   Exactly
+                                                    2.  match ----->   Al_MOST
+                                                    3. wrap_content----->  Al_MOST
+                                                    4. unspecified----->  unspecified
+                                                }                                      
+                                                
+            1. 父控件  1.unspecified  ---->  子控件 {  
+                                                        1. 有确切值 ----->   Exactly
+                                                        2.  match ----->   unspecified
+                                                        3. wrap_content----->  unspecified
+                                                        4. unspecified----->  unspecified
+                                                     }
+                                                     
+##### view bitmap 压缩   https://blog.csdn.net/weixin_30763455/article/details/96181152
+            
+          1.质量压缩  bm.compress   改变图片的位深 宽高不变 对png 无效 
+                 1.1、位深度指的是存储每个像素所用的位数，主要用于存储
+                 1.2、色深指的是每一个像素点用多少bit存储颜色，属于图片自身的一种属性
+          2.采样率压缩  option.insampleSize =n 宽高变为 1/n
+          3.缩放压缩   matrix 缩放尺寸  同上       
+        I 有损压缩 ： 保持颜色的逐渐变化，删除图像中颜色的突然变化 (JPEG  )               
+        II 无损压缩 ： 相同的颜色信息只需保存一次。 无损压缩的方法通过删除一些重复数据，也能在位图持久化存储的过程中减少要在磁盘上保存的图片大小（.png ）
+                                        

@@ -147,46 +147,11 @@
 
             </com.example.androidqdemo.view.MyScrollView>
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-
-            android:text="背景222222"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-
-            android:text="背景222222"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-
-            android:text="背景222222"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-
-            android:text="背景222222"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-
-            android:text="背景222222"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-
-            android:text="背景222222"
-            />
         <com.example.androidqdemo.view.MyTextView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="200dp"
+            android:background="#ff00"
+            android:gravity="center"
             android:text="测试分发事件"
             />
 
