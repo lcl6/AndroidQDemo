@@ -39,53 +39,35 @@ kapt {
     generateStubs = true
 }
 dependencies {
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-
-
     implementation 'com.lodz:pandora:1.4.9'
-//    implementation 'com.lodz:imageloader-kt:1.1.5'
-
-
+    //    implementation 'com.lodz:imageloader-kt:1.1.5'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
-    implementation "org.permissionsdispatcher:permissionsdispatcher:4.7.0"
+    implementation 'org.permissionsdispatcher:permissionsdispatcher:4.7.0'
     kapt "org.permissionsdispatcher:permissionsdispatcher-processor:4.7.0"
     implementation 'com.jakewharton:butterknife:10.2.1'
     kapt 'com.jakewharton:butterknife-compiler:10.2.1'
-//    kapt "com.jakewharton:butterknife-compiler:10.2.1"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.71"
-
-    implementation "com.zhihu.matisse:pic:1.0.0"
-    implementation 'com.squareup.okhttp3:okhttp:4.6.0'//HTTP请求
-    implementation 'com.alibaba:fastjson:1.2.68'//JSON
-    implementation 'com.github.bumptech.glide:glide:4.11.0'//图片加载
-    implementation "com.github.bumptech.glide:okhttp3-integration:4.11.0"
+    //    kapt "com.jakewharton:butterknife-compiler:10.2.1"
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.71'
+    implementation 'com.zhihu.matisse:pic:1.0.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.6.0'
+    //HTTP请求
+    implementation 'com.alibaba:fastjson:1.2.68'
+    //JSON
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    //图片加载
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
-    implementation "org.java-websocket:Java-WebSocket:1.5.1"
+    implementation 'org.java-websocket:Java-WebSocket:1.5.1'
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
-
-
-    // 引入图像分割基础SDK
-    implementation 'com.huawei.hms:ml-computer-vision-segmentation:2.0.4.300'
-    // 引入多类别分割模型包
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-multiclass-model:2.0.4.300'
-    // 引入人像分割模型包
-    implementation 'com.huawei.hms:ml-computer-vision-image-segmentation-body-model:2.0.4.300'
-    // 引入手势识别基础SDK
-    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint:2.0.4.300'
-    // 引入手部关键点检测模型包
-    implementation 'com.huawei.hms:ml-computer-vision-handkeypoint-model:2.0.4.300'
-
-
+    implementation project(path: ':pluginiml') //插件
 }

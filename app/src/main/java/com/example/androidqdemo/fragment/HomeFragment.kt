@@ -46,8 +46,8 @@ class HomeFragment : BaseFragment() {
 
     @OnClick(R.id.tv_test_q, R.id.tv_ts_cj,R.id.tv_test_saf,
             R.id.tv_ts_cache,R.id.tv_down_pic,R.id.tv_location,
-            R.id.webview,R.id.websocket ,R.id.rv_ed,R.id.tv_ssqh,
-            R.id.tv_ffsj
+            R.id.webview,R.id.websocket ,R.id.rv_ed,
+            R.id.tv_ffsj,R.id.tv_cjh
 
     )
     fun onclick(v: View) {
@@ -61,9 +61,8 @@ class HomeFragment : BaseFragment() {
             R.id.webview -> WebViewActivity.start(context)
             R.id.websocket -> WebSocketActivity.start(context)
             R.id.rv_ed-> EditextRecyclerViewPicActivity.start(context)
-            R.id.tv_ssqh-> FingerTabActivity.Companion.start(context)
             R.id.tv_ffsj-> DisaptchActivity.Companion.start(context)
-
+            R.id.tv_cjh->PluginActivity.Companion.start(context)
         }
     }
 

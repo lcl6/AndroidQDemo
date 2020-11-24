@@ -1,2 +1,4 @@
 rootProject.name='AndroidQDemo'
 include ':app'
+include ':pluginapp'
+include ':pluginiml'

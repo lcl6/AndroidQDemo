@@ -40,8 +40,11 @@
         <activity android:name=".ac.WebSocketActivity" />
         <activity android:name=".ac.EditextRecyclerViewPicActivity"     android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
         <activity android:name=".ac.MainTabActivity" />
-        <activity android:name=".ac.FingerTabActivity" />
         <activity android:name=".ac.DisaptchActivity" />
+        <activity android:name=".ac.PluginActivity" />
+        <activity android:name=".ac.ProxyActivity"
+            android:theme="@style/AppTheme"
+            />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"

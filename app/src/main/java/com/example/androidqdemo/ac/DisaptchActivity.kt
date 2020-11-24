@@ -12,14 +12,6 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.androidqdemo.R
 import com.example.androidqdemo.util.KeyBoardUtil
-import com.huawei.hms.mlsdk.MLAnalyzerFactory
-import com.huawei.hms.mlsdk.common.LensEngine
-import com.huawei.hms.mlsdk.common.MLAnalyzer
-import com.huawei.hms.mlsdk.common.MLAnalyzer.MLTransactor
-import com.huawei.hms.mlsdk.common.MLCompositeAnalyzer
-import com.huawei.hms.mlsdk.handkeypoint.MLHandKeypointAnalyzerFactory
-import com.huawei.hms.mlsdk.handkeypoint.MLHandKeypoints
-import com.huawei.hms.mlsdk.imgseg.MLImageSegmentation
 import java.io.IOException
 
 
