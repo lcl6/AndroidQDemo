@@ -1,10 +1,13 @@
 package com.example.pluginapp.base
 
 import android.app.Activity
+import android.content.BroadcastReceiver
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.ApplicationInfo
 import android.os.Bundle
 import android.view.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.pluginiml.ProxyActivityInterface
 
 open class  PluginBaseActivity : Activity() , ProxyActivityInterface {
@@ -65,10 +68,21 @@ open class  PluginBaseActivity : Activity() , ProxyActivityInterface {
      override fun startActivity(intent: Intent?) {
          val intent1 = Intent()
          intent1.putExtra("ClassName", intent?.component?.className)
-         that?.startActivity(intent)
+         that?.startActivity(intent1)
      }
 
 
+    override fun unregisterReceiver(receiver: BroadcastReceiver?) {
+        that?.unregisterReceiver(receiver)
+    }
+
+    override fun registerReceiver(receiver: BroadcastReceiver?, filter: IntentFilter?): Intent? {
+        return that?.registerReceiver(receiver, filter)
+    }
+
+    override fun sendBroadcast(intent: Intent?) {
+        that?.sendBroadcast(intent)
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -99,4 +113,7 @@ open class  PluginBaseActivity : Activity() , ProxyActivityInterface {
     override fun onBackPressed() {
     }
 
+    override fun finish() {
+        that?.finish()
+    }
  }

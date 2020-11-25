@@ -1,6 +1,8 @@
 package com.example.androidqdemo.ac
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -26,30 +28,33 @@ class PluginActivity : AppCompatActivity() {
 
     var initPlugin=false;
 
-    var context:AppCompatActivity?=null
+    var mContext:AppCompatActivity?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_plugin)
         ButterKnife.bind(this)
-        context=this as AppCompatActivity
+        mContext=this as AppCompatActivity
         Thread(Runnable {
             initPlugin=true
-            HookManager.instance.loadPlugin(context!!);
+            HookManager.instance.loadPlugin(mContext!!);
             Log.e("PluginActivity","插件加载完成");
         }).start()
     }
-
-
     @OnClick(R.id.tv_jump)
     fun  click(v:View ){
         if (!initPlugin) {
             ToastUtils.show(this,"插件还未初始化")
-           return
+            return
         }
-        val intent = Intent(this, ProxyActivity::class.java) //这里就是一个占坑的activity
-        //这里是拿到我们加载的插件的第一个activity的全类名
-        intent.putExtra("ClassName", HookManager.instance.getPageinfo()?.activities?.get(0)?.name)
-        startActivity(intent)
+        when(v.id){
+            R.id.tv_jump->{
+                val intent = Intent(this, ProxyActivity::class.java) //这里就是一个占坑的activity
+                //这里是拿到我们加载的插件的第一个activity的全类名
+                intent.putExtra("ClassName", HookManager.instance.getPageinfo()?.activities?.get(0)?.name)
+                startActivity(intent)
+            }
+        }
+
     }
 
 

@@ -17,5 +17,4 @@
         android:textSize="16sp"
         android:gravity="center"
         />
-
 </LinearLayout>

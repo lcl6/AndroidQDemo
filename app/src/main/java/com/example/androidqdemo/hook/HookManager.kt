@@ -1,19 +1,18 @@
 package com.example.androidqdemo.hook
 
 import android.app.Activity
-import android.content.Context
+import android.content.BroadcastReceiver
+import android.content.IntentFilter
+import android.content.pm.ActivityInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.content.res.AssetManager
 import android.content.res.Resources
-import android.os.Environment
-import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidqdemo.R
 import dalvik.system.DexClassLoader
-import java.io.*
+import java.io.File
 import java.lang.reflect.Method
-import kotlin.math.log
 
 /**
  *Created by liancl on 2020/11/23 0023.
@@ -101,6 +100,7 @@ open class HookManager private constructor(){
             } catch (e: Exception) {
                 e.printStackTrace()
             }
+//            parseTheme(activity,path)
         }
 
         //对外提供插件的classLoader
@@ -116,6 +116,110 @@ open class HookManager private constructor(){
         fun getPageinfo():PackageInfo?{
             return packageInfo
         }
+    /**
+     * 通过解析清单文件 设置主题
+     *
+     * @param activity
+     * @param path
+     */
+    open fun parseTheme(activity: Activity, path: String) {
+        try {
+            //我们知道解析一个apk文件的入口就是PackageParse.parsePackage 这个方法
+            //所以我们使用反射 来调用这个方法 最终得到了一个 PackageParse$Package 这个类
+            val mPackageParseClass = Class.forName("android.content.pm.PackageParser")
+            val mParsePackageMethod = mPackageParseClass.getDeclaredMethod("parsePackage", File::class.java, Int::class.javaPrimitiveType)
+            val mPackageParseObj = mPackageParseClass.newInstance()
+            val mPackageObj = mParsePackageMethod.invoke(mPackageParseObj, File(path), PackageManager.GET_ACTIVITIES)
+
+            //解析出来的activity就存在PackageParse$Package 这个类里面的一个activity集合里面
+            val activityListFied = mPackageObj.javaClass.getDeclaredField("activity")
+            //然后得到反射得到这个属性的值 最终得到一个集合
+            val mActivityList = activityListFied[mPackageObj] as List<*>
+            // 拿到generateActivityInfo这个方法
+            //这两行是为了调用generateActivityInfo 而反射拿到的参数
+            val `mPackageParse$ActivityClass` = Class.forName("android.content.pm.PackageParser\$Activity")
+            val mPackageUserStateClass = Class.forName("android.content.pm.PackageUserState")
+            val mPackzgeUserStateObj = mPackageUserStateClass.newInstance()
+
+
+            // 拿到generateActivityInfo这个方法
+            val mGeneReceiverInfo = mPackageParseClass.getMethod("generateActivityInfo", `mPackageParse$ActivityClass`, Int::class.javaPrimitiveType, mPackageUserStateClass, Int::class.javaPrimitiveType)
+            val mUserHandlerClass = Class.forName("android.os.UserHandle")
+            val getCallingUserIdMethod = mUserHandlerClass.getDeclaredMethod("getCallingUserId")
+            val userId = getCallingUserIdMethod.invoke(null) as Int
+
+            for (activityObj in mActivityList) {
+                // 这个是我们要调用的方法的形参 public static final ActivityInfo generateActivityInfo(Activity a, int flags,PackageUserState state, int userId);
+                //得到一个ActivityInfo
+                val info = mGeneReceiverInfo.invoke(mPackageParseObj, activityObj, 0, mPackzgeUserStateObj, userId) as ActivityInfo
+                //拿到这个name 相当于我们在清单文件中Android:name 这样，是一个全类名，然后通过反射去创建 对象
+                val appCompatActivity = getClassLoader()!!.loadClass(info.name).newInstance() as AppCompatActivity
+                appCompatActivity.setTheme(R.style.AppTheme)
+
+            }
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+    }
+
+    /**
+     * 通过解析清单文件来 拿到静态广播并且进行注册
+     *
+     * @param activity
+     * @param path
+     */
+     open fun parseReceivers(activity: Activity, path: String) {
+        try {
+            //我们知道解析一个apk文件的入口就是PackageParse.parsePackage 这个方法
+            //所以我们使用反射 来调用这个方法 最终得到了一个 PackageParse$Package 这个类
+            val mPackageParseClass = Class.forName("android.content.pm.PackageParser")
+            val mParsePackageMethod = mPackageParseClass.getDeclaredMethod("parsePackage", File::class.java, Int::class.javaPrimitiveType)
+            val mPackageParseObj = mPackageParseClass.newInstance()
+            val mPackageObj = mParsePackageMethod.invoke(mPackageParseObj, File(path), PackageManager.GET_ACTIVITIES)
+
+            //解析出来的receiver就存在PackageParse$Package 这个类里面的一个receivers集合里面
+            val mReceiversListField = mPackageObj.javaClass.getDeclaredField("receivers")
+            //然后得到反射得到这个属性的值 最终得到一个集合
+            val mReceiverList = mReceiversListField[mPackageObj] as List<*>
+
+            //接下来我们要拿到 IntentFilter 和name属性 这样才能反射创建对象，动态在宿主里面注册广播
+            val mComponetClass = Class.forName("android.content.pm.PackageParser\$Component")
+            val mIntentFields = mComponetClass.getDeclaredField("intents")
+
+            //这两行是为了调用generateActivityInfo 而反射拿到的参数
+            val `mPackageParse$ActivityClass` = Class.forName("android.content.pm.PackageParser\$Activity")
+            val mPackageUserStateClass = Class.forName("android.content.pm.PackageUserState")
+            val mPackzgeUserStateObj = mPackageUserStateClass.newInstance()
+
+
+            // 拿到generateActivityInfo这个方法
+            val mGeneReceiverInfo = mPackageParseClass.getMethod("generateActivityInfo", `mPackageParse$ActivityClass`, Int::class.javaPrimitiveType, mPackageUserStateClass, Int::class.javaPrimitiveType)
+            val mUserHandlerClass = Class.forName("android.os.UserHandle")
+            val getCallingUserIdMethod = mUserHandlerClass.getDeclaredMethod("getCallingUserId")
+            val userId = getCallingUserIdMethod.invoke(null) as Int
+
+
+            //然后for循环 去拿到name和 intentFilter
+            for (activityObj in mReceiverList) {
+                //调用generateActivityInfo
+                // 这个是我们要调用的方法的形参 public static final ActivityInfo generateActivityInfo(Activity a, int flags,PackageUserState state, int userId);
+                //得到一个ActivityInfo
+                val info = mGeneReceiverInfo.invoke(mPackageParseObj, activityObj, 0, mPackzgeUserStateObj, userId) as ActivityInfo
+                //拿到这个name 相当于我们在清单文件中Android:name 这样，是一个全类名，然后通过反射去创建 对象
+                val broadcastReceiver = getClassLoader()!!.loadClass(info.name).newInstance() as BroadcastReceiver
+
+                //在拿到IntentFilter
+                val intents = mIntentFields[activityObj] as List<IntentFilter>
+                //然后直接调用registerReceiver方法发
+                for (intentFilter in intents) {
+                    activity.registerReceiver(broadcastReceiver, intentFilter)
+                }
+            }
+        } catch (e: java.lang.Exception) {
+            e.printStackTrace()
+        }
+    }
+
 
 
 }

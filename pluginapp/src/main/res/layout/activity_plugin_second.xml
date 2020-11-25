@@ -9,18 +9,27 @@
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#ff0000"
+        android:background="#eee"
         android:gravity="center"
-
         />
     <TextView
-        android:id="@+id/tv_send"
+        android:id="@+id/tv_eventbus"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="#ffee00"
+        android:text="发送eventbus"
         android:gravity="center"
         android:textSize="20sp"
-        android:text="发送广播"
+        android:background="#00ff55"
         />
+    <TextView
+        android:id="@+id/tv_finish"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="关闭"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:background="#eee555"
+        />
+
 
 </LinearLayout>

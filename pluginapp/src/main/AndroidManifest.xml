@@ -24,6 +24,10 @@
         <activity android:name=".base.PluginBaseActivity"
             android:theme="@style/AppTheme"
             />
+        <activity android:name=".ui.PluginSecondActivity" />
+
+
+
     </application>
 
 </manifest>

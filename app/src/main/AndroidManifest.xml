@@ -51,11 +51,6 @@
             android:value="GlideModule" />
 
 
-        <!--华为机器学习-->
-        <meta-data
-            android:name="com.huawei.hms.ml.DEPENDENCY"
-            android:value="imgseg,handkeypoint" />
-
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.example.androidqdemo.fileprovider"
@@ -65,6 +60,13 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_provider_paths" />
         </provider>
+
+        <receiver android:name="com.example.androidqdemo.receiver.MainReceiver">
+            <intent-filter>
+                <action android:name="com.plugin.send"/>
+            </intent-filter>
+
+        </receiver>
 
     </application>
 
