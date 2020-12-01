@@ -15,7 +15,6 @@ import com.example.androidqdemo.adapter.FileAdapter
 import com.example.androidqdemo.base.util.UiHandler
 import com.example.androidqdemo.bean.FileEntity
 import java.io.File
-import java.io.FileDescriptor
 import java.text.SimpleDateFormat
 import java.util.*
 

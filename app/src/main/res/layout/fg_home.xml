@@ -67,5 +67,10 @@
             style="@style/main_text"
             android:text="插件化"
             />
+        <TextView
+            android:id="@+id/tv_rxf"
+            style="@style/main_text"
+            android:text="热修复"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

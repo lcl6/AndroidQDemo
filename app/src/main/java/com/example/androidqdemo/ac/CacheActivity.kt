@@ -14,7 +14,6 @@ import butterknife.ButterKnife
 import com.alibaba.fastjson.JSON
 import com.example.androidqdemo.R
 import com.example.androidqdemo.adapter.MeiziAdapter
-import com.example.androidqdemo.base.adapter.BaseRecyclerViewAdapter
 import com.example.androidqdemo.base.util.ToastUtils
 import com.example.androidqdemo.base.util.UiHandler
 import com.example.androidqdemo.bean.MeiziBean

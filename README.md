@@ -52,5 +52,7 @@
         组件化
           1.将整个app拆分成很多个模块，每个模块都是一个独立组件（moudle）开发中 这些组件可以相互依赖或者独立调试，发布的时候将组件组成一个统一的apk 
         热修复
-          1.       
+          1.基线包  gradlew assemble  、gradlew assembleDebug、gradlew assembleRelease     
+          2.在android  data 包名  files   patch  放修复包  
+          3.加载修复包后会重启 建议app一开始从服务端下载
                                         

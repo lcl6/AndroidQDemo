@@ -3,8 +3,6 @@ package com.example.androidqdemo.ac
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
@@ -16,9 +14,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.alibaba.fastjson.JSON
 import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.request.FutureTarget
-import com.bumptech.glide.request.target.BitmapImageViewTarget
 import com.example.androidqdemo.R
 import com.example.androidqdemo.adapter.DownLoadPicAdapter
 import com.example.androidqdemo.adapter.setListener
@@ -28,13 +24,10 @@ import com.example.androidqdemo.base.util.UiHandler
 import com.example.androidqdemo.bean.MeiziBean
 import com.example.androidqdemo.bean.MeiziDetailBean
 import com.example.androidqdemo.manager.OkHttpUtils
-import com.example.androidqdemo.view.ProgressImageView
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.Response
-import java.io.ByteArrayOutputStream
 import java.io.IOException
-import java.io.InputStream
 import java.lang.Exception
 import java.util.*
 

@@ -24,6 +24,8 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.3'
         classpath"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath ('com.tencent.tinker:tinker-patch-gradle-plugin:1.9.14.5')
+
     }
 }
 

@@ -1,6 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin:'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.tencent.tinker.patch'
+
+apply from: 'tinkerpatch.gradle' //引用tinkerpatch.gradle文件
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -13,6 +17,7 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
 
     buildTypes {
@@ -31,6 +36,21 @@ android {
     sourceSets {
         //这里主要是添加存放kotlin的测试文件夹，不然我们在test里创建kotlin文件夹是没什么效果的
         test.java.srcDirs += 'src/test/kotlin'
+    }
+    signingConfigs {
+        config {
+            keyAlias ALIAS
+            keyPassword ALIAS_PASSWORD
+            storeFile file('../keystore/appkey.jks')
+            storePassword STORE_PASSWORD
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config  //gradlew assembleRelease
+        }
     }
 
 }
@@ -69,4 +89,8 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
     implementation project(path: ':pluginiml') //插件
+
+
+    api 'com.tencent.tinker:tinker-android-lib:1.9.14.5'
+    compileOnly('com.tencent.tinker:tinker-android-anno:1.9.14.5')
 }

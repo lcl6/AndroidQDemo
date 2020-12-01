@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.bumptech.glide.Glide
-import com.example.androidqdemo.App
 import com.example.androidqdemo.R
 import com.example.androidqdemo.base.adapter.BaseRecyclerViewAdapter
 import com.example.androidqdemo.base.util.GlideApp
@@ -33,9 +32,9 @@ class MeiziAdapter(context: Context?) : BaseRecyclerViewAdapter<MeiziDetailBean?
         holder.tvTitle!!.text = item!!.views
         holder.tvPath!!.text = item.likeCounts
         holder.img_a?.let {
-            GlideApp.with(App.getInstance())
-                .load(item.url)
-                .into(it)
+//            GlideApp.with(App.getInstance())
+//                .load(item.url)
+//                .into(it)
         }
     }
 
