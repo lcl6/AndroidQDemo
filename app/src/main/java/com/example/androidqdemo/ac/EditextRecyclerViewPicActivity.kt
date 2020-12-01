@@ -70,6 +70,7 @@ class EditextRecyclerViewPicActivity : BaseGreyActivity() {
     private fun deleteItem() {
 
         val tipsDialog = TipsDialog(getContext())
+        tipsDialog.setTitle("hhahahah")
         tipsDialog.setListener(object :TipsDialog.Listener{
             override fun onClicSure() {
                 mAdapter?.notifyItemRemovedChanged(mList!!.size-1)

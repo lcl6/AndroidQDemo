@@ -17,27 +17,36 @@
         android:textSize="16sp"
         android:gravity="center"
         />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:background="#eee"-->
+<!--        android:text="加载patch11111"-->
+<!--        android:textSize="16sp"-->
+<!--        android:gravity="center"-->
+<!--        />-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:background="#eee"-->
+<!--        android:text="加载patch22222"-->
+<!--        android:textSize="16sp"-->
+<!--        android:gravity="center"-->
+<!--        />-->
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="40dp"-->
+<!--        android:background="#eee"-->
+<!--        android:text="加载patch333"-->
+<!--        android:textSize="16sp"-->
+<!--        android:gravity="center"-->
+<!--        />-->
     <TextView
+        android:id="@+id/tv_new"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="#eee"
-        android:text="加载patch11111"
-        android:textSize="16sp"
-        android:gravity="center"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#eee"
-        android:text="加载patch22222"
-        android:textSize="16sp"
-        android:gravity="center"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#eee"
-        android:text="加载patch333"
+        android:text="加载patch444"
         android:textSize="16sp"
         android:gravity="center"
         />

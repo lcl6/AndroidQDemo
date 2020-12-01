@@ -19,6 +19,7 @@ class TipsDialog(context: Context) : BaseCenterDialog(context) {
 
     private lateinit var listener: Listener
 
+    var titleString:String=""
     @JvmField
     @BindView(R.id.tv_tips)
      var tvContent:TextView?=null
@@ -35,16 +36,14 @@ class TipsDialog(context: Context) : BaseCenterDialog(context) {
         val params = win?.attributes
         // Dialog 宽度充满整个屏幕
         // Dialog 宽度充满整个屏幕
-        params!!.width = ((ScreenUtils.getScreenWidth(getContext()) * 0.8).toInt())
+        params!!.width = ((ScreenUtils.getScreenWidth(context) * 0.8).toInt())
         win!!.attributes = params
         ButterKnife.bind(this)
     }
 
     override fun initData() {
         super.initData()
-
-
-
+        tvContent!!.text=titleString
     }
 
     @OnClick(R.id.tv_sure)
@@ -63,7 +62,8 @@ class TipsDialog(context: Context) : BaseCenterDialog(context) {
     }
 
     fun setTitle(title:String){
-        tvContent!!.text=title
+        titleString=title
+//        tvContent!!.text=title
     }
 
 

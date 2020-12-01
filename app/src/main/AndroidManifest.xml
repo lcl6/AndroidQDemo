@@ -46,6 +46,7 @@
             android:theme="@style/AppTheme"
             />
         <activity android:name=".ac.HotFixActivity" />
+        <activity android:name=".ac.HotFixDetailActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
