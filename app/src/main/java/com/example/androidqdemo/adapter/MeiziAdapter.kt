@@ -14,6 +14,7 @@ import com.example.androidqdemo.base.adapter.BaseRecyclerViewAdapter
 import com.example.androidqdemo.base.util.GlideApp
 import com.example.androidqdemo.bean.FileEntity
 import com.example.androidqdemo.bean.MeiziDetailBean
+import com.example.androidqdemo.manager.tinker.TinkerApplicationLike
 
 /**
  * Created by liancl on 2020/6/11 0011.
@@ -32,9 +33,9 @@ class MeiziAdapter(context: Context?) : BaseRecyclerViewAdapter<MeiziDetailBean?
         holder.tvTitle!!.text = item!!.views
         holder.tvPath!!.text = item.likeCounts
         holder.img_a?.let {
-//            GlideApp.with(App.getInstance())
-//                .load(item.url)
-//                .into(it)
+            GlideApp.with(TinkerApplicationLike.getInstance())
+                .load(item.url)
+                .into(it)
         }
     }
 

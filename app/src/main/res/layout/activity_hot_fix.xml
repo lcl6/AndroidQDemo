@@ -33,4 +33,12 @@
         android:textSize="16sp"
         android:gravity="center"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#eee"
+        android:text="加载patch333"
+        android:textSize="16sp"
+        android:gravity="center"
+        />
 </LinearLayout>

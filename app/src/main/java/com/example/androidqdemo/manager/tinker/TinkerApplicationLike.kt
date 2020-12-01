@@ -19,11 +19,20 @@ class TinkerApplicationLike(application: Application?, tinkerFlags: Int,
                             applicationStartElapsedTime: Long,
                             applicationStartMillisTime: Long, tinkerResultIntent: Intent?) : DefaultApplicationLike(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime,
         applicationStartMillisTime, tinkerResultIntent) {
+
+
     override fun onBaseContextAttached(base: Context?) {
         super.onBaseContextAttached(base)
-
+        Companion.inst = application
         //原有的初始化方法
         MultiDex.install(base)
         TinkerManager.installTinker(this)
+    }
+
+    companion object{
+        private lateinit var inst :Application;
+        fun getInstance(): Application{
+            return inst
+        }
     }
 }

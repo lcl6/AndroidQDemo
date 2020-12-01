@@ -45,9 +45,9 @@ class MyAppGlideModule  : AppGlideModule() {
         override fun intercept(chain: Interceptor.Chain): Response {
             val request: Request.Builder = chain.request().newBuilder()
             //这里添加我们需要的请求头
-            request.addHeader("Referer", "http://www.baidu.com")
-                    .addHeader("Authorization", "2C2FB3CE0245012E735B14FB8437E863")
-                    .addHeader("AuthType", "local")
+//            request.addHeader("Referer", "http://www.baidu.com")
+//                    .addHeader("Authorization", "2C2FB3CE0245012E735B14FB8437E863")
+//                    .addHeader("AuthType", "local")
 
 
             return chain.proceed(request.build())
