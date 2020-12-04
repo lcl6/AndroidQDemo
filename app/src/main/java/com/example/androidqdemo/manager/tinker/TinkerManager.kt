@@ -50,10 +50,21 @@ class TinkerManager private constructor() {
             }
         }
 
+        /**
+         * 清除补丁
+         */
+        fun cleanPatch(){
+            if (Tinker.isTinkerInstalled()) {
+                TinkerInstaller.cleanPatch(getApplicationContext())
+            }
+        }
+
         private fun getApplicationContext(): Context? {
             return if (mAppLike != null) {
                 mAppLike!!.application.applicationContext
             } else null
         }
+
+
     }
 }

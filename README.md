@@ -55,4 +55,5 @@
           1.基线包  gradlew assemble  、gradlew assembleDebug、gradlew assembleRelease     
           2.在android  data 包名  files   patch  放修复包  
           3.加载修复包后会重启 建议app一开始从服务端下载
+          4.桌面图标不支持修改
                                         

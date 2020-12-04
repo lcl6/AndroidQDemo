@@ -69,7 +69,9 @@ class HotFixActivity : BaseActivity() {
     fun  click(v:View ){
         when(v.id){
             R.id.tv_jump->{
-                ToastUtils.show(this,"提示")
+//                mContext?.let { HotFix2DetailActivity.start(it) }
+                TinkerManager.cleanPatch()
+                mContext?.let { ToastUtils.show(it,"清除成功，请重启应用") }
             }
             R.id.tv_new->{
                 mContext?.let { HotFixDetailActivity.start(it) }
