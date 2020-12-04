@@ -90,7 +90,11 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
     implementation project(path: ':pluginiml') //插件
 
-
+    //tinker 热修复
     api 'com.tencent.tinker:tinker-android-lib:1.9.14.5'
     compileOnly('com.tencent.tinker:tinker-android-anno:1.9.14.5')
+
+    //增量更新
+    implementation 'com.github.ha-excited:BigNews:0.1.2'
+
 }

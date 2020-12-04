@@ -72,5 +72,10 @@
             style="@style/main_text"
             android:text="热修复"
             />
+        <TextView
+            android:id="@+id/tv_zlgx"
+            style="@style/main_text"
+            android:text="增量更新"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
