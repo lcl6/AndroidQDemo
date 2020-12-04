@@ -1,4 +1,5 @@
 package com.example.androidqdemo.ac
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -7,10 +8,8 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
-import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.androidqdemo.BuildConfig
@@ -18,9 +17,7 @@ import com.example.androidqdemo.R
 import com.example.androidqdemo.base.util.ToastUtils
 import com.example.androidqdemo.base.util.UiHandler
 import com.example.androidqdemo.manager.diff.PatchUtil
-import com.example.androidqdemo.manager.tinker.TinkerManager
-import com.tencent.tinker.lib.tinker.Tinker
-import ha.excited.BigNews.diff
+import com.hb.dialog.dialog.LoadingDialog
 import java.io.File
 
 
@@ -51,18 +48,39 @@ class IncreatUpdateActivity : AppCompatActivity() {
     public fun onClick(view: View){
         when (view.id) {
             R.id.tv_creat_diff -> {
-                val diff = PatchUtil.diff(this, newApkPath, patchPath)
-                UiHandler.post {
-                    ToastUtils.show(this, "生成差分包$diff")
-                }
+                val loadingDialog = LoadingDialog(this)
+                loadingDialog.setMessage("loading")
+                loadingDialog.show()
+
+
+                Log.e("PatchUtil", "开始拆分");
+                Thread(Runnable {
+                    val diff = PatchUtil.diff(this, newApkPath, patchPath)
+                    UiHandler.post {
+                        Log.e("PatchUtil", "拆分-------$diff");
+                        loadingDialog  .dismiss()
+                    }
+
+                }).start()
+
+
+
+
 
             }
             R.id.tv_updte -> {
-                val make = PatchUtil.make(this, outApkPath, patchPath)
-                Log.e("PatchUtil", "合并完成 ====$make");
-                UiHandler.post {
-                    ToastUtils.show(this, "合成$make")
-                }
+                val loadingDialog = LoadingDialog(this)
+                loadingDialog.setMessage("合并中")
+                loadingDialog.show()
+                Thread(Runnable {
+                    val make = PatchUtil.make(this, outApkPath, patchPath)
+                    Log.e("PatchUtil", "合并完成 ====$make");
+                    UiHandler.post {
+                        ToastUtils.show(this, "合成$make")
+                        loadingDialog  .dismiss()
+                    }
+                }).start()
+
 
             }
             R.id.install -> {

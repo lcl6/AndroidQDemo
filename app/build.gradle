@@ -97,4 +97,5 @@ dependencies {
     //增量更新
     implementation 'com.github.ha-excited:BigNews:0.1.2'
 
+    implementation 'com.github.HanHuoBin:BaseDialog:1.2.0'
 }
