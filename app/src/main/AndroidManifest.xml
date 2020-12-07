@@ -51,6 +51,7 @@
         <activity android:name=".ac.HotFixDetailActivity" />
         <activity android:name=".ac.HotFix2DetailActivity" />
         <activity android:name=".ac.IncreatUpdateActivity" />
+        <activity android:name=".ac.Viewpager2Activity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"

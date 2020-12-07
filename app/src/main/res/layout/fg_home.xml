@@ -77,5 +77,10 @@
             style="@style/main_text"
             android:text="增量更新"
             />
+        <TextView
+            android:id="@+id/tv_viewpager2"
+            style="@style/main_text"
+            android:text="viewpager2 测试"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
