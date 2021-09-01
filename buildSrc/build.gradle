@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'java-gradle-plugin'
+}
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url 'http://maven.ghostscript.com/' }
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    maven { url 'https://maven.aliyun.com/repository/central' }
+    maven {url 'https://maven.aliyun.com/repository/google/'}
+    maven {url 'https://maven.aliyun.com/repository/gradle-plugin/'}
+    maven { url "https://maven.aliyun.com/repository/apache-snapshots/"}
+    maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}
+    maven { url 'https://www.jitpack.io' }
+
+
+}
+dependencies {
+    implementation 'com.android.tools.build:gradle:3.6.4'
+    implementation gradleApi()
+    implementation localGroovy()
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

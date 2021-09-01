@@ -4,6 +4,14 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.tencent.tinker.patch'
 
 apply from: 'tinkerpatch.gradle' //引用tinkerpatch.gradle文件
+println("------1------")
+apply plugin:'core'
+println("------2------")
+
+androidR{
+    name 'addd'
+    age 100
+}
 
 android {
     compileSdkVersion 29
