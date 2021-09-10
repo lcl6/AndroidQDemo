@@ -47,62 +47,66 @@ public class ExampleUnitTest {
 ////        Object object = animals2.get(0);
 //        System.out.println(animals2.toString());
 
-
-//        ReflectUtils reflect = ReflectUtils.reflect("com.example.androidqdemo.Person").method()
-        try {
-            Class<?> aClass = Class.forName("com.example.androidqdemo.Person");
-            Object o = aClass.newInstance();
-            //获取当前类的方法 包括public 和非public
-            Field nameField = aClass.getDeclaredField("name");
-            nameField.setAccessible(true);
-            String name = (String) nameField.get(o);
-            System.out.println("反射结果是："+name);
-
-            //-----------------获取public方法 包括父类的 -------------------------
-            Field nameA = aClass.getField("nameA");
-            nameA.setAccessible(true);
-            String aniNameA = (String) nameA.get(o);
-            System.out.println("反射结果aniNameA："+aniNameA);
-            //-----------------获取public方法 包括父类的 -------------------------
-//            Field nameB = aClass.getField("nameB");
+//
+//        try {
+//            Class<?> aClass = Class.forName("com.example.androidqdemo.Person");
+//            Object o = aClass.newInstance();
+//            //获取当前类的方法 包括public 和非public
+//            Field nameField = aClass.getDeclaredField("name");
+//            nameField.setAccessible(true);
+//            String name = (String) nameField.get(o);
+//            System.out.println("反射结果是："+name);
+//
+//            //-----------------获取public方法 包括父类的 -------------------------
+//            Field nameA = aClass.getField("nameA");
 //            nameA.setAccessible(true);
-//            String aninameB = (String) nameB.get(o);
-//            System.out.println("反射结果aninameB："+aninameB);//反射报错
+//            String aniNameA = (String) nameA.get(o);
+//            System.out.println("反射结果aniNameA："+aniNameA);
+//            //-----------------获取public方法 包括父类的 -------------------------
+////            Field nameB = aClass.getField("nameB");
+////            nameA.setAccessible(true);
+////            String aninameB = (String) nameB.get(o);
+////            System.out.println("反射结果aninameB："+aninameB);//反射报错
+//
+//            //-----------------获取public方法 包括父类的 -------------------------
+//            Field abbField = aClass.getDeclaredField("abb");
+//            abbField.setAccessible(true);
+//            int abb = (int) abbField.get(o);
+//
+//            Field ageField = aClass.getDeclaredField("age");
+//            ageField.setAccessible(true);
+//
+//            ageField.set(o,abb);
+//            //参数类型
+//            Method addAgMethod = aClass.getDeclaredMethod("addAge", int.class);
+//            addAgMethod.setAccessible(true);
+//            int addage = (int) addAgMethod.invoke(o,50);
+//            System.out.println("addAge:"+addage);
+//
+//
+//            //-----------------------创建一个注解  把他赋值给person 的------------------------------
+//            Field[] declaredFields = aClass.getDeclaredFields();
+//            for (Field declaredField : declaredFields) {
+//                boolean annotationPresent = declaredField.isAnnotationPresent(MyAnotion.class);
+//                if(annotationPresent){
+//                    MyAnotion annotation = declaredField.getAnnotation(MyAnotion.class);
+//                    String value = annotation.value();
+//                    declaredField.setAccessible(true);
+//                    declaredField.set(o,value);
+//                    String adnnotion = (String) declaredField.get(o);
+//                    System.out.println("adnnotion:"+adnnotion);
+//                }
+//            }
+//
+//        } catch (Exception e) {
+//            System.out.println("反射报错");
+//            e.printStackTrace();
+//        }
 
-            //-----------------获取public方法 包括父类的 -------------------------
-            Field abbField = aClass.getDeclaredField("abb");
-            abbField.setAccessible(true);
-            int abb = (int) abbField.get(o);
 
-            Field ageField = aClass.getDeclaredField("age");
-            ageField.setAccessible(true);
-
-            ageField.set(o,abb);
-            //参数类型
-            Method addAgMethod = aClass.getDeclaredMethod("addAge", int.class);
-            addAgMethod.setAccessible(true);
-            int addage = (int) addAgMethod.invoke(o,50);
-            System.out.println("addAge:"+addage);
+        /*--------算法测试--------------*/
 
 
-            //-----------------------创建一个注解  把他赋值给person 的------------------------------
-            Field[] declaredFields = aClass.getDeclaredFields();
-            for (Field declaredField : declaredFields) {
-                boolean annotationPresent = declaredField.isAnnotationPresent(MyAnotion.class);
-                if(annotationPresent){
-                    MyAnotion annotation = declaredField.getAnnotation(MyAnotion.class);
-                    String value = annotation.value();
-                    declaredField.setAccessible(true);
-                    declaredField.set(o,value);
-                    String adnnotion = (String) declaredField.get(o);
-                    System.out.println("adnnotion:"+adnnotion);
-                }
-            }
-
-        } catch (Exception e) {
-            System.out.println("反射报错");
-            e.printStackTrace();
-        }
 
 
     }

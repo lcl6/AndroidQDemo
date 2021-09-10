@@ -8,6 +8,7 @@ import org.gradle.api.Project;
  * Created by  on 2021/8/25.
  */
 
+@MyAnnotation
 public class CoreTestUtils implements Plugin<Project> {
     @java.lang.Override
     public void apply(Project target) {

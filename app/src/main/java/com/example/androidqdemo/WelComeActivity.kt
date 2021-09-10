@@ -14,6 +14,7 @@ import com.example.androidqdemo.base.util.ToastUtils.show
 import permissions.dispatcher.*
 
 @RuntimePermissions
+
 class WelComeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
