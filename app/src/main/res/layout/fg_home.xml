@@ -82,5 +82,10 @@
             style="@style/main_text"
             android:text="viewpager2 测试"
             />
+        <TextView
+            android:id="@+id/tv_asp"
+            style="@style/main_text"
+            android:text="asp 测试"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

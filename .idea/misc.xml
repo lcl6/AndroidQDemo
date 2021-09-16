@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/study/AndroidQDemo/app/src/main/res/layout/activity_asp.xml" value="0.23731884057971014" />
+        <entry key="..\:/study/AndroidQDemo/app/src/main/res/layout/fg_home.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
   <component name="EntryPointsManager">
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="org.greenrobot.eventbus.Subscribe" />

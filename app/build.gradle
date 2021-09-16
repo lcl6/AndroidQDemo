@@ -9,6 +9,7 @@ println("------1------")
 apply plugin:'core'
 println("------2------")
 
+
 androidR{
     name 'addd'
     age 100
@@ -68,8 +69,8 @@ kapt {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(path: ':myprocessor')
-    annotationProcessor project(':myprocessor')
+//    implementation project(path: ':myprocessor')
+//    annotationProcessor project(':myprocessor')
     testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
     implementation 'com.lodz:pandora:1.4.9'
@@ -113,4 +114,6 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.1.0-alpha01"
 
     implementation "com.neenbedankt.gradle.plugins:android-apt:1.8"
+
+
 }
