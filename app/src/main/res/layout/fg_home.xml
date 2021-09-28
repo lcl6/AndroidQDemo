@@ -87,5 +87,11 @@
             style="@style/main_text"
             android:text="asp 测试"
             />
+        <TextView
+            android:id="@+id/tv_view"
+            style="@style/main_text"
+            android:text="自定义view"
+            />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

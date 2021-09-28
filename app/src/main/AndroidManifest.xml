@@ -53,6 +53,7 @@
         <activity android:name=".ac.IncreatUpdateActivity" />
         <activity android:name=".ac.Viewpager2Activity" />
         <activity android:name=".ac.AspActivity" />
+        <activity android:name=".ac.ViewActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
