@@ -25,6 +25,22 @@ public class Test20 {
 
     }
 
+    public ListNode reverseList3(ListNode head) {
+
+        ListNode prev=null;
+        while (head!=null){
+
+            ListNode next = head.next;
+            head.next=prev;
+            prev=head;
+            head=next;
+
+        }
+
+
+        return prev;
+    }
+
 
     public ListNode reverseList2(ListNode head) {
 
