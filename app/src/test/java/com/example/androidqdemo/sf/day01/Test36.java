@@ -2,54 +2,46 @@ package com.example.androidqdemo.sf.day01;
 
 import org.junit.Test;
 
+import java.util.HashMap;
+
 /**
- * 乘积小于 K 的子数组
+ *  和为 k 的子数组
  * Created by  on 2021/9/26.
  */
 
-public class Test35 {
+public class Test36 {
 
     /**
-     *给定一个正整数数组 nums和整数 k ，请找出该数组内乘积小于 k 的连续的子数组的个数。
-     * 输入: nums = [10,5,2,6], k = 100
-     * 输出: 8
-     * 解释: 8 个乘积小于 100 的子数组分别为: [10], [5], [2], [6], [10,5], [5,2], [2,6], [5,2,6]。
-     * 需要注意的是 [10,5,2] 并不是乘积小于100的子数组。
+     *给给定一个整数数组和一个整数 k ，请找到该数组中和为 k 的连续子数组的个数。
+     * 输入:nums = [1,1,1], k = 2
+     * 输出: 2
+     * 解释: 此题 [1,1] 与 [1,1] 为两种不同的情况
      */
     @Test
     public void test() {
         System.out.println("================");
-        int[] key = new int[]{4,1,1};
+        int[] key = new int[]{1,2,3,3,2,1};
 
-        int i = numSubarrayProductLessThanK(key,2);
+        int i = subarraySum(key,3);
         System.out.println("结果是："+i );
 
 
     }
 
-    /**
-     *
-     * @param nums
-     * @param k
-     * @return
-     */
-    public int numSubarrayProductLessThanK(int[] nums, int k) {
-        if(nums==null){
-            return 0;
+
+    public int subarraySum(int[] nums, int k) {
+        int pre_sum = 0;
+        int ret = 0;
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        for (int i : nums) {
+            pre_sum += i;
+            //查询前缀和 －k  出现的次数
+            ret += map.getOrDefault(pre_sum - k, 0);
+            //将每个相加的和 存起来 然后出现次数加一
+            map.put(pre_sum, map.getOrDefault(pre_sum, 0) + 1);
         }
-        int start=0;
-        int end=0;
-        int sum=1;
-        int res=0;
-        while (end<nums.length){
-            sum *=nums[end];
-            while (end>=start&&sum>=k){
-                sum/=nums[start++];
-            }
-            res+=end-start+1;
-            end++;
-        }
-        return res;
+        return ret;
     }
 
 }
