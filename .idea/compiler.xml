@@ -18,14 +18,15 @@
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.codehaus.mojo/animal-sniffer-annotations/1.17/f97ce6decaea32b36101e37979f8b647f00681fb/animal-sniffer-annotations-1.17.jar" />
         </processorPath>
         <module name="AndroidQDemo.myprocessor" />
-        <module name="AndroidQDemo.buildSrc" />
+        <module name="androiddemo.buildSrc" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
-      <module name="AndroidQDemo.app" target="1.8" />
+      <module name="androiddemo.buildSrc" target="1.8" />
+      <module name="AndroidQDemo.app" target="11" />
       <module name="AndroidQDemo.buildSrc" target="1.8" />
-      <module name="AndroidQDemo.pluginapp" target="1.8" />
-      <module name="AndroidQDemo.pluginiml" target="1.8" />
+      <module name="AndroidQDemo.pluginapp" target="11" />
+      <module name="AndroidQDemo.pluginiml" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

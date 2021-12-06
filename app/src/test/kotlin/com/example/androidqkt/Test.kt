@@ -12,9 +12,12 @@ import org.junit.Test
 public class Test {
     @Test
     fun aesTest(){
-        var animals: List<Animal> = ArrayList()
-        val dogs = ArrayList<Dog>()
-        animals = dogs
+//        var animals: List<Animal> = ArrayList()
+//        val dogs = ArrayList<Dog>()
+//        animals = dogs
+
+
+
     }
 
 }
