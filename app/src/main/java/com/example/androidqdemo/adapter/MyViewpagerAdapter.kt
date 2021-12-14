@@ -9,11 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import butterknife.BindView
 import butterknife.ButterKnife
+import com.example.androidqdemo.App
 import com.example.androidqdemo.R
 import com.example.androidqdemo.base.adapter.BaseRecyclerViewAdapter
 import com.example.androidqdemo.base.util.GlideApp
 import com.example.androidqdemo.bean.MeiziDetailBean
-import com.example.androidqdemo.manager.tinker.TinkerApplicationLike
+//import com.example.androidqdemo.manager.tinker.TinkerApplicationLike
 
 /**
  * Created by liancl on 2020/6/11 0011.
@@ -31,7 +32,7 @@ import com.example.androidqdemo.manager.tinker.TinkerApplicationLike
 
     private fun setItem(holder: Viewholder, item: MeiziDetailBean, position: Int) {
         holder.img?.let {
-            GlideApp.with(TinkerApplicationLike.getInstance())
+            GlideApp.with(App.getInstance())
                     .load(item.url)
                     .into(it)
         }

@@ -11,8 +11,6 @@ import butterknife.OnClick
 import com.example.androidqdemo.R
 import com.example.androidqdemo.base.util.ToastUtils
 import com.example.androidqdemo.base.util.UiHandler
-import com.example.androidqdemo.manager.tinker.TinkerManager
-import com.tencent.tinker.lib.tinker.Tinker
 import java.io.File
 
 

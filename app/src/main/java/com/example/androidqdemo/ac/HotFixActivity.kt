@@ -14,10 +14,10 @@ import com.example.androidqdemo.R
 import com.example.androidqdemo.base.util.ToastUtils
 import com.example.androidqdemo.base.util.UiHandler
 import com.example.androidqdemo.dl.TipsDialog
-import com.example.androidqdemo.manager.tinker.TinkerManager
+//import com.example.androidqdemo.manager.tinker.TinkerManager
 import com.lodz.android.pandora.base.activity.BaseActivity
 import com.lodz.android.pandora.widget.base.LoadingLayout
-import com.tencent.tinker.lib.tinker.Tinker
+//import com.tencent.tinker.lib.tinker.Tinker
 import java.io.File
 
 
@@ -56,7 +56,7 @@ class HotFixActivity : BaseActivity() {
                     UiHandler.post {
                         ToastUtils.show(mContext!!,"修复中")
                     }
-                    TinkerManager.loadPatch(getExternalFilesDir(null)?.absolutePath+"/patch"+ File.separator+"patch_signed.apk");
+//                    TinkerManager.loadPatch(getExternalFilesDir(null)?.absolutePath+"/patch"+ File.separator+"patch_signed.apk");
                 }
 
             })
@@ -70,7 +70,7 @@ class HotFixActivity : BaseActivity() {
         when(v.id){
             R.id.tv_jump->{
 //                mContext?.let { HotFix2DetailActivity.start(it) }
-                TinkerManager.cleanPatch()
+//                TinkerManager.cleanPatch()
                 mContext?.let { ToastUtils.show(it,"清除成功，请重启应用") }
             }
             R.id.tv_new->{

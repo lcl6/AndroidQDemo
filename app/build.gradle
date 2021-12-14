@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 apply plugin:'kotlin-android'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.tencent.tinker.patch'
+//apply plugin: 'com.tencent.tinker.patch'
 
 
-apply from: 'tinkerpatch.gradle' //引用tinkerpatch.gradle文件
+//apply from: 'tinkerpatch.gradle' //引用tinkerpatch.gradle文件
 println("------1------")
 apply plugin:'core'
 println("------2------")
@@ -87,7 +87,7 @@ dependencies {
     kapt 'com.jakewharton:butterknife-compiler:10.2.1'
     //    kapt "com.jakewharton:butterknife-compiler:10.2.1"
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.71'
-    implementation 'com.zhihu.matisse:pic:1.0.0'
+//    implementation 'com.zhihu.matisse:pic:1.0.0'
     implementation 'com.squareup.okhttp3:okhttp:4.6.0'
     //HTTP请求
     implementation 'com.alibaba:fastjson:1.2.68'
@@ -102,9 +102,9 @@ dependencies {
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.1'
     implementation project(path: ':pluginiml') //插件
 
-    //tinker 热修复
-    api 'com.tencent.tinker:tinker-android-lib:1.9.14.5'
-    compileOnly('com.tencent.tinker:tinker-android-anno:1.9.14.5')
+//    //tinker 热修复
+//    api 'com.tencent.tinker:tinker-android-lib:1.9.14.5'
+//    compileOnly('com.tencent.tinker:tinker-android-anno:1.9.14.5')
 
     //增量更新
     implementation 'com.github.ha-excited:BigNews:0.1.2'
