@@ -20,9 +20,7 @@ class JavaMethodChannel( messenger:BinaryMessenger) : MethodChannel(messenger, "
 
     override fun onMethodCall(methodCall: MethodCall, result: Result) {
         val name: String = methodCall.method
-        val arguments = methodCall.arguments;
-        Log.e("JavaMethodChannel",name);
-        Log.e(" arguments", arguments as String);
+        Log.e(" method",methodCall.method );
         when(name){
             "open_view"-> Log.e("","open_view success");
         }
