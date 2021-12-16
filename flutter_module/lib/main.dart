@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_module/config/appconfig.dart';
+import 'package:package_info/package_info.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowMaterialGrid: false,
       title: 'Flutter Deo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -46,6 +50,35 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+
+  static const MethodChannel _channel = MethodChannel("com.example.flutter_module");
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _channel.setMethodCallHandler(_handleMethod);
+    PackageInfo.fromPlatform().then((v) {
+      Constant().name = v.appName;
+      Constant().versionName = v.version;
+      print("packageInfo : appName=${v.appName}, version=${v.version}, code = ${v.buildNumber}");
+      setState(() {});
+    });
+  }
+
+  /// 原生调用flutter
+  Future<dynamic>  _handleMethod(MethodCall call) async{
+    print(call.arguments);
+    switch (call.method) {
+      case "test":
+        print("test success");
+        break;
+      default:
+        throw new UnsupportedError("Unrecognized Event");
+    }
+  }
+
+
 
   void _incrementCounter() {
     setState(() {
@@ -99,6 +132,9 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            GestureDetector(child: const Text("调用原生方法"),onTap: (){
+              _MyHomePageState._channel.invokeMethod("open_view", {'url':'www.baidu'});
+            },)
           ],
         ),
       ),
@@ -110,3 +146,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+

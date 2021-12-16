@@ -26,6 +26,7 @@
       <module name="AndroidQDemo.app" target="1.8" />
       <module name="AndroidQDemo.buildSrc" target="1.8" />
       <module name="AndroidQDemo.flutter" target="1.8" />
+      <module name="AndroidQDemo.package_info" target="1.8" />
       <module name="AndroidQDemo.pluginapp" target="1.8" />
       <module name="AndroidQDemo.pluginiml" target="1.8" />
     </bytecodeTargetLevel>

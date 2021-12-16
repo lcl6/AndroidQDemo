@@ -9,6 +9,7 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
           <set>
+            <option value="D:/fluttersdk/flutter_windows_2.5.3-stable/flutter/.pub-cache/hosted/pub.flutter-io.cn/package_info-2.0.2/android" />
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/buildSrc" />
