@@ -48,7 +48,7 @@ class HomeFragment : BaseFragment() {
             R.id.tv_ts_cache,R.id.tv_down_pic,R.id.tv_location,
             R.id.webview,R.id.websocket ,R.id.rv_ed,
             R.id.tv_ffsj,R.id.tv_cjh,R.id.tv_rxf,R.id.tv_zlgx,
-            R.id. tv_viewpager2,R.id.tv_asp,R.id.tv_view
+            R.id. tv_viewpager2,R.id.tv_asp,R.id.tv_view,R.id.tv_flutter
     )
     fun onclick(v: View) {
         when (v.id) {
@@ -68,7 +68,7 @@ class HomeFragment : BaseFragment() {
             R.id. tv_viewpager2->Viewpager2Activity.Companion.start(context)
             R.id. tv_asp->AspActivity.Companion.start(context)
             R.id. tv_view->ViewActivity.Companion.start(context)
-
+            R.id.tv_flutter->FlutterTestActivity.Companion.start(context)
 
         }
     }

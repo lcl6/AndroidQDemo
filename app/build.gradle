@@ -69,6 +69,7 @@ kapt {
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(path: ':flutter')
 //    implementation project(path: ':myprocessor')
 //    annotationProcessor project(':myprocessor')
     testImplementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

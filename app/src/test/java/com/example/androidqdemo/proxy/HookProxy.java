@@ -32,11 +32,12 @@ public class HookProxy {
             Field iMyproxy = instance.getClass().getDeclaredField("iMyproxy");
             iMyproxy.setAccessible(true);
             //替换成animal
-//            AnimalProxy animalProxy = new AnimalProxy();
-//            iMyproxy.set(instance,animalProxy);
-            IMyproxy iMyproxy1 = (IMyproxy) iMyproxy.get(instance);
-            //添加一行代码
-            IMyproxy hook = HookProxy.hook(iMyproxy1);
+            AnimalProxy animalProxy = new AnimalProxy();
+            iMyproxy.set(instance,animalProxy);
+//            IMyproxy iMyproxy1 = (IMyproxy) iMyproxy.get(instance);
+//            //添加一行代码
+//            IMyproxy hook = HookProxy.hook(iMyproxy1);
+            IMyproxy hook = HookProxy.hook(animalProxy);
             iMyproxy.set(instance,hook);
         } catch (NoSuchFieldException | IllegalAccessException  e) {
             e.printStackTrace();

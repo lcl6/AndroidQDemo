@@ -92,6 +92,10 @@
             style="@style/main_text"
             android:text="自定义view"
             />
-
+        <TextView
+            android:id="@+id/tv_flutter"
+            style="@style/main_text"
+            android:text="flutter"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
