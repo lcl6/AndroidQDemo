@@ -123,17 +123,33 @@
                 background: url(../img/full-screen.png);
                 background-size:contain ;
             }
+        .imgcenter{
+                position: absolute;
+                z-index: 9999;
+            }
 
+            .vout{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
     </style>
 </head>
 
 <body>
 <div class="video-warp" id="video-warp">
-    <video id="video" autoplay
-           src="http://2449.vod.myqcloud.com/2449_43b6f696980311e59ed467f22794e792.f20.mp4">
+    <div class="vout">
+
+        <img class="imgcenter" id="imgcenter" src="../img/play.png">
+
+        <video id="video">
+        <source src="http://2449.vod.myqcloud.com/2449_43b6f696980311e59ed467f22794e792.f20.mp4" type="video/ogg"></source>
         当前浏览器不支持 video直接播放，点击这里下载视频：
         <a href="myvideo.webm">下载视频</a>
-    </video>
+        </video>
+    </div>
+
+
     <div class="controls" id="controls">
         <i id="play"></i>
         <i id="pause" class="hide"></i>
@@ -161,6 +177,8 @@
                 video: document.getElementById("video"),//容器框
                 play: document.getElementById("play"),//播放按钮
                 pause: document.getElementById("pause"),//暂停按钮
+                imgcenter:document.getElementById("imgcenter"),//暂停按钮
+
                 duration: document.getElementById("duration"),//总时长
                 currentTime: document.getElementById("currentTime"),//当前播放时间
                 progress: document.getElementsByClassName("progress")[0],//进度条容器
@@ -192,6 +210,25 @@
                         v.play.style.display = "inline-block";
                     }
                 }
+                 //暂停中间
+                v.imgcenter.onclick = function() {
+                    if(!v.video.paused ) {
+                        v.video.pause();
+                        v.pause.style.display = "none";
+                        v.play.style.display = "inline-block";
+                        v.imgcenter.src="../img/play.png";
+                    }else{
+                        v.video.play();
+
+                        v.pause.style.display = "inline-block";
+                        v.play.style.display = "none";
+                        v.imgcenter.src="../img/pause.png";
+
+                    }
+                }
+
+
+
                 //获取时长
                 v.duration.innerHTML = timer(v.video.duration);
                 v.currentTime.innerHTML = timer(v.video.currentTime);
@@ -363,8 +400,6 @@
                 }
                 );
             }
-
-
 
 
 </script>
