@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    <meta charset="UTF-8">
+
+    <style type="text/css">
+        html, body{
+              width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+        #id{
+            text-align:center;
+        }
+
+        .aa {
+            width: 100%;
+            margin: 0 auto;
+            /*水平居中*/
+            position: relative;
+            top: 50%;
+            /*偏移*/
+            transform: translateY(-50%);
+        }
+        #video{
+            object-fit: cover;
+            object-position: center center;
+        }
+
+    </style>
+</head>
+<body>
+<!--http://2449.vod.myqcloud.com/2449_43b6f696980311e59ed467f22794e792.f20.mp4 -->
+<div class="aa" align="center" >
+    <video id="video" src=""
+           width="100%" height="100%" controls loop webkit-playsinline='true' playsinline='true'x-webkit-airplay='true' x5-video-player-type='h5' x5-video-player-fullscreen='true'x5-video-ignore-metadata='true'
+
+    >
+        don't support html5
+    </video>
+</div>
+</body>
+<script type="text/javascript">
+<!--            var urlinfo=window.location.href; //获取当前页面的url-->
+<!--            var len=urlinfo.length;//获取url的长度-->
+<!--            var offset=urlinfo.indexOf("?");//设置参数字符串开始的位置-->
+<!--            var newsidinfo=urlinfo.substr(offset,len);//取出参数字符串 这里会获得类似“id=1”这样的字符串-->
+<!--            var newsids=newsidinfo.split("=");//对获得的参数字符串按照“=”进行分割-->
+<!--            var newsname=newsids[0];//得到参数名字，如id-->
+<!--            var newsid=newsids[1];//得到参数值-->
+<!--			-->
+            var video = document.getElementById("video");
+
+			video.src="http://2449.vod.myqcloud.com/2449_43b6f696980311e59ed467f22794e792.f20.mp4";
+			video.play();
+
+
+
+</script>
+</html>

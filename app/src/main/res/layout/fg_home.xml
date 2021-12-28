@@ -97,5 +97,10 @@
             style="@style/main_text"
             android:text="flutter"
             />
+        <TextView
+            android:id="@+id/tv_webview"
+            style="@style/main_text"
+            android:text="webview"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

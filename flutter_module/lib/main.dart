@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_module/config/appconfig.dart';
 import 'package:flutter_module/page/home.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:package_info/package_info.dart';
 
 void main() => runApp(const MyApp());
@@ -69,13 +70,46 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    // ScreenUtil.init(
+    //     BoxConstraints(
+    //         maxWidth: MediaQuery.of(context).size.width,
+    //         maxHeight: MediaQuery.of(context).size.height),
+    //     designSize: Size(480, 960),
+    //     orientation: Orientation.portrait);
+
+    return ScreenUtilInit(designSize:Size(480,960),builder:mainWidget);
+  }
+  Widget mainWidget(){
+
+    // var defaultSize = ScreenUtil.defaultSize;
+    //
+    // print("--flutter---width---${defaultSize.width}----height----${defaultSize.height}" );
+
+    ///pixelRatio  这个变小了  原本是2  现在是 0.8999999761581421
+    ///flutter---pixelRatio---3.0----screenWidth----360.0----screnHeight----700.0----scaleWidth----0.75----scaleHeight----0.7291666666666666   原生宽度 360
+    /// --flutter---pixelRatio---1.125----screenWidth----960.0----screnHeight----1706.6666666666667----scaleWidth----2.0----scaleHeight----1.777777777777778   原生宽度 960
+    /// --------------------------------------------------------------
+    /// 如果是横屏
+    /// --flutter---pixelRatio---3.0----screenWidth----640.0----screnHeight----700.0----scaleWidth----1.3333333333333333----scaleHeight----0.7291666666666666
+    ///
+    double pixelRatio = ScreenUtil().pixelRatio;// 类似原生的desity 受原生适配框架的影响 所以flutter 需要取消原生适配
+    var screenWidth = ScreenUtil().screenWidth;//屏幕的宽 dp
+    var screnHeight = ScreenUtil().screenHeight;
+    var scaleHeight = ScreenUtil().scaleHeight;//  屏幕高/UI高
+    var scaleWidth = ScreenUtil().scaleWidth;
+
+    print("--flutter---pixelRatio---${pixelRatio}----screenWidth----${screenWidth}----screnHeight----${screnHeight}----scaleWidth----${scaleWidth}----scaleHeight----${scaleHeight}" );
+
+
+
+    return   Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-        child:
-        HomePage()
+          child:
+          HomePage()
       ),
     );
   }

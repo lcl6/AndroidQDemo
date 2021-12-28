@@ -60,10 +60,19 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ac.VideoActivity"  android:configChanges="orientation|keyboardHidden|screenSize" />
+
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
             android:value="GlideModule" />
 
+        <!--1024  763 -->
+        <meta-data
+            android:name="design_width_in_dp"
+            android:value="360"/>
+        <meta-data
+            android:name="design_height_in_dp"
+            android:value="960"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

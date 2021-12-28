@@ -20,6 +20,7 @@ import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.plugins.GeneratedPluginRegistrant
+import me.jessyan.autosize.internal.CancelAdapt
 import java.io.File
 
 
@@ -27,7 +28,7 @@ import java.io.File
  * 自定义view
  * Created by liancl on 2020/6/17 0017.
  */
-class FlutterTestActivity : FlutterActivity() {
+class FlutterTestActivity : FlutterActivity() ,CancelAdapt{
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
