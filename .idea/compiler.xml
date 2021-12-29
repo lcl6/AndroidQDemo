@@ -23,12 +23,14 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
       <module name="androiddemo.buildSrc" target="1.8" />
-      <module name="AndroidQDemo.app" target="1.8" />
+      <module name="AndroidQDemo.app" target="11" />
       <module name="AndroidQDemo.buildSrc" target="1.8" />
-      <module name="AndroidQDemo.flutter" target="1.8" />
-      <module name="AndroidQDemo.package_info" target="1.8" />
-      <module name="AndroidQDemo.pluginapp" target="1.8" />
-      <module name="AndroidQDemo.pluginiml" target="1.8" />
+      <module name="AndroidQDemo.flutter" target="11" />
+      <module name="AndroidQDemo.package_info" target="11" />
+      <module name="AndroidQDemo.pluginapp" target="11" />
+      <module name="AndroidQDemo.pluginiml" target="11" />
+      <module name="AndroidQDemo.video_player" target="11" />
+      <module name="AndroidQDemo.video_thumbnail" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

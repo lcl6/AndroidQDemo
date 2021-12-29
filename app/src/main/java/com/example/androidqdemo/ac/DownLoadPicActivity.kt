@@ -85,7 +85,6 @@ class DownLoadPicActivity : AppCompatActivity() {
                         sw?.isRefreshing=false
                         val body = response.body?.string()
 
-                        Log.e("onResponse",body)
                         val parseObject = JSON.parseObject(body, MeiziBean::class.java)
                         val data = parseObject.data
                         if(page==1){

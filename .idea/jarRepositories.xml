@@ -116,5 +116,10 @@
       <option name="name" value="maven9" />
       <option name="url" value="https://storage.flutter-io.cn/download.flutter.io" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="maven9" />
+      <option name="name" value="maven9" />
+      <option name="url" value="https://maven.aliyun.com/repository/jcenter" />
+    </remote-repository>
   </component>
 </project>

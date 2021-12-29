@@ -81,29 +81,29 @@ class LocationActivity : AppCompatActivity() {
 //                    locationManager.requestLocationUpdates(locationProvider, 3000, 1.0F,locationListener);
 //                }
 
-                locationManager.requestLocationUpdates(locationProvider, 1000, 0f,object :LocationListener{
-                    override fun onLocationChanged(location: Location?) {
-
-                        if (location != null) {
-                            //如果位置发生变化，重新显示地理位置经纬度
-//                            Toast.makeText(TestLocationActivity.this, location.getLongitude() + " " +
-//                                    location.getLatitude() + "", Toast.LENGTH_SHORT).show();
-                            Log.v("TAG", "监视地理位置变化-经纬度："+location.longitude +"   "+location.latitude);
-
-                            getAddress(location);
-                        }
-                    }
-
-                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                    }
-
-                    override fun onProviderEnabled(provider: String?) {
-                    }
-
-                    override fun onProviderDisabled(provider: String?) {
-                    }
-
-                });
+//                locationManager.requestLocationUpdates(locationProvider!!, 1000, 0f,object :LocationListener{
+//                    override fun onLocationChanged(location: Location?) {
+//
+//                        if (location != null) {
+//                            //如果位置发生变化，重新显示地理位置经纬度
+////                            Toast.makeText(TestLocationActivity.this, location.getLongitude() + " " +
+////                                    location.getLatitude() + "", Toast.LENGTH_SHORT).show();
+//                            Log.v("TAG", "监视地理位置变化-经纬度："+location.longitude +"   "+location.latitude);
+//
+//                            getAddress(location);
+//                        }
+//                    }
+//
+//                    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+//                    }
+//
+//                    override fun onProviderEnabled(provider: String?) {
+//                    }
+//
+//                    override fun onProviderDisabled(provider: String?) {
+//                    }
+//
+//                });
             }
         } else {
             //1.获取位置管理器
@@ -139,30 +139,30 @@ class LocationActivity : AppCompatActivity() {
 //                locationManager.requestLocationUpdates(locationProvider, 3000, 1f,locationListener);
 //            }
 
-
-            locationManager.requestLocationUpdates(locationProvider, 1000, 0f,object :LocationListener{
-                override fun onLocationChanged(location: Location?) {
-
-                    if (location != null) {
-                        //如果位置发生变化，重新显示地理位置经纬度
-//                            Toast.makeText(TestLocationActivity.this, location.getLongitude() + " " +
-//                                    location.getLatitude() + "", Toast.LENGTH_SHORT).show();
-                        Log.v("TAG", "监视地理位置变化-经纬度："+location.getLongitude()+"   "+location.getLatitude());
-
-                        getAddress(location);
-                    }
-                }
-
-                override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-                }
-
-                override fun onProviderEnabled(provider: String?) {
-                }
-
-                override fun onProviderDisabled(provider: String?) {
-                }
-
-            });
+//
+//            locationManager.requestLocationUpdates(locationProvider, 1000, 0f,object :LocationListener{
+//                override fun onLocationChanged(location: Location?) {
+//
+//                    if (location != null) {
+//                        //如果位置发生变化，重新显示地理位置经纬度
+////                            Toast.makeText(TestLocationActivity.this, location.getLongitude() + " " +
+////                                    location.getLatitude() + "", Toast.LENGTH_SHORT).show();
+//                        Log.v("TAG", "监视地理位置变化-经纬度："+location.getLongitude()+"   "+location.getLatitude());
+//
+//                        getAddress(location);
+//                    }
+//                }
+//
+//                override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+//                }
+//
+//                override fun onProviderEnabled(provider: String?) {
+//                }
+//
+//                override fun onProviderDisabled(provider: String?) {
+//                }
+//
+//            });
         }
 
 
@@ -170,28 +170,28 @@ class LocationActivity : AppCompatActivity() {
     }
 
 
-    object locationListener : LocationListener {
-        override fun onLocationChanged(location: Location?) {
-            if (location != null) {
-                //如果位置发生变化，重新显示地理位置经纬度
-//                            Toast.makeText(TestLocationActivity.this, location.getLongitude() + " " +
-//                                    location.getLatitude() + "", Toast.LENGTH_SHORT).show();
-                Log.v("TAG", "监视地理位置变化-经纬度："+location.getLongitude()+"   "+location.getLatitude());
-            }
-        }
-
-
-        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-        }
-
-        override fun onProviderEnabled(provider: String?) {
-        }
-
-        override fun onProviderDisabled(provider: String?) {
-
-        }
-
-    }
+//    object locationListener : LocationListener {
+//        override fun onLocationChanged(location: Location?) {
+//            if (location != null) {
+//                //如果位置发生变化，重新显示地理位置经纬度
+////                            Toast.makeText(TestLocationActivity.this, location.getLongitude() + " " +
+////                                    location.getLatitude() + "", Toast.LENGTH_SHORT).show();
+//                Log.v("TAG", "监视地理位置变化-经纬度："+location.getLongitude()+"   "+location.getLatitude());
+//            }
+//        }
+//
+//
+//        override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+//        }
+//
+//        override fun onProviderEnabled(provider: String) {
+//        }
+//
+//        override fun onProviderDisabled(provider: String) {
+//
+//        }
+//
+//    }
 
     private fun getAddress(location: Location): List<Address>? {
 
@@ -212,7 +212,7 @@ class LocationActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        locationManager?.removeUpdates(locationListener);
+//        locationManager?.removeUpdates(locationListener);
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -221,25 +221,25 @@ class LocationActivity : AppCompatActivity() {
                 Toast.makeText(this, "申请权限", Toast.LENGTH_LONG).show();
                 val value: Any = try {
                     val providers = locationManager?.getProviders(true)
-                    if (providers != null) {
-                        if (providers.contains(LocationManager.NETWORK_PROVIDER)) {
-                            //如果是Network
-                            locationProvider = LocationManager.NETWORK_PROVIDER;
-
-                        } else if (providers.contains(LocationManager.GPS_PROVIDER)) {
-                            //如果是GPS
-                            locationProvider = LocationManager.GPS_PROVIDER;
-                        }
-                    }
-                    val location = locationManager?.getLastKnownLocation(locationProvider)
-                    if (location != null) {
-//                        Toast.makeText(this, location.longitude + " " +
-//                                location.getLatitude() + "", Toast.LENGTH_SHORT).show();
-                        Log.v("TAG", "获取上次的位置-经纬度：" + location.longitude + "   " + location.latitude);
-                    } else {
-                        // 监视地理位置变化，第二个和第三个参数分别为更新的最短时间minTime和最短距离minDistace
-                        locationManager?.requestLocationUpdates(locationProvider, 0, 0f, locationListener)!!;
-                    }
+//                    if (providers != null) {
+//                        if (providers.contains(LocationManager.NETWORK_PROVIDER)) {
+//                            //如果是Network
+//                            locationProvider = LocationManager.NETWORK_PROVIDER;
+//
+//                        } else if (providers.contains(LocationManager.GPS_PROVIDER)) {
+//                            //如果是GPS
+//                            locationProvider = LocationManager.GPS_PROVIDER;
+//                        }
+//                    }
+//                    val location = locationManager?.getLastKnownLocation(locationProvider)
+//                    if (location != null) {
+////                        Toast.makeText(this, location.longitude + " " +
+////                                location.getLatitude() + "", Toast.LENGTH_SHORT).show();
+//                        Log.v("TAG", "获取上次的位置-经纬度：" + location.longitude + "   " + location.latitude);
+//                    } else {
+//                        // 监视地理位置变化，第二个和第三个参数分别为更新的最短时间minTime和最短距离minDistace
+////                        locationManager?.requestLocationUpdates(locationProvider, 0, 0f, locationListener)!!;
+//                    }
 
                 } catch ( e:SecurityException) {
                     e.printStackTrace();

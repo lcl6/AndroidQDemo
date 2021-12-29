@@ -57,7 +57,7 @@ object UiHandler {
      */
     fun postDelayed(r: Runnable?, delay: Long) {
         prepare()
-        sHandler!!.postDelayed(r, delay)
+        sHandler!!.postDelayed(r!!, delay)
     }
 
     /**

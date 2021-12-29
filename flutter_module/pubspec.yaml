@@ -16,9 +16,10 @@ description: A new Flutter module.
 # a `flutter run` or a `flutter make-host-app-editable`. It has no impact
 # on any other native host app that you embed your Flutter project into.
 version: 1.0.0+1
-
+#  2.8.0 之前没有空 安全
+#  2.12.0后新增空安全
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -32,6 +33,9 @@ dependencies:
   pull_to_refresh: ^2.0.0
   event_bus: ^2.0.0 #事件监听
   dio: ^4.0.0 #网络请求
+  video_player: ^2.2.10 # 视屏播放   https://pub.dev/packages/video_player/install
+  video_thumbnail: ^0.4.3
+
 #dev_dependencies:
 #  flutter_test:
 #    sdk: flutter
@@ -45,7 +49,10 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  assets:
+    - assets/Teddy.flr
+    - assets/videos/
+    - assets/images/
   # To add Flutter specific assets to your application, add an assets section,
   # like this:
   # assets:

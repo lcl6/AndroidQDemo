@@ -67,7 +67,6 @@ class Viewpager2Activity : AppCompatActivity() {
                     if (response.isSuccessful) {
                         val body = response.body?.string()
 
-                        Log.e("onResponse",body)
                         val parseObject = JSON.parseObject(body, MeiziBean::class.java)
                         val data = parseObject.data
                         if(page==1){

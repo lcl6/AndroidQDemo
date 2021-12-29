@@ -55,7 +55,6 @@ class WebSocketActivity : AppCompatActivity() {
         val uri: URI = URI.create("ws://121.40.165.18:8800")
         client= object : JWebSocketClient(uri) {
             override fun onMessage(message: String?) {
-                Log.e(SocketClientTAG, message)
                 UiHandler.post {
                     tvDa!!.text="onMessage: "+message;
                 }

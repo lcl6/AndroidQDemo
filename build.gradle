@@ -13,11 +13,10 @@ buildscript {
         maven {url 'https://maven.aliyun.com/repository/gradle-plugin/'}
         maven { url "https://maven.aliyun.com/repository/apache-snapshots/"}
         maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}
-        maven { url 'https://www.jitpack.io' }
         maven {
             url "https://jitpack.io"
         }
-
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
 
     }
     dependencies {
@@ -42,10 +41,11 @@ allprojects {
         maven {url 'https://maven.aliyun.com/repository/gradle-plugin/'}
         maven { url "https://maven.aliyun.com/repository/apache-snapshots/"}
         maven{ url 'https://maven.aliyun.com/repository/gradle-plugin'}
-        maven { url 'https://www.jitpack.io' }
         maven {
             url "https://jitpack.io"
         }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+
 
     }
 }

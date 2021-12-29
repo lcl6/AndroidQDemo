@@ -184,7 +184,7 @@ object AppUtils {
             return false
         }
         try {
-            val packageInfo = context.packageManager.getPackageInfo(pkgName, PackageManager.GET_ACTIVITIES or PackageManager.GET_SERVICES)
+            val packageInfo = context.packageManager.getPackageInfo(pkgName!!, PackageManager.GET_ACTIVITIES or PackageManager.GET_SERVICES)
             return packageInfo != null
         } catch (e: Exception) {
             e.printStackTrace()
@@ -214,7 +214,7 @@ object AppUtils {
             return null
         }
         try {
-            return context.packageManager.getPackageInfo(pkgName, PackageManager.GET_ACTIVITIES or PackageManager.GET_SERVICES)
+            return context.packageManager.getPackageInfo(pkgName!!, PackageManager.GET_ACTIVITIES or PackageManager.GET_SERVICES)
         } catch (e: Exception) {
             e.printStackTrace()
         }
