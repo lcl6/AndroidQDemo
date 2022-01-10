@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_module/page/review_records.dart';
 import 'package:flutter_module/page/video_page.dart';
 import 'package:flutter_module/page/videolistwidget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -57,7 +58,13 @@ class _homeWidget extends State<StatefulWidget> {
                    }));
 
                  },),
+                 GestureDetector(child: Text('点击跳转富文本'),onTap: (){
+                   //VideoListWidget
+                   Navigator.of(context).push( MaterialPageRoute(builder: (context){
+                     return ReviewRecords();
+                   }));
 
+                 },),
 
 
                ]

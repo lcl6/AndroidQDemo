@@ -9,4 +9,9 @@ public class AnimalProxy implements IMyproxy{
     public String getName() {
         return "我是 AnimalProxy";
     }
+
+    private String getAge(){
+        return "20";
+    }
+
 }

@@ -35,6 +35,7 @@ dependencies:
   dio: ^4.0.0 #网络请求
   video_player: ^2.2.10 # 视屏播放   https://pub.dev/packages/video_player/install
   video_thumbnail: ^0.4.3
+  flutter_html: ^3.0.0-alpha.2 #富文本
 
 #dev_dependencies:
 #  flutter_test:

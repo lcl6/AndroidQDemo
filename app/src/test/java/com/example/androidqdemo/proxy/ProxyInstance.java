@@ -25,10 +25,11 @@ public class ProxyInstance {
     /**
      * 实现的效果是 在这个方法中 hook  添加一句代码
      */
-    public void dealPerson(){
+    public String dealPerson(){
         String name = iMyproxy.getName();
         System.out.println("我-------------"+name);
 
+        return "3333";
     }
 
 

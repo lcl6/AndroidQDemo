@@ -22,7 +22,8 @@ public class TestProxy {
 
 
         ProxyInstance instance = ProxyInstance.getInstance();
-        instance.dealPerson();
+        String s = instance.dealPerson();
+        System.out.println("结果是1111:"+s);
 
     }
 
