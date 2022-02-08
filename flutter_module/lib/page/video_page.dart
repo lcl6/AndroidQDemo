@@ -97,7 +97,6 @@ class _VideoPageState extends State<VideoPage> {
     );
   }
 
-  Random _random = new Random();
 
   Widget buildListViewItems(int index) {
     return Container(

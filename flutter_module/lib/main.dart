@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
     /// 如果是横屏
     /// --flutter---pixelRatio---3.0----screenWidth----640.0----screnHeight----700.0----scaleWidth----1.3333333333333333----scaleHeight----0.7291666666666666
     ///
-    double pixelRatio = ScreenUtil().pixelRatio;// 类似原生的desity 受原生适配框架的影响 所以flutter 需要取消原生适配
+    double? pixelRatio = ScreenUtil().pixelRatio;// 类似原生的desity 受原生适配框架的影响 所以flutter 需要取消原生适配
     var screenWidth = ScreenUtil().screenWidth;//屏幕的宽 dp
     var screnHeight = ScreenUtil().screenHeight;
     var scaleHeight = ScreenUtil().scaleHeight;//  屏幕高/UI高

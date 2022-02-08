@@ -102,5 +102,10 @@
             style="@style/main_text"
             android:text="webview"
             />
+        <TextView
+            android:id="@+id/tv_tool_blooth"
+            style="@style/main_text"
+            android:text="蓝牙定位"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

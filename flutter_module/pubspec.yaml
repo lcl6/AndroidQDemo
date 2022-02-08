@@ -36,6 +36,12 @@ dependencies:
   video_player: ^2.2.10 # 视屏播放   https://pub.dev/packages/video_player/install
   video_thumbnail: ^0.4.3
   flutter_html: ^3.0.0-alpha.2 #富文本
+  provider: 6.0.2 # 状态管理 [Flutter Favorite] https://juejin.cn/post/6844903864852807694
+  cached_network_image: ^3.1.0
+  flutter_adapter: #横竖屏切换
+    git:
+      url: 'https://gitee.com/flutter-assembly/flutter_adapter.git'
+      ref: '1.0.7'
 
 #dev_dependencies:
 #  flutter_test:
