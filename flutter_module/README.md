@@ -1,23 +1,23 @@
 
-## <!-- 代码直通车 -->
-### 1.首页 FirstFragment
-###     1.消息 MsgListActivity
-###     2.扫一扫 OnlyScanActivity
-###         1.扫码登录页 flutter PcLoginPagePad (https://uat-portal.fxnotary.com/login?redirect=%2Fhome)
-####            1.OA签到状态  SignStatus
-####            2.卷宗编码  acceptdetail
-####            3.PC登录 pclogin
-####            4.查看更多新闻  flutter newslist
-####            5.通用受理 flutter  accept
-###     1.通用受理 AcceptListPad
-####        1.受理详情 AcceptDetailPad
-#####           1.非接触受理 NoFaceDisposePad
-#####           2.翻译信息  TranslateInfoPad
-#####           3.基本信息  BaseInfoPad
-#####           4当事人信息  ClientInfoPad
-#####           5当事人信息  PartyInfo
-#####           登记失信 RegisterDishonestyWidget
-###		    拍照上传证据材料 UploadPictureProof
+>>>	<!-- 代码直通车 -->
+>>>	 1.首页 FirstFragment
+>>>	     1.消息 MsgListActivity
+>>>	     2.扫一扫 OnlyScanActivity
+>>>	         1.扫码登录页 flutter PcLoginPagePad (https://uat-portal.fxnotary.com/login?redirect=%2Fhome)
+>>>	          1.OA签到状态  SignStatus
+>>>	          2.卷宗编码  acceptdetail
+>>>	          3.PC登录 pclogin
+>>>	          4.查看更多新闻  flutter newslist
+>>>	          5.通用受理 flutter  accept
+>>>	  1.通用受理 AcceptListPad
+>>>	      1.受理详情 AcceptDetailPad
+>>>	          1.非接触受理 NoFaceDisposePad
+>>>	          2.翻译信息  TranslateInfoPad
+>>>	          3.基本信息  BaseInfoPad
+>>>	          4当事人信息  ClientInfoPad
+>>>	          5当事人信息  PartyInfo
+>>>	          登记失信 RegisterDishonestyWidget
+>>>			    拍照上传证据材料 UploadPictureProof
 >>>						    当事人办证记录 ClientVerificationRecordList
 >>>						    当事人证据材料 ClientEvidenceMaterialList
 >>>					    当事人核验记录 ClientCertificateRecordList
