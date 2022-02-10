@@ -2,6 +2,7 @@ package com.example.androidqdemo;
 
 import android.util.Log;
 
+import com.example.androidqdemo.reflect.PersonBean;
 import com.example.androidqkt.bean.Animal;
 import com.example.androidqkt.bean.Dog;
 
@@ -10,6 +11,7 @@ import org.junit.Test;
 import java.io.Console;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -105,6 +107,35 @@ public class ExampleUnitTest {
 
 
         /*--------算法测试--------------*/
+
+
+        /*----反射调用---*/
+
+        PersonBean personBean = new PersonBean("张三", "哈哈");
+        try {
+            //反射final
+            Field aotSharedLibraryName = PersonBean.class.getDeclaredField("aotSharedLibraryName");
+            aotSharedLibraryName.setAccessible(true);
+            aotSharedLibraryName.set(personBean,"666");
+
+            //反射方法
+            Method dealMethod = PersonBean.class.getDeclaredMethod("deal", int.class, int.class);
+            dealMethod.setAccessible(true);
+            String invoke = (String) dealMethod.invoke(personBean, 100, 12);
+            System.out.println("--invoke-"+invoke);
+
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+
+        System.out.println("---"+personBean.toString());
 
 
 

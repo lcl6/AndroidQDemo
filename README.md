@@ -61,5 +61,14 @@
         增量更新()
            增量更新是通过对比新旧两个版本的APK生成的字节码文件和生成APK过程的其他文件进行对比，生成更新后的差分包，然后将差分包合并到旧版本中去，生成新版本的APK。
            
+####git 部分指令
+    <--删除远程端文件夹--->
+    //查看确认改文件夹
+    git rm -r  -n --cached target  删除target文件夹
+    //删除
+    git rm -r --cached target  删除target文件夹
 
+    git rm -r -n --cached android/tinker/tinker-android-anno-support/build
+    git rm -r  --cached android/tinker/tinker-android-anno-support/build
+    <--删除远程端文件夹--->
                                         
