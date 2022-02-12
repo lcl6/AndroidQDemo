@@ -12,11 +12,11 @@ class Constant {
 
   Constant._();
 
-  String get API => _debug ? "https://uat-app-gateway.fxnotary.com/" : "https://nc-app-gateway.fxnotary.com/";
+  String get API => _debug ? "" : "";
   ///服务端后期会合并，临时使用。
   String get DownLoadAPI => _debug ?
-                  "https://bzxtla-test.fxnotary.com/api/file/fileService/downloadFileForPdf?fileId=" :
-                  "https://bzxtla-gateway.fxnotary.com/api/file/fileService/downloadFileForPdf?fileId=";
+                  "" :
+                  "";
 
   String name = 'Module';
   String versionCode = '100';
