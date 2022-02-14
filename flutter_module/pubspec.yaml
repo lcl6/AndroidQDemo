@@ -42,7 +42,10 @@ dependencies:
     git:
       url: 'https://gitee.com/flutter-assembly/flutter_adapter.git'
       ref: '1.0.7'
+  chewie: 1.2.2
 
+dependency_overrides:
+  provider: ^6.0.0
 #dev_dependencies:
 #  flutter_test:
 #    sdk: flutter

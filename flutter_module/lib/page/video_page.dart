@@ -10,7 +10,6 @@ import 'package:flutter_module/widget/video_item_page_widget.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPage extends StatefulWidget {
-
   @override
   _VideoPageState createState() => _VideoPageState();
 }
@@ -56,13 +55,10 @@ class _VideoPageState extends State<VideoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return
-      Material(child:
-      Container(
-          child: buildListView()
-        ,)
-
-    );
+    return Material(
+        child: Container(
+      child: buildListView(),
+    ));
   }
 
   bool isScroll = false; //是否滑动
@@ -97,7 +93,6 @@ class _VideoPageState extends State<VideoPage> {
     );
   }
 
-
   Widget buildListViewItems(int index) {
     return Container(
       height: 200,
@@ -125,7 +120,7 @@ class _VideoPageState extends State<VideoPage> {
           Padding(
             padding: EdgeInsets.only(top: 25, left: 20, right: 20),
             child: VideoItemPageWidget(
-              url: _listVideo[index%3],
+              url: _listVideo[index % 3],
               isScroll: isScroll,
               streamController: _streamController,
             ),

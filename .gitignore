@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 /.idea/
+/buildSrc/build/libs/buildSrc.jar
+/buildSrc/build/

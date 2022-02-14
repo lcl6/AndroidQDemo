@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_module/page/provider_test.dart';
 import 'package:flutter_module/page/review_records.dart';
+import 'package:flutter_module/page/video_list.dart';
 import 'package:flutter_module/page/video_page.dart';
 import 'package:flutter_module/page/videolistwidget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -90,6 +91,18 @@ class _homeWidget extends State<StatefulWidget> {
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (context) {
                         return VideoPage();
+                      }));
+                    },
+                  ),
+                ),
+                _text(
+                  child: GestureDetector(
+                    child: Text('点击跳转视频chewie'),
+                    onTap: () {
+                      //VideoListWidget
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return VideoList();
                       }));
                     },
                   ),
