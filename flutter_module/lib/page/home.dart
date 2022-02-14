@@ -76,11 +76,11 @@ class _homeWidget extends State<StatefulWidget> {
                 // ),
                 Text(
                   "测试12号字体",
-                  style: TextStyle(fontSize: 12.sp),
+                  style: TextStyle(fontSize: 18.sp),
                 ),
                 Text(
-                  "测试10号字体",
-                  style: TextStyle(fontSize: 10.sp),
+                  "热修复22222",
+                  style: TextStyle(fontSize: 20.sp),
                 ),
                 _text(
                   child: GestureDetector(

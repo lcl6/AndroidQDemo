@@ -95,7 +95,7 @@
         <TextView
             android:id="@+id/tv_flutter"
             style="@style/main_text"
-            android:text="flutter"
+            android:text="flutter修復"
             />
         <TextView
             android:id="@+id/tv_webview"
