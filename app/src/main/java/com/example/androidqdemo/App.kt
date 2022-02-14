@@ -29,7 +29,7 @@ class App : Application() {
         Companion.inst =this
         initBugly(this)
         initTinker()
-    }
+}
     companion object{
         private lateinit var inst :App;
         fun getInstance(): App{

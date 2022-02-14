@@ -1,9 +1,0 @@
-com/my/plugin/MyAnnotation.java
- com.my.plugin.MyAnnotation
-com/my/plugin/ExtBean.java
- com.my.plugin.ExtBean
-com/my/plugin/MyProcess.java
- com.my.plugin.MyProcess
-com/my/plugin/CoreTestUtils.java
- com.my.plugin.CoreTestUtils
- com.my.plugin.CoreTestUtils$1
