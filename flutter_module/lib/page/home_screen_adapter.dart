@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_module/page/notify_list_by_key.dart';
 import 'package:flutter_module/page/provider_test.dart';
 import 'package:flutter_module/page/review_records.dart';
 import 'package:flutter_module/page/video_list.dart';
@@ -9,9 +10,6 @@ import 'package:flutter_module/util/screen_extension.dart';
 
 import '../main.dart';
 import 'cache_img_test.dart';
-import 'future_builder.dart';
-import 'notify_list_by_key.dart';
-import 'notify_list_by_provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -36,7 +34,9 @@ class _homeWidget extends State<StatefulWidget> {
       body: Column(
         children: [
           Container(
+            // padding: EdgeInsets.all(10.w),
               child: SingleChildScrollView(
+
             child: Column(
               children: [
                 GestureDetector(
@@ -120,40 +120,28 @@ class _homeWidget extends State<StatefulWidget> {
                     },
                   ),
                 ),
-                // _text(
-                //     child: GestureDetector(
-                //   child: Text('provider测试'),
-                //   onTap: () {
-                //     //VideoListWidget
-                //     Navigator.of(context)
-                //         .push(MaterialPageRoute(builder: (context) {
-                //       return ProviderTestDetail();
-                //     }));
-                //   },
-                // )),
                 _text(
                     child: GestureDetector(
-                  child: Text('provider列表测试'),
+                  child: Text('provider测试'),
                   onTap: () {
                     //VideoListWidget
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return NotifyProviderPage();
+                      return ProviderTestDetail();
                     }));
                   },
                 )),
-
                 _text(
                     child: GestureDetector(
-                  child: Text('GlobelKey列表测试'),
-                  onTap: () {
-                    //VideoListWidget
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return GlobelKeyPage();
-                    }));
-                  },
-                )),
+                      child: Text('测试GlobelKey'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return GlobelKeyPage();
+                        }));
+                      },
+                    )),
                 _text(
                     child: GestureDetector(
                   child: Text('测试图片缓存和内存'),
@@ -162,17 +150,6 @@ class _homeWidget extends State<StatefulWidget> {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
                       return CacheImage();
-                    }));
-                  },
-                )),
-                _text(
-                    child: GestureDetector(
-                  child: Text('测试FutureBuilder'),
-                  onTap: () {
-                    //VideoListWidget
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return FutureBuilderPage();
                     }));
                   },
                 )),
@@ -193,9 +170,6 @@ class _homeWidget extends State<StatefulWidget> {
           //     )
           //   ],
           // ),
-          SizedBox(
-            height: 10,
-          ),
           Row(
             children: [
               Container(
@@ -221,22 +195,14 @@ class _homeWidget extends State<StatefulWidget> {
   }
 
   Widget _text({Widget? child}) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 10,
-        ),
-        Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              //设置四周边框
-              border: new Border.all(width: 1, color: Colors.red),
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(15))),
-          // padding: EdgeInsets.all(15.w),
-          child: child,
-        )
-      ],
+    return Container(
+      decoration: BoxDecoration(
+          //设置四周边框
+          border: new Border.all(width: 1, color: Colors.red),
+          color: Colors.white,
+          borderRadius: BorderRadius.all(Radius.circular(15))),
+      // padding: EdgeInsets.all(15.w),
+      child: child,
     );
   }
 

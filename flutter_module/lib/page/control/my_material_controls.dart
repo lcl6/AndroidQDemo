@@ -49,6 +49,7 @@ class _MyMaterialControlsState extends State<MyMaterialControls>
   void initState() {
     super.initState();
     notifier = Provider.of<PlayerNotifier>(context, listen: false);
+    notifier.hideStuff=true;
   }
 
   @override

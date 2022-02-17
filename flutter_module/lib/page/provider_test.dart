@@ -36,12 +36,14 @@ class ProviderTestState extends State<ProviderTestDetail> {
           child: Scaffold(
             body: Container(
               child: Consumer<Counter>(builder: (context,value, Widget? child){
+
                 return  ListView.separated(
                     itemCount:value.list.length,
                     itemBuilder: (BuildContext context, int index) {
                       return
+
                         Container(
-                          padding: EdgeInsets.all(20.w),
+                          padding: EdgeInsets.all(20),
                           child: GestureDetector(
                               onTap: () {
                                 value.addIndex(index);

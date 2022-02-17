@@ -58,7 +58,7 @@ class VideoListState extends State<VideoList> {
   }
 
   getApiData() {
-    for (int i = 0; i < 6; i++) {
+    for (int i = 0; i < 100; i++) {
       VideoBean bean = new VideoBean();
       videolist.add(bean);
     }
@@ -104,7 +104,7 @@ class VideoListState extends State<VideoList> {
         key: firstKey,
         child: ChewiePage(
           videoPlayerController:
-              VideoPlayerController.asset("assets/videos/wyy2.mp4"),
+          VideoPlayerController.asset("assets/videos/wyy2.mp4"),
           key: firstKey,
           looping: false,
         ),

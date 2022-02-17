@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_module/config/appconfig.dart';
 import 'package:flutter_module/page/home.dart';
+import 'package:flutter_module/util/screen_adapter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:package_info/package_info.dart';
 
@@ -45,6 +46,8 @@ class NativeFunc{
 class _MyHomePageState extends State<MyHomePage> {
   static const MethodChannel _channel = MethodChannel("com.example.flutter_module");
 
+
+
   @override
   void initState() {
     super.initState();
@@ -59,7 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
   /// 原生调用flutter
   Future<dynamic>  _handleMethod(MethodCall call) async{
     print(call.arguments);
+
+
+
+
+
     switch (call.method) {
+      case "test":
+        print("test success");
+        break;
+
       case "test":
         print("test success");
         break;
@@ -78,7 +90,14 @@ class _MyHomePageState extends State<MyHomePage> {
     //     designSize: Size(480, 960),
     //     orientation: Orientation.portrait);
 
-    return ScreenUtilInit(designSize:Size(480,960),builder:mainWidget);
+    // return ScreenUtilInit(designSize:Size(480,960),builder:mainWidget);
+
+
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      Adapt.initialize(context,standardWidth:480);
+    });
+    return  mainWidget();
+
   }
   Widget mainWidget(){
 
@@ -93,25 +112,33 @@ class _MyHomePageState extends State<MyHomePage> {
     /// 如果是横屏
     /// --flutter---pixelRatio---3.0----screenWidth----640.0----screnHeight----700.0----scaleWidth----1.3333333333333333----scaleHeight----0.7291666666666666
     ///
-    double? pixelRatio = ScreenUtil().pixelRatio;// 类似原生的desity 受原生适配框架的影响 所以flutter 需要取消原生适配
-    var screenWidth = ScreenUtil().screenWidth;//屏幕的宽 dp
-    var screnHeight = ScreenUtil().screenHeight;
-    var scaleHeight = ScreenUtil().scaleHeight;//  屏幕高/UI高
-    var scaleWidth = ScreenUtil().scaleWidth;
-
-    print("--flutter---pixelRatio---${pixelRatio}----screenWidth----${screenWidth}----screnHeight----${screnHeight}----scaleWidth----${scaleWidth}----scaleHeight----${scaleHeight}" );
-
-
+    // double? pixelRatio = ScreenUtil().pixelRatio;// 类似原生的desity 受原生适配框架的影响 所以flutter 需要取消原生适配
+    // var screenWidth = ScreenUtil().screenWidth;//屏幕的宽 dp
+    // var screnHeight = ScreenUtil().screenHeight;
+    // var scaleHeight = ScreenUtil().scaleHeight;//  屏幕高/UI高
+    // var scaleWidth = ScreenUtil().scaleWidth;
+    //
+    // print("--flutter---pixelRatio---${pixelRatio}----screenWidth----${screenWidth}----screnHeight----${screnHeight}----scaleWidth----${scaleWidth}----scaleHeight----${scaleHeight}" );
+    Adapt.initialize(context,standardWidth:480);
 
     return   Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-          child:
-          HomePage()
+          child:  rountWidget("home"),
       ),
     );
   }
+
+  Widget rountWidget(String route){
+
+    switch(route){
+      case "home":
+        return HomePage();
+    }
+    return Container(color: Colors.white,);
+  }
+
 }
 

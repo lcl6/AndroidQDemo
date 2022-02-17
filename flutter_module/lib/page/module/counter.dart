@@ -9,11 +9,19 @@ class Counter with ChangeNotifier{
 
 
 
-  Counter(this._count);
+   Counter(this._count);
+
+
+   void setCount(count){
+     this._count=count;
+     notifyListeners();
+   }
+
+
 
 
   void addList(){
-    for( int i=0;i<10;i++){
+    for( int i=0;i<20;i++){
       var itemModel = ItemModel(i);
       list.add(itemModel);
     }
