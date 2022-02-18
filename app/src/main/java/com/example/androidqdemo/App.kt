@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.multidex.MultiDex
+import com.example.androidqdemo.flutter.base.FlutterBoost
 import com.example.androidqdemo.tinker.FlutterPatch
 import com.tencent.bugly.Bugly
 import com.tencent.bugly.beta.Beta
@@ -29,6 +30,7 @@ class App : Application() {
         Companion.inst =this
         initBugly(this)
         initTinker()
+        FlutterBoost.instance.init(this);
 }
     companion object{
         private lateinit var inst :App;

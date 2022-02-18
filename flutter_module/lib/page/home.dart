@@ -6,7 +6,9 @@ import 'package:flutter_module/page/video_list.dart';
 import 'package:flutter_module/page/video_page.dart';
 import 'package:flutter_module/page/videolistwidget.dart';
 import 'package:flutter_module/util/screen_extension.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../app.dart';
 import '../main.dart';
 import 'cache_img_test.dart';
 import 'future_builder.dart';
@@ -200,12 +202,12 @@ class _homeWidget extends State<StatefulWidget> {
             children: [
               Container(
                 color: Colors.red,
-                width: 240.rpx,
+                width: 240.w,
                 child: Text("我的宽度是240w"),
               ),
               Container(
                 color: Colors.blue,
-                width: 240.rpx,
+                width: 240.w,
                 child: Text("我的宽度是240w"),
               )
             ],

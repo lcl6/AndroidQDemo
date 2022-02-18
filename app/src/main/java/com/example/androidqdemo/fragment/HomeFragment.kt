@@ -8,6 +8,8 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.androidqdemo.R
 import com.example.androidqdemo.ac.*
+import com.example.androidqdemo.flutter.base.FlutterBoost
+import com.example.androidqdemo.flutter.route.P
 import com.lodz.android.pandora.base.fragment.BaseFragment
 import java.io.FileOutputStream
 import java.io.InputStream
@@ -69,7 +71,7 @@ class HomeFragment : BaseFragment() {
             R.id. tv_viewpager2->Viewpager2Activity.Companion.start(context)
             R.id. tv_asp->AspActivity.Companion.start(context)
             R.id. tv_view->ViewActivity.Companion.start(context)
-            R.id.tv_flutter->FlutterTestActivity.Companion.start(context)
+            R.id.tv_flutter-> FlutterBoost.instance.startActivity(context, P.Route.home)
             R.id.tv_webview->VideoActivity.Companion.start(context)
             R.id.tv_tool_blooth->BluetoothActivity.Companion.start(context)
         }

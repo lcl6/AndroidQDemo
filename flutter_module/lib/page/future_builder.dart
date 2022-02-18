@@ -7,6 +7,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:provider/provider.dart';
 
 import 'app_config.dart';
+import 'bean/girl_bean.dart';
 import 'custom/custom_page.dart';
 import 'module/girl_model.dart';
 
@@ -19,99 +20,101 @@ class FutureBuilderPage extends StatefulWidget {
 
 ///图片加载====》内存问题
 class FutureBuilderPageState extends State<FutureBuilderPage> {
-  List<String> list = [];
+  List<GirlBean> list = [];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    _initData();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: MultiProvider(
-            providers: [
-              ChangeNotifierProvider(
-                create: (_) => GirlModel(list),
-              )
-            ],
-            builder: (cxt, child) {
-              print("-----执行了builder");
-              _initData(cxt);
-              return Container(
-                child: ListView.builder(
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {
-                        var girl = context.read<GirlModel>();
-                        girl.updateItem(index);
-                      },
-                      child: Consumer<GirlModel>(builder: (cxt, value, child) {
-                        print("执行了---Consumer");
-                        return Image.network(value.get()[index]);
-                      },),
-                      // child: Container(
-                      //     child: FutureBuilder(
-                      //   future: _getImgUrl(value, index),
-                      //   builder: (BuildContext context,
-                      //       AsyncSnapshot<dynamic> snapshot) {
-                      //     switch (snapshot.connectionState) {
-                      //       case ConnectionState.none:
-                      //         print("还没有开始网络请求");
-                      //         return Text("还没有开始网络请求");
-                      //       case ConnectionState.active:
-                      //         print("active");
-                      //         return Text("active");
-                      //       case ConnectionState.waiting:
-                      //         print("waiting");
-                      //         return Text("waiting");
-                      //       case ConnectionState.done:
-                      //         print("done---${snapshot.data}");
-                      //         return Image.network(snapshot.data);
-                      //     }
-                      //   },
-                      // )),
-                    );
-                  },
-                  shrinkWrap: true,
-                  itemCount: cxt
-                      .watch<GirlModel>()
-                      .get()
-                      .length,
-                ),
-              );
-            }),
+        child: Container(
+          child: ListView.builder(
+            itemBuilder: (BuildContext context, int index) {
+              return GirlItem(item: list[index]);
+            },
+            shrinkWrap: true,
+            itemCount: list.length,
+          ),
+        ),
       ),
     );
   }
 
-  Future<String> _getImgUrl(GirlModel value, int index) async {
-    return Future.delayed(Duration(milliseconds: 100), () {
-      return value.get()[index];
-    });
-  }
-
-  _initData(BuildContext context) {
-    var girl = context.read<GirlModel>();
+  _initData() {
     for (int i = 0; i < 100; i++) {
       if (i % 2 == 0) {
-        list.add(
-            'https://pic.netbian.com/uploads/allimg/220104/232651-16413100110114.jpg');
+        list.add(GirlBean(
+            'https://pic.netbian.com/uploads/allimg/220104/232651-16413100110114.jpg'));
       } else {
-        list.add(
-            'https://scpic.chinaz.net/files/pic/pic9/202201/apic38001.jpg');
+        list.add(GirlBean(
+            'https://scpic.chinaz.net/files/pic/pic9/202201/apic38001.jpg'));
       }
     }
-    girl.setData(list);
-    print("-----执行了_initDatar");
+    setState(() {});
   }
 
   @override
   void dispose() {
     super.dispose();
   }
+}
 
+class GirlItem extends StatefulWidget {
+  final GirlBean item;
 
+  GirlItem({required this.item});
+
+  @override
+  State<StatefulWidget> createState() {
+    return GirlItemState();
+  }
+}
+
+class GirlItemState extends State<GirlItem> {
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        widget.item.url =
+            'https://pic.netbian.com/uploads/allimg/220104/232651-16413100110114.jpg';
+        setState(() {});
+      },
+      child: Container(
+          width: double.infinity,
+          child: FutureBuilder(
+            future: _getImgUrl(widget.item.url),
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                  print("还没有开始网络请求");
+                  return Text("还没有开始网络请求");
+                case ConnectionState.active:
+                  print("active");
+                  return Text("active");
+                case ConnectionState.waiting:
+                  print("waiting");
+                  return Text("waiting");
+                case ConnectionState.done:
+                  print("done---${snapshot.data}");
+                  return Image.network(
+                    snapshot.data,
+                  );
+              }
+            },
+          )),
+    );
+  }
+
+  Future<String> _getImgUrl(String url) async {
+    return Future.delayed(Duration(milliseconds: 100), () {
+      return url;
+    });
+  }
 }

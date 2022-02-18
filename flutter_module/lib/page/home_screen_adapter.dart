@@ -8,10 +8,11 @@ import 'package:flutter_module/page/video_page.dart';
 import 'package:flutter_module/page/videolistwidget.dart';
 import 'package:flutter_module/util/screen_extension.dart';
 
+import '../app.dart';
 import '../main.dart';
 import 'cache_img_test.dart';
 
-class HomePage extends StatefulWidget {
+class HomeScreenPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _homeWidget();

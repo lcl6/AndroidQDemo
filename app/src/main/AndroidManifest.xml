@@ -65,7 +65,7 @@
         <activity android:name=".ac.Viewpager2Activity" />
         <activity android:name=".ac.AspActivity" />
         <activity android:name=".ac.ViewActivity" />
-        <activity android:name=".ac.FlutterTestActivity" />
+        <activity android:name=".ac.FlutterBaseActivity" />
         <activity
             android:name="io.flutter.embedding.android.FlutterActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

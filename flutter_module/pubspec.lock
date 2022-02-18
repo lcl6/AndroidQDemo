@@ -154,7 +154,7 @@ packages:
       name: flutter_screenutil
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "5.2.0"
+    version: "5.3.1"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -409,7 +409,7 @@ packages:
       name: video_player_platform_interface
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "5.0.2"
+    version: "5.1.0"
   video_player_web:
     dependency: transitive
     description:
