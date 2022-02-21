@@ -35,6 +35,10 @@ class Env {
   static const String initRoute =
       String.fromEnvironment("initRoute", defaultValue: "/");
 
+  /// 初始化路由，可以在[RouteTable] 查看可支持的路由
+  static const String homeRoute =
+  String.fromEnvironment("home", defaultValue: "home");
+
   /// 是否加载用户信息
   static const bool loadUser =
       bool.fromEnvironment("loadUser", defaultValue: false);

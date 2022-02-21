@@ -29,7 +29,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2 #苹果风格图标
   package_info: ^2.0.2 #app包信息获取
-  flutter_screenutil: ^5.0.0+2 #适配组件
+  flutter_screenutil: 5.3.1 #适配组件
   pull_to_refresh: ^2.0.0
   event_bus: ^2.0.0 #事件监听
   dio: ^4.0.0 #网络请求
