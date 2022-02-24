@@ -125,3 +125,9 @@
 -keepattributes Signature
 -keepattributes Annotation
 -keepattributes InnerClasses
+
+#----------zxing --------------
+-dontwarn com.google.zxing.**
+-keep class com.google.zxing.**{*;}
+
+-keepclasseswithmembernames class * { native <methods>; }

@@ -19,7 +19,7 @@ class FutureBuilderPage extends StatefulWidget {
 }
 
 ///图片加载====》内存问题
-class FutureBuilderPageState extends State<FutureBuilderPage> {
+class FutureBuilderPageState extends State<FutureBuilderPage> with WidgetsBindingObserver{
   List<GirlBean> list = [];
 
   @override
@@ -27,7 +27,17 @@ class FutureBuilderPageState extends State<FutureBuilderPage> {
     // TODO: implement initState
     super.initState();
 
+    WidgetsBinding.instance!.addObserver(this);
     _initData();
+
+  }
+
+
+  @override
+  void deactivate() {
+    // TODO: implement deactivate
+    super.deactivate();
+    print("---deactivate   FutureBuilderPageState---");
   }
 
   @override
@@ -63,8 +73,18 @@ class FutureBuilderPageState extends State<FutureBuilderPage> {
   @override
   void dispose() {
     super.dispose();
+
+    WidgetsBinding.instance!.removeObserver(this);
   }
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    // TODO: implement didChangeAppLifecycleState
+    super.didChangeAppLifecycleState(state);
+    print("flutter---${state.toString()}");
+  }
+
 }
+
 
 class GirlItem extends StatefulWidget {
   final GirlBean item;
@@ -93,16 +113,16 @@ class GirlItemState extends State<GirlItem> {
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               switch (snapshot.connectionState) {
                 case ConnectionState.none:
-                  print("还没有开始网络请求");
+                  // print("还没有开始网络请求");
                   return Text("还没有开始网络请求");
                 case ConnectionState.active:
-                  print("active");
+                  // print("active");
                   return Text("active");
                 case ConnectionState.waiting:
-                  print("waiting");
+                  // print("waiting");
                   return Text("waiting");
                 case ConnectionState.done:
-                  print("done---${snapshot.data}");
+                  // print("done---${snapshot.data}");
                   return Image.network(
                     snapshot.data,
                   );

@@ -124,6 +124,7 @@ dependencies {
     implementation ('com.tencent.tinker:tinker-android-lib:1.9.14.19')
     implementation 'com.tencent.bugly:crashreport_upgrade:1.4.1'
     implementation 'com.tencent.bugly:nativecrashreport:3.7.1'
+    implementation 'com.google.zxing:core:3.4.1'
 
 
 }

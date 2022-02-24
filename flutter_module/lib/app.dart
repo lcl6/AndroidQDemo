@@ -26,7 +26,7 @@ class MyApp extends StatefulWidget {
   }
 }
 
-class _MyHomePageState extends State<MyApp> {
+class _MyHomePageState extends State<MyApp> with WidgetsBindingObserver{
   static const MethodChannel _channel =
       MethodChannel("com.example.flutter_module");
   static Map? _temp;
@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance!.addObserver(this);
 
     _channel.setMethodCallHandler(_handleMethod);
     PackageInfo.fromPlatform().then((v) {
@@ -44,7 +45,18 @@ class _MyHomePageState extends State<MyApp> {
       // setState(() {});
     });
   }
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    print("flutter----${state.toString()}");
+  }
 
+  @override
+  void dispose() {
+    super.dispose();
+
+    WidgetsBinding.instance!.removeObserver(this);
+  }
   /// 原生调用flutter
   Future<dynamic> _handleMethod(MethodCall call) async {
     print("flutter-参数-_handleMethod-${call.arguments}");
@@ -67,7 +79,6 @@ class _MyHomePageState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // Adapt.initialize(context,standardWidth:480);
    return ScreenUtilInit( designSize: Size(480, 960), minTextAdapt: true,
      splitScreenMode: true, builder: () {
        return  MaterialApp(
@@ -80,7 +91,9 @@ class _MyHomePageState extends State<MyApp> {
            scaffoldBackgroundColor: Color(0xfff8f9fb),
          ),
          builder: (context,widget){
+           print("flutter ----MaterialApp0--builder");
            ScreenUtil.setContext(context);
+
            return MediaQuery(
              //Setting font does not change with system font size
              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),

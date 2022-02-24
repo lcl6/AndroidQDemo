@@ -9,6 +9,11 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+   
 
     <!-- 粗略的位置权限 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -72,6 +77,8 @@
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ac.VideoActivity"  android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity android:name=".ac.ZxingScanTestActivity" />
+        <activity android:name=".scan.ScanActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"

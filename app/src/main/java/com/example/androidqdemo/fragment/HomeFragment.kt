@@ -51,7 +51,7 @@ class HomeFragment : BaseFragment() {
             R.id.webview,R.id.websocket ,R.id.rv_ed,
             R.id.tv_ffsj,R.id.tv_cjh,R.id.tv_rxf,R.id.tv_zlgx,
             R.id. tv_viewpager2,R.id.tv_asp,R.id.tv_view,R.id.tv_flutter,
-            R.id.tv_webview,R.id.tv_tool_blooth
+            R.id.tv_webview,R.id.tv_tool_blooth,R.id.tv_zxing
     )
     fun onclick(v: View) {
         when (v.id) {
@@ -74,6 +74,7 @@ class HomeFragment : BaseFragment() {
             R.id.tv_flutter-> FlutterBoost.instance.startActivity(context, P.Route.home)
             R.id.tv_webview->VideoActivity.Companion.start(context)
             R.id.tv_tool_blooth->BluetoothActivity.Companion.start(context)
+            R.id.tv_zxing->ZxingScanTestActivity.Companion.start(context)
         }
     }
 

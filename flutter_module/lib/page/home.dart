@@ -11,6 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../app.dart';
 import '../main.dart';
 import 'cache_img_test.dart';
+import 'easy_loading_page.dart';
 import 'future_builder.dart';
 import 'notify_list_by_key.dart';
 import 'notify_list_by_provider.dart';
@@ -30,6 +31,13 @@ class _homeWidget extends State<StatefulWidget> {
     String a = "";
 
     super.initState();
+  }
+
+  @override
+  void deactivate() {
+    // TODO: implement deactivate
+    super.deactivate();
+    print("---deactivate---");
   }
 
   @override
@@ -178,6 +186,17 @@ class _homeWidget extends State<StatefulWidget> {
                     }));
                   },
                 )),
+                _text(
+                    child: GestureDetector(
+                      child: Text('EasyLoading'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return EasyLoadingPage();
+                        }));
+                      },
+                    )),
               ],
             ),
           )),
