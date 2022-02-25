@@ -25,9 +25,12 @@
       <module name="androiddemo.buildSrc" target="1.8" />
       <module name="AndroidQDemo.app" target="11" />
       <module name="AndroidQDemo.buildSrc" target="1.8" />
+      <module name="AndroidQDemo.camera" target="11" />
       <module name="AndroidQDemo.flutter" target="11" />
+      <module name="AndroidQDemo.flutter_plugin_android_lifecycle" target="11" />
       <module name="AndroidQDemo.package_info" target="11" />
       <module name="AndroidQDemo.path_provider_android" target="11" />
+      <module name="AndroidQDemo.photo_manager" target="11" />
       <module name="AndroidQDemo.pluginapp" target="11" />
       <module name="AndroidQDemo.pluginiml" target="11" />
       <module name="AndroidQDemo.sqflite" target="11" />

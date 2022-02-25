@@ -69,15 +69,15 @@ import java.util.Map;
 /**
  * 扫描二维码
  */
-public class ScanActivity extends AppCompatActivity  implements SurfaceHolder.Callback  {
-    public static final String TAG="ScanActivity--";
+public class ScanActivity extends AppCompatActivity implements SurfaceHolder.Callback {
+    public static final String TAG = "ScanActivity--";
     CameraManager cameraManager;
     private ViewfinderView viewfinderView;
     private boolean hasSurface;
 
     private CaptureActivityHandler handler;
 
-
+    SurfaceHolder surfaceHolder;
     /**
      * 最新的扫描结果
      */
@@ -87,7 +87,7 @@ public class ScanActivity extends AppCompatActivity  implements SurfaceHolder.Ca
     private Collection<BarcodeFormat> decodeFormats;
 
     //todo 设置 decodeHints
-    private Map<DecodeHintType,?> decodeHints;
+    private Map<DecodeHintType, ?> decodeHints;
 
     //todo 设置 characterSet
     private String characterSet;
@@ -96,27 +96,13 @@ public class ScanActivity extends AppCompatActivity  implements SurfaceHolder.Ca
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
-        hasSurface = false;
-        handler = null;
-        lastResult = null;
-        decodeFormats = null;
-        characterSet = null;
-
-        viewfinderView= findViewById(R.id.scan_activity_mask);
-        viewfinderView.setCameraManager(cameraManager);
-        cameraManager = new CameraManager(this);
-        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.scan_activity_preview);
-        SurfaceHolder surfaceHolder = surfaceView.getHolder();
-        if (hasSurface) {
-            initCamera(surfaceHolder);
-        } else {
-            surfaceHolder.addCallback(this);
-        }
 
     }
 
+
     /**
      * 相机初始化
+     *
      * @param surfaceHolder
      */
     private void initCamera(SurfaceHolder surfaceHolder) {
@@ -145,15 +131,43 @@ public class ScanActivity extends AppCompatActivity  implements SurfaceHolder.Ca
 
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        hasSurface = false;
+        handler = null;
+        lastResult = null;
+        decodeFormats = null;
+        characterSet = null;
+        cameraManager = new CameraManager(this);
+
+        viewfinderView = findViewById(R.id.scan_activity_mask);
+        viewfinderView.setCameraManager(cameraManager);
+
+        SurfaceView surfaceView = (SurfaceView) findViewById(R.id.scan_activity_preview);
+        surfaceHolder= surfaceView.getHolder();
+        if (hasSurface) {
+            initCamera(surfaceHolder);
+        } else {
+            surfaceHolder.addCallback(this);
+        }
+
+    }
+
+    @Override
     protected void onPause() {
         super.onPause();
         cameraManager.closeDriver();
-
         if (!hasSurface) {
             SurfaceView surfaceView = (SurfaceView) findViewById(R.id.scan_activity_preview);
             SurfaceHolder surfaceHolder = surfaceView.getHolder();
             surfaceHolder.removeCallback(this);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 
     public CameraManager getCameraManager() {
@@ -165,10 +179,9 @@ public class ScanActivity extends AppCompatActivity  implements SurfaceHolder.Ca
         return handler;
     }
 
-    public  ViewfinderView getViewfinderView() {
+    public ViewfinderView getViewfinderView() {
         return viewfinderView;
     }
-
 
 
     public void drawViewfinder() {
@@ -205,18 +218,20 @@ public class ScanActivity extends AppCompatActivity  implements SurfaceHolder.Ca
     }
 
 
-
     /**
      * A valid barcode has been found, so give an indication of success and show the results.
      *
-     * @param rawResult The contents of the barcode.
+     * @param rawResult   The contents of the barcode.
      * @param scaleFactor amount by which thumbnail was scaled
-     * @param barcode   A greyscale bitmap of the camera data which was decoded.
+     * @param barcode     A greyscale bitmap of the camera data which was decoded.
      */
     public void handleDecode(Result rawResult, Bitmap barcode, float scaleFactor) {
         lastResult = rawResult;
-        ToastUtils.showShort(this,"扫描结果是："+rawResult.toString());
-        Log.d(TAG,rawResult.toString());
+        ToastUtils.showShort(this, "扫描结果是：" + rawResult.toString());
+        Log.d(TAG, rawResult.toString());
+        Intent intent = new Intent();
+        intent.putExtra("scan_data", rawResult.toString());
+        setResult(Activity.RESULT_OK, intent);
         finish();
     }
 

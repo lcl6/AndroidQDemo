@@ -12,9 +12,37 @@
         android:orientation="vertical"
         >
         <TextView
+            android:id="@+id/tv_test_res"
+            style="@style/main_text"
+            android:text=""
+            />
+        <TextView
             android:id="@+id/tv_test_q"
             style="@style/main_text"
-            android:text="扫一扫"
+            android:text="zxing扫一扫"
             />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_qdr"
+            />
+        <TextView
+            android:id="@+id/tv_test_creat_qda"
+            style="@style/main_text"
+            android:text="zxing生成二维码"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/img_bar"
+            />
+
+        <TextView
+            android:id="@+id/tv_test_creat_bar"
+            style="@style/main_text"
+            android:text="zxing生成条形码"
+            />
+
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

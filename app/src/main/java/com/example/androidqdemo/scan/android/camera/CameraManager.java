@@ -131,10 +131,11 @@ public final class CameraManager {
    */
   public synchronized void closeDriver() {
     if (camera != null) {
+      camera.getCamera().setPreviewCallback(null);
+      //toso
+      camera.getCamera().stopPreview();
       camera.getCamera().release();
       camera = null;
-      // Make sure to clear these each time we close the camera, so that any scanning rect
-      // requested by intent is forgotten.
       framingRect = null;
       framingRectInPreview = null;
     }
@@ -262,6 +263,7 @@ public final class CameraManager {
       rect.right = rect.right * cameraResolution.x / screenResolution.x;
       rect.top = rect.top * cameraResolution.y / screenResolution.y;
       rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
+
       framingRectInPreview = rect;
     }
     return framingRectInPreview;
@@ -319,9 +321,18 @@ public final class CameraManager {
     if (rect == null) {
       return null;
     }
+
+//    Log.d("-CameraManager-","--width--"+width+
+//            "height--"+height+" rect.left--"+ rect.left+" rect.right--"+ rect.right+" rect.top--"+ rect.top+" rect.bottom--"+ rect.bottom
+//            +" rect.width()--"+ rect.width()+
+//            "rect.height()--"+ rect.height());
+
+    //横屏 --width--1920height--1080 rect.left--359 rect.top--368 rect.width()--1200rect.height()--343
     // Go ahead and assume it's YUV rather than die.
-    return new PlanarYUVLuminanceSource(data, width, height, rect.left, rect.top,
-                                        rect.width(), rect.height(), false);
+    Log.d("-CameraManager1-","left + rect.width() ----"+(rect.width()+rect.left)+" top + rect.height()---"+(rect.height()+rect.top));
+    //  if (left + width > dataWidth || top + height > dataHeight) {
+    return new PlanarYUVLuminanceSource(data,  width, height, rect.left, rect.top,
+            rect.width(), rect.height(), false);
   }
 
 }

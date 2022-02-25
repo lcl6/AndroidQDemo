@@ -144,11 +144,11 @@ final class CameraConfigurationManager {
 
     initializeTorch(parameters, prefs, safeMode);
 
-//    CameraConfigurationUtils.setFocus(
-//        parameters,
-//        prefs.getBoolean(PreferencesActivity.KEY_AUTO_FOCUS, true),
-//        prefs.getBoolean(PreferencesActivity.KEY_DISABLE_CONTINUOUS_FOCUS, false),
-//        safeMode);
+    CameraConfigurationUtils.setFocus(
+        parameters,
+            true,
+            false,
+        safeMode);
 //
 //    if (!safeMode) {
 //      if (prefs.getBoolean(PreferencesActivity.KEY_INVERT_SCAN, false)) {
@@ -167,9 +167,16 @@ final class CameraConfigurationManager {
 //
 //      //SetRecordingHint to true also a workaround for low framerate on Nexus 4
 //      //https://stackoverflow.com/questions/14131900/extreme-camera-lag-on-nexus-4
-//      parameters.setRecordingHint(true);
-//
+
+//  parameters.setRecordingHint(true);
 //    }
+    CameraConfigurationUtils.setInvertColor(parameters);
+    CameraConfigurationUtils.setVideoStabilization(parameters);
+    CameraConfigurationUtils.setFocusArea(parameters);
+    CameraConfigurationUtils.setMetering(parameters);
+    CameraConfigurationUtils.setBarcodeSceneMode(parameters);
+    parameters.setRecordingHint(true);
+
 
     parameters.setPreviewSize(bestPreviewSize.x, bestPreviewSize.y);
 
