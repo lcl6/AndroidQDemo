@@ -112,5 +112,10 @@
             style="@style/main_text"
             android:text="zxing 扫描库"
             />
+        <TextView
+            android:id="@+id/tv_camarax"
+            style="@style/main_text"
+            android:text="CameraX使用"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

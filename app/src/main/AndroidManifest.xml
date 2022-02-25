@@ -79,6 +79,7 @@
         <activity android:name=".ac.VideoActivity"  android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".ac.ZxingScanTestActivity" />
         <activity android:name=".scan.ScanActivity" />
+        <activity android:name=".ac.CameraXTestActivity" />
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"
