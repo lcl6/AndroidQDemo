@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/global_bg_color"
         >
         <TextView
             android:id="@+id/tv_test_q"

@@ -9,6 +9,8 @@
 
     <color name="color_00a0e9">#00a0e9</color>
 
+    <color name="global_bg_color">#3A403A</color>
+
     <!-- scanner -->
     <color name="scan_mask">#60000000</color>
     <color name="scan_laser">#cc0000</color>
@@ -19,8 +21,6 @@
     <color name="black_color">#000000</color>
     <color name="white_normal">#ffffffff</color>
     <color name="global_color">#F7F7F8</color>
-
-    <color name="global_bg_color">#F7F7F8</color>
 
 
     <color name="contents_text">#ff000000</color>

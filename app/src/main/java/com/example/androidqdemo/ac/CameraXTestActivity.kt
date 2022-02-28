@@ -24,10 +24,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.ScaleAnimation
 import android.webkit.WebSettings
-import android.widget.Chronometer
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
@@ -78,7 +75,7 @@ class CameraXTestActivity : AppCompatActivity() {
     lateinit var preView: PreviewView
     lateinit var focusImage: ImageView
 
-    lateinit var chronometer:Chronometer
+    lateinit var chronometer: Chronometer
 
     private var focusAnim: ScaleAnimation? = null
 
@@ -102,33 +99,34 @@ class CameraXTestActivity : AppCompatActivity() {
     }
 
     private fun initClickListener() {
-        findViewById<PreviewView>(R.id.takePicture).setOnClickListener {
+        findViewById<Button>(R.id.takePicture).setOnClickListener {
             takePicture()
         }
-        findViewById<PreviewView>(R.id.switchCamera).setOnClickListener {
+        findViewById<Button>(R.id.switchCamera).setOnClickListener {
             switchCamera()
         }
 
-        findViewById<PreviewView>(R.id.autoFlash).setOnClickListener {
+        findViewById<Button>(R.id.autoFlash).setOnClickListener {
             setFlashMode(ImageCapture.FLASH_MODE_AUTO)
         }
 
-        findViewById<PreviewView>(R.id.openFlash).setOnClickListener {
+        findViewById<Button>(R.id.openFlash).setOnClickListener {
             setFlashMode(ImageCapture.FLASH_MODE_ON)
         }
 
-        findViewById<PreviewView>(R.id.closeFlash).setOnClickListener {
+        findViewById<Button>(R.id.closeFlash).setOnClickListener {
             setFlashMode(ImageCapture.FLASH_MODE_OFF)
         }
 
-        findViewById<PreviewView>(R.id.startRecord).setOnClickListener {
+        findViewById<Button>(R.id.startRecord).setOnClickListener {
             startRecord()
         }
 
-        findViewById<PreviewView>(R.id.stopRecord).setOnClickListener {
+        findViewById<Button>(R.id.stopRecord).setOnClickListener {
             stopRecord()
         }
     }
+
     private fun setFlashMode(mode: Int) {
         if (lifecycleCameraController.imageCaptureFlashMode == mode) {
             return
@@ -140,6 +138,7 @@ class CameraXTestActivity : AppCompatActivity() {
             ImageCapture.FLASH_MODE_OFF -> Toast.makeText(this, "闪光灯关闭", Toast.LENGTH_SHORT).show()
         }
     }
+
     private fun switchCamera() {
         lensFacing = if (lensFacing == CameraSelector.LENS_FACING_BACK) {
             CameraSelector.LENS_FACING_FRONT
@@ -171,19 +170,17 @@ class CameraXTestActivity : AppCompatActivity() {
                 object : OnVideoSavedCallback {
                     override fun onVideoSaved(output: OutputFileResults) {
                         val savedUri = output.savedUri ?: Uri.fromFile(videoFile)
-                        Log.e("ztzt", "onVideoSaved：${savedUri.path}")
                         //这里注意 是在视频录制的线程的回调
                         runOnUiThread {
-                            Toast.makeText(
-                                    this@CameraXTestActivity,
-                                    "录像完成：${savedUri.path}",
-                                    Toast.LENGTH_SHORT
-                            ).show()
+                            ToastUtils.show(this@CameraXTestActivity, "onVideoSaved：${savedUri.path}")
                         }
                     }
 
                     override fun onError(videoCaptureError: Int, message: String, cause: Throwable?) {
-                        Log.e("ztzt", "onError：${message}")
+                        runOnUiThread {
+                            ToastUtils.show(this@CameraXTestActivity, "onError：${message}")
+                        }
+
                     }
                 })
         if (isRecording()) {
@@ -200,8 +197,6 @@ class CameraXTestActivity : AppCompatActivity() {
         val startTime = System.currentTimeMillis()
         findViewById<Chronometer>(R.id.chronometer).setOnChronometerTickListener {
             recordTime = (System.currentTimeMillis() - startTime) / 1000
-            Log.e("ztzt", "startTime：$startTime")
-            Log.e("ztzt", "recordTime：$recordTime")
             val asText = String.format("%02d", recordTime / 60) + ":" + String.format(
                     "%02d",
                     recordTime % 60
@@ -221,6 +216,7 @@ class CameraXTestActivity : AppCompatActivity() {
                 System.currentTimeMillis().toString() + CameraUtil.VIDEO_EXTENSION
         )
     }
+
     @SuppressLint("UnsafeOptInUsageError")
     private fun stopRecord() {
         if (!isRecording()) {
@@ -242,18 +238,19 @@ class CameraXTestActivity : AppCompatActivity() {
                 .setMetadata(metadata)
                 .build()
         lifecycleCameraController.setEnabledUseCases(CameraController.IMAGE_CAPTURE or CameraController.IMAGE_ANALYSIS)
-        lifecycleCameraController.takePicture(outputOptions,cameraExecutor,object :ImageCapture.OnImageSavedCallback{
+        lifecycleCameraController.takePicture(outputOptions, cameraExecutor, object : ImageCapture.OnImageSavedCallback {
             override fun onImageSaved(output: ImageCapture.OutputFileResults) {
                 val savedUri = output.savedUri ?: Uri.fromFile(photoFile)
                 Log.d("OnImageSavedCallback", "Photo capture succeeded: $savedUri")
+                ToastUtils.show(this@CameraXTestActivity, "Photo capture succeeded: $savedUri")
             }
 
             override fun onError(exc: ImageCaptureException) {
                 Log.d("OnImageSavedCallback", "Photo capture failed: ${exc.message}", exc)
+                ToastUtils.show(this@CameraXTestActivity, "Photo capture failed: ${exc.message}")
             }
 
         })
-
 
 
     }
@@ -263,6 +260,7 @@ class CameraXTestActivity : AppCompatActivity() {
                 outputDirectory, System.currentTimeMillis().toString() + CameraUtil.PHOTO_EXTENSION
         )
     }
+
     private fun initFile() {
         outputDirectory =
                 applicationContext.getExternalFilesDir(Environment.DIRECTORY_PICTURES)?.absolutePath + "/CameraControllerTest/"

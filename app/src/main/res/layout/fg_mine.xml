@@ -4,18 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".ac.MainActivity">
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:background="@color/global_bg_color"
+
         >
         <TextView
             android:id="@+id/tv_change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开启换肤"
+            android:text="开启夜间模式--自定义颜色"
+            android:layout_margin="@dimen/dp_10"
+            />
+
+        <TextView
+            android:id="@+id/tv_change_by_theme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开启夜间模式--通过主题属性"
+            android:layout_margin="@dimen/dp_10"
             />
 
 

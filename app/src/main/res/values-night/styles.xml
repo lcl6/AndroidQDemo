@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -48,7 +48,7 @@
     <style name="main_text" >
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="background">@color/efefef</item>
+        <item name="background">@color/black_color</item>
         <item name="android:gravity">left|center_vertical</item>
         <item name="android:textSize">16sp</item>
         <item name="android:padding">10dp</item>
