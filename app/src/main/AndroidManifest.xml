@@ -47,7 +47,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
          </activity>
-        <activity android:name=".ac.MainActivity">
+        <activity android:name=".ac.MainActivity" android:configChanges="uiMode">
         </activity>
         <activity android:name=".ac.AndroidQActivity" />
         <activity android:name=".ac.StatusActivity" />
@@ -57,7 +57,8 @@
         <activity android:name=".ac.WebViewActivity" />
         <activity android:name=".ac.WebSocketActivity" />
         <activity android:name=".ac.EditextRecyclerViewPicActivity"     android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
-        <activity android:name=".ac.MainTabActivity" />
+        <!--  android:configChanges="uiMode" -->
+        <activity android:name=".ac.MainTabActivity"/>
         <activity android:name=".ac.DisaptchActivity" />
         <activity android:name=".ac.PluginActivity" />
         <activity android:name=".ac.ProxyActivity"

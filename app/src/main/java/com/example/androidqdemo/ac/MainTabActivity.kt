@@ -1,9 +1,11 @@
 package com.example.androidqdemo .ac
 
 import android.content.Context
+import android.content.res.Configuration
 import android.media.Image
 import android.os.Bundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TabHost
@@ -21,14 +23,13 @@ import com.example.androidqdemo.fragment.HomeFragment
 import com.example.androidqdemo.fragment.MineFragment
 import com.google.android.material.tabs.TabLayout
 import com.lodz.android.pandora.base.activity.AbsActivity
-import com.lodz.android.pandora.base.activity.BaseActivity
 import java.util.ArrayList
 
 /**
  *Created by liancl on 2020/11/9 0009.
  */
 
-class MainTabActivity : AbsActivity() {
+class MainTabActivity : AbsActivity(){
 
     @JvmField
     @BindView(R.id.vp)
@@ -109,5 +110,21 @@ class MainTabActivity : AbsActivity() {
     }
 
 
+
+//    override fun onConfigurationChanged(newConfig: Configuration) {
+//        super.onConfigurationChanged(newConfig)
+//        val currentNightMode = newConfig.uiMode and Configuration.UI_MODE_NIGHT_MASK
+//        when (currentNightMode) {
+//            Configuration.UI_MODE_NIGHT_NO -> {
+//                Log.i("onConfigurationChanged","UI_MODE_NIGHT_NO");
+//            }
+//            Configuration.UI_MODE_NIGHT_YES -> {
+//                Log.i("onConfigurationChanged","UI_MODE_NIGHT_YES");
+//
+//            }
+//        }
+//
+//
+//    }
 
 }
