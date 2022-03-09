@@ -39,6 +39,11 @@
         android:supportsRtl="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
+        <!--左右分屏-->
+        <meta-data
+            android:name="EasyGoClient"
+            android:value="true" />
+
 
         <activity android:name=".WelComeActivity" android:exported="true">
          </activity>
@@ -107,8 +112,13 @@
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ac.VideoActivity"  android:configChanges="orientation|keyboardHidden|screenSize" />
         <activity android:name=".ac.ZxingScanTestActivity" />
-        <activity android:name=".scan.ScanActivity" />
-        <activity android:name=".ac.CameraXTestActivity" />
+        <activity android:name=".scan.ScanActivity" >
+       </activity>
+
+        <activity android:name=".ac.CameraXTestActivity">
+        </activity>
+
+
 
         <meta-data
             android:name="com.example.androidqdemo.base.util.MyAppGlideModule"

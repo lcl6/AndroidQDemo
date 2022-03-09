@@ -38,6 +38,7 @@
       <module name="AndroidQDemo.video_thumbnail" target="11" />
       <module name="AndroidQDemo.wakelock" target="11" />
       <module name="com.tekartik.sqflite.AndroidQDemo.sqflite" target="11" />
+      <module name="creativemaybeno.wakelock.AndroidQDemo.wakelock" target="11" />
       <module name="io.flutter.plugins.packageinfo.AndroidQDemo.package_info" target="11" />
       <module name="io.flutter.plugins.pathprovider.AndroidQDemo.path_provider_android" target="11" />
       <module name="io.flutter.plugins.videoplayer.AndroidQDemo.video_player" target="11" />

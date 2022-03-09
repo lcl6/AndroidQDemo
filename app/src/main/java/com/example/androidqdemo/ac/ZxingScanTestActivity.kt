@@ -84,6 +84,9 @@ class ZxingScanTestActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tv_test_creat_bar).setOnClickListener {
             buildBarCode()
         }
+        findViewById<TextView>(R.id.tv_test_test).setOnClickListener {
+            startActivity(Intent(this@ZxingScanTestActivity,CameraXTestActivity::class.java))
+        }
 
 
     }
@@ -149,6 +152,7 @@ class ZxingScanTestActivity : AppCompatActivity() {
     companion object {
         fun start(context: Context) {
             val starter = Intent(context, ZxingScanTestActivity::class.java)
+//            starter.setFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT or Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(starter)
         }
     }

@@ -1,4 +1,4 @@
-package com.example.androidqdemo .ac
+package com.example.androidqdemo.ac
 
 import android.content.Context
 import android.content.res.Configuration

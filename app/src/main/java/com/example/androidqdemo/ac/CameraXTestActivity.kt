@@ -1,34 +1,20 @@
 package com.example.androidqdemo.ac
 
 import android.annotation.SuppressLint
-import android.app.Activity
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothManager
-import android.bluetooth.le.ScanCallback
-import android.bluetooth.le.ScanResult
 import android.content.Context
 import android.content.Intent
-import android.content.pm.ActivityInfo
-import android.graphics.Bitmap
-import android.graphics.Color
-import android.media.ImageReader
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.ScaleAnimation
-import android.webkit.WebSettings
 import android.widget.*
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
@@ -39,24 +25,9 @@ import androidx.camera.view.PreviewView
 import androidx.camera.view.video.OnVideoSavedCallback
 import androidx.camera.view.video.OutputFileOptions
 import androidx.camera.view.video.OutputFileResults
-import androidx.core.app.ActivityCompat
-import butterknife.BindView
-import butterknife.OnClick
 import com.example.androidqdemo.R
-import com.example.androidqdemo.view.jsbridge.BridgeWebView
-import androidx.core.app.ActivityCompat.startActivityForResult
 import com.example.androidqdemo.base.util.ToastUtils
-import com.example.androidqdemo.scan.ScanActivity
 import com.example.androidqdemo.util.CameraUtil
-import com.google.zxing.EncodeHintType
-import com.google.zxing.qrcode.QRCodeWriter
-import com.google.zxing.WriterException
-
-import com.google.zxing.BarcodeFormat
-
-import com.google.zxing.common.BitMatrix
-import com.hb.dialog.utils.DensityUtils
-import com.google.zxing.MultiFormatWriter
 import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -322,6 +293,7 @@ class CameraXTestActivity : AppCompatActivity() {
     companion object {
         fun start(context: Context) {
             val starter = Intent(context, CameraXTestActivity::class.java)
+//            starter.setFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT or Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(starter)
         }
     }

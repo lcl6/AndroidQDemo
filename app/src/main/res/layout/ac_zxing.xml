@@ -43,6 +43,10 @@
             style="@style/main_text"
             android:text="zxing生成条形码"
             />
-
+        <TextView
+            android:id="@+id/tv_test_test"
+            style="@style/main_text"
+            android:text="跳转camerax"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

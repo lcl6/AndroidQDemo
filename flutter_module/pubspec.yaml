@@ -42,7 +42,7 @@ dependencies:
     git:
       url: 'https://gitee.com/flutter-assembly/flutter_adapter.git'
       ref: '1.0.7'
-  chewie: 1.2.2
+  chewie: 1.3.0
   # 媒体选择
 #  wechat_assets_picker: ^6.0.4
 #  wechat_camera_picker: ^2.4.1

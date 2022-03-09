@@ -71,4 +71,5 @@
     git rm -r -n --cached android/tinker/tinker-android-anno-support/build
     git rm -r  --cached android/tinker/tinker-android-anno-support/build
     <--删除远程端文件夹--->
-                                        
+
+### --dart-define=debug=false --dart-define=initRoute=home

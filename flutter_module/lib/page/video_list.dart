@@ -15,13 +15,6 @@ class VideoList extends StatefulWidget {
 }
 
 class VideoListState extends State<VideoList> {
-  //滚动控制器
-  ScrollController _scrollController =
-      new ScrollController(initialScrollOffset: 0);
-
-  //itemHight  向上滑动的距离
-  double itemHight = 0;
-
   //点击item的 角标
   int clickPosition = 0;
 
@@ -35,25 +28,6 @@ class VideoListState extends State<VideoList> {
   @override
   void initState() {
     super.initState();
-    //设置滚动监听  为了实现滑动到一定位置的时候视频关闭
-    _scrollController.addListener(() {
-      //_scrollController.position.pixels - initPosition   列表从当前位置向上滑动的距离
-      //itemHight  视频应该向上滑动的距离  才能消失
-      //initPosition - _scrollController.position.pixels   列表从当前位置向下滑动的距离
-      //upHight    视频应该向下滑动的距离  才能消失
-      if (itemHight > 0) {
-        if (_scrollController.position.pixels - initPosition > itemHight ||
-            initPosition - _scrollController.position.pixels > upHight) {
-          print('控件该隐藏了');
-          //获取点击的视频 然后隐藏   并且itemHight =0
-          VideoBean bean = videolist[clickPosition];
-          setState(() {
-            bean.isSeeVideo = false;
-            itemHight = 0;
-          });
-        }
-      }
-    });
     getApiData();
   }
 
@@ -77,15 +51,12 @@ class VideoListState extends State<VideoList> {
   //获取列表
   getListView(BuildContext context) {
     return ListView.builder(
-      controller: _scrollController,
       itemBuilder: (context, i) {
-        GlobalKey firstKey = GlobalKey();
-        GlobalKey secondKey = GlobalKey();
         return GestureDetector(
           onTap: () {
-            itemClick(secondKey, i);
+            itemClick(i);
           },
-          child: buildItems(videolist[i], firstKey, secondKey),
+          child: buildItems(videolist[i]),
         );
       },
       itemCount: videolist.length,
@@ -94,24 +65,19 @@ class VideoListState extends State<VideoList> {
 
   buildItems(
     VideoBean bean,
-    GlobalKey firstKey,
-    GlobalKey secondKey,
   ) {
     var item;
     if (bean.isSeeVideo) {
       item = Container(
         height: 300.w,
-        key: firstKey,
         child: ChewiePage(
           videoPlayerController:
-          VideoPlayerController.asset("assets/videos/wyy2.mp4"),
-          key: firstKey,
+              VideoPlayerController.asset("assets/videos/wyy2.mp4"),
           looping: false,
         ),
       );
     } else {
       item = Container(
-        key: secondKey,
         height: MediaQuery.of(context).size.width * 9 / 16,
         width: MediaQuery.of(context).size.width,
         margin: EdgeInsets.all(10),
@@ -127,31 +93,21 @@ class VideoListState extends State<VideoList> {
     return item;
   }
 
-  itemClick(GlobalKey secondKey, int position) {
-    RenderBox?  renderBox = secondKey.currentContext?.findRenderObject() as RenderBox?;
-    var offset = renderBox!.localToGlobal(Offset(0.0, renderBox.size.height));
-
+  itemClick(int position) {
     setState(() {
       //获取当前列表滚动的距离
-      itemHight = offset.dy;
       clickPosition = position;
     });
-    print('$itemHight');
+    // print('$itemHight');
     for (int j = 0; j < videolist.length; j++) {
       VideoBean videoBean = videolist[j];
       setState(() {
         videoBean.isSeeVideo = false;
       });
     }
-    //  bus.sendBroadcast('ChewieListItem');
     VideoBean bean = videolist[position];
     setState(() {
       bean.isSeeVideo = true;
-      initPosition = _scrollController.position.pixels;
-      //屏幕的高度-视频所处的高度 +视频的高度
-      upHight = MediaQuery.of(context).size.height -
-          itemHight +
-          MediaQuery.of(context).size.width * 9 / 16;
     });
   }
 }
@@ -164,8 +120,7 @@ class ChewiePage extends StatefulWidget {
   ChewiePage({
     required this.videoPlayerController,
     required this.looping,
-    required Key key,
-  }) : super(key: key);
+  });
 
   @override
   _ChewiePageState createState() => _ChewiePageState();
@@ -181,9 +136,10 @@ class _ChewiePageState extends State<ChewiePage> {
     _chewieController = ChewieController(
       videoPlayerController: widget.videoPlayerController,
       aspectRatio: 16 / 9,
+      fullScreenByDefault: true,
       showOptions: false,
       customControls: MyMaterialControls(),
-      autoInitialize: true,
+      autoInitialize: false,
       looping: widget.looping,
       errorBuilder: (context, errorMessage) {
         return Center(
