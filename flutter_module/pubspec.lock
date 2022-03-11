@@ -8,6 +8,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.8.2"
+  auto_orientation:
+    dependency: "direct main"
+    description:
+      name: auto_orientation
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.2.1"
+  brightness_volume:
+    dependency: "direct main"
+    description:
+      name: brightness_volume
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.0.3"
   cached_network_image:
     dependency: "direct main"
     description:
@@ -437,7 +451,7 @@ packages:
       name: wakelock
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.6.1+1"
+    version: "0.6.1+2"
   wakelock_macos:
     dependency: transitive
     description:

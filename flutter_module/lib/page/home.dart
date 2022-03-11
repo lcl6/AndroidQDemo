@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_module/page/provider_test.dart';
 import 'package:flutter_module/page/review_records.dart';
 import 'package:flutter_module/page/video_list.dart';
+import 'package:flutter_module/page/video_list/video_list_sec.dart';
 import 'package:flutter_module/page/video_page.dart';
 import 'package:flutter_module/page/videolistwidget.dart';
 import 'package:flutter_module/util/screen_extension.dart';
+import 'package:flutter_module/widget/video/video_player_page.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../app.dart';
@@ -43,10 +45,9 @@ class _homeWidget extends State<StatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: [
+        body: SingleChildScrollView(
+          child:
           Container(
-              child: SingleChildScrollView(
             child: Column(
               children: [
                 GestureDetector(
@@ -143,49 +144,49 @@ class _homeWidget extends State<StatefulWidget> {
                 // )),
                 _text(
                     child: GestureDetector(
-                  child: Text('provider列表测试'),
-                  onTap: () {
-                    //VideoListWidget
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return NotifyProviderPage();
-                    }));
-                  },
-                )),
+                      child: Text('provider列表测试'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return NotifyProviderPage();
+                        }));
+                      },
+                    )),
 
                 _text(
                     child: GestureDetector(
-                  child: Text('GlobelKey列表测试'),
-                  onTap: () {
-                    //VideoListWidget
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return GlobelKeyPage();
-                    }));
-                  },
-                )),
+                      child: Text('GlobelKey列表测试'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return GlobelKeyPage();
+                        }));
+                      },
+                    )),
                 _text(
                     child: GestureDetector(
-                  child: Text('测试图片缓存和内存'),
-                  onTap: () {
-                    //VideoListWidget
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return CacheImage();
-                    }));
-                  },
-                )),
+                      child: Text('测试图片缓存和内存'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return CacheImage();
+                        }));
+                      },
+                    )),
                 _text(
                     child: GestureDetector(
-                  child: Text('测试FutureBuilder'),
-                  onTap: () {
-                    //VideoListWidget
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return FutureBuilderPage();
-                    }));
-                  },
-                )),
+                      child: Text('测试FutureBuilder'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return FutureBuilderPage();
+                        }));
+                      },
+                    )),
                 _text(
                     child: GestureDetector(
                       child: Text('EasyLoading'),
@@ -197,47 +198,71 @@ class _homeWidget extends State<StatefulWidget> {
                         }));
                       },
                     )),
+                _text(
+                    child: GestureDetector(
+                      child: Text('测试播放器'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return VideoPlayerPage();
+                        }));
+                      },
+                    )),
+                _text(
+                    child: GestureDetector(
+                      child: Text('跳转视频列表'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return VideoListSec();
+                        }));
+                      },
+                    )),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      color: Colors.red,
+                      width: 240.w,
+                      child: Text("我的宽度是240w"),
+                    ),
+                    Container(
+                      color: Colors.blue,
+                      width: 240.w,
+                      child: Text("我的宽度是240w"),
+                    )
+                  ],
+                ),
               ],
             ),
-          )),
-          // Row(
-          //   children: [
-          //     Container(
-          //       color: Colors.red,
-          //       width: 240.w,
-          //       child: Text("我的宽度是240w"),
-          //     ),
-          //     Container(
-          //       color: Colors.blue,
-          //       width: 240.w,
-          //       child: Text("我的宽度是240w"),
-          //     )
-          //   ],
-          // ),
-          SizedBox(
-            height: 10,
           ),
-          Row(
-            children: [
-              Container(
-                color: Colors.red,
-                width: 240.w,
-                child: Text("我的宽度是240w"),
-              ),
-              Container(
-                color: Colors.blue,
-                width: 240.w,
-                child: Text("我的宽度是240w"),
-              )
-            ],
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+        ));
+
+    // Row(
+    //   children: [
+    //     Container(
+    //       color: Colors.red,
+    //       width: 240.w,
+    //       child: Text("我的宽度是240w"),
+    //     ),
+    //     Container(
+    //       color: Colors.blue,
+    //       width: 240.w,
+    //       child: Text("我的宽度是240w"),
+    //     )
+    //   ],
+    // ),
+    floatingActionButton: FloatingActionButton(
+    onPressed: _incrementCounter,
+    tooltip: 'Increment',
+    child: const Icon(Icons.
+    add
+    )
+    ,
     );
   }
 
@@ -250,7 +275,7 @@ class _homeWidget extends State<StatefulWidget> {
         Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
-              //设置四周边框
+            //设置四周边框
               border: new Border.all(width: 1, color: Colors.red),
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(15))),

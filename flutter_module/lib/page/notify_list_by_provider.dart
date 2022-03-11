@@ -92,7 +92,8 @@ class NotifyProviderPageItemState extends State<NotifyProviderPageItem> {
       ],
       builder: (cxt, child) {
         return Consumer<IndexBean>(builder: (cxt, value, child) {
-          print("--Consumer--${widget.item.index}");
+          // print("--Consumer--${widget.item.index}");
+          print("--Consumer--${value.index}");
           return Container(
             color: Colors.black54,
             child: GestureDetector(
