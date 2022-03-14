@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_module/page/provider_test.dart';
 import 'package:flutter_module/page/review_records.dart';
+import 'package:flutter_module/page/test_selector.dart';
 import 'package:flutter_module/page/video_list.dart';
 import 'package:flutter_module/page/video_list/video_list_sec.dart';
 import 'package:flutter_module/page/video_page.dart';
@@ -217,6 +218,18 @@ class _homeWidget extends State<StatefulWidget> {
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
                           return VideoListSec();
+                        }));
+                      },
+                    )),
+
+                _text(
+                    child: GestureDetector(
+                      child: Text('测试selector'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return TestSelector();
                         }));
                       },
                     )),
