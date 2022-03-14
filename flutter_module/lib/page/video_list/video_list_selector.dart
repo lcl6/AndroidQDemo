@@ -5,16 +5,15 @@ import 'package:flutter_module/page/cache_img_test.dart';
 import 'package:flutter_module/page/video_list/picture_module.dart';
 import 'package:provider/provider.dart';
 
-class VideoListSec extends StatefulWidget {
+class VideoListSelector extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return VideoListSecState();
+    return VideoListSelectorState();
   }
 }
 
-class VideoListSecState extends State {
+class VideoListSelectorState extends State {
   List<PictureBean> list = [];
-
   @override
   void initState() {
     // TODO: implement initState
@@ -24,7 +23,7 @@ class VideoListSecState extends State {
       list.add(PictureBean(
           "https://alifei05.cfp.cn/creative/vcg/veer/1600water/veer-340977164.jpg",false));
     }
-   // setState(() {});
+    setState(() {});
   }
 
   @override
@@ -38,21 +37,34 @@ class VideoListSecState extends State {
 
   Widget _itemWidget(int position) {
     final item = list[position];
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (context) => PictureBean(item.pic,item.playVideo)),
-        ],
-        child: Consumer<PictureBean>(
-          builder: (cxt, value, child) {
-            print("--Consumer--${value.playVideo}");
+    print("-----_itemWidget-----");
+    return ChangeNotifierProvider(
+        create: (BuildContext context) {
+          print("-----create-----");
+          return PictureBean(item.pic,item.playVideo);
+        },
+        child: Selector(
+          selector: (BuildContext context, PictureBean value) {
+            return value;
+          },
+
+          builder: (BuildContext cxt, PictureBean value, Widget? child) {
+            print("-----builder-----");
             return GestureDetector(
               onTap: () {
+                print("---value--${value.playVideo}");
+                item.updateStatus(true);
                 cxt.read<PictureBean>().updateStatus(true);
               },
               child: _playWidget(value),
             );
           },
+          shouldRebuild: (PictureBean pre,PictureBean next){
+            print("---pre--${pre.playVideo}----next--${next.playVideo}");
+            return pre.playVideo==next.playVideo;
+          },
         ));
+
   }
 
   Widget _playWidget(PictureBean value) {

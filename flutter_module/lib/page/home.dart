@@ -5,6 +5,7 @@ import 'package:flutter_module/page/review_records.dart';
 import 'package:flutter_module/page/test_selector.dart';
 import 'package:flutter_module/page/video_list.dart';
 import 'package:flutter_module/page/video_list/video_list_sec.dart';
+import 'package:flutter_module/page/video_list/video_list_selector.dart';
 import 'package:flutter_module/page/video_page.dart';
 import 'package:flutter_module/page/videolistwidget.dart';
 import 'package:flutter_module/util/screen_extension.dart';
@@ -212,12 +213,23 @@ class _homeWidget extends State<StatefulWidget> {
                     )),
                 _text(
                     child: GestureDetector(
-                      child: Text('跳转视频列表'),
+                      child: Text('跳转视频列表--consumer'),
                       onTap: () {
                         //VideoListWidget
                         Navigator.of(context)
                             .push(MaterialPageRoute(builder: (context) {
                           return VideoListSec();
+                        }));
+                      },
+                    )),
+                _text(
+                    child: GestureDetector(
+                      child: Text('跳转视频列表---selector'),
+                      onTap: () {
+                        //VideoListWidget
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return VideoListSelector();
                         }));
                       },
                     )),

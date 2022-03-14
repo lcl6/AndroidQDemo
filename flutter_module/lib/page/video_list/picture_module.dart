@@ -6,7 +6,7 @@ class PictureBean with ChangeNotifier{
   bool playVideo=false;
 
 
-  PictureBean(this.pic);
+  PictureBean(this.pic,this.playVideo);
 
   void updateStatus(bool play){
     playVideo=play;

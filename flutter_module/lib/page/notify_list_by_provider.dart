@@ -79,6 +79,9 @@ class NotifyProviderPageItem extends StatefulWidget {
 }
 
 class NotifyProviderPageItemState extends State<NotifyProviderPageItem> {
+
+ var indexBean= IndexBean(0,"");
+
   @override
   Widget build(BuildContext context) {
     print("--build--${widget.item.index}");
@@ -87,18 +90,25 @@ class NotifyProviderPageItemState extends State<NotifyProviderPageItem> {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => IndexBean(item.index, item.name),
+          create: (context){
+            indexBean.index=item.index;
+            indexBean.name=item.name;
+            return indexBean;
+          },
         )
       ],
       builder: (cxt, child) {
         return Consumer<IndexBean>(builder: (cxt, value, child) {
           // print("--Consumer--${widget.item.index}");
-          print("--Consumer--${value.index}");
+          // print("--Consumer--${value.index}");
           return Container(
             color: Colors.black54,
             child: GestureDetector(
                 onTap: () {
+                  item.addIndex();
                   cxt.read<IndexBean>().addIndex();
+
+
                 },
                 child: Container(
                   padding: EdgeInsets.all(20),
