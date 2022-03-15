@@ -17,6 +17,13 @@ public class Test {
 //        animals = dogs
 
 
+        val list = listOf("1223", "2222", "333", "444", "555")
+        val flatMap = list.flatMap {
+            listOf(it.plus("----test"))
+        }
+
+        print("返回---$flatMap");
+
 
     }
 

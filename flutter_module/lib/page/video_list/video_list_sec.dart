@@ -48,6 +48,7 @@ class VideoListSecState extends State {
             return GestureDetector(
               onTap: () {
                 cxt.read<PictureBean>().updateStatus(true);
+                item.updateStatus(true);
               },
               child: _playWidget(value),
             );

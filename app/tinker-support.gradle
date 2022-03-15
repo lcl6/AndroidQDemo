@@ -5,15 +5,15 @@ def bakPath = file("${buildDir}/bakApk/")
 /**
  * 此处填写每次构建生成的基准包目录
  */
-def baseApkDir = "app-0214-10-01-33"
+def baseApkDir = "app-0314-16-37-22"
 /******tinkerId*******/
-def mTinkerId="path-1.0.2"
+def mTinkerId="path-1.0.3"
 /******apk 基准包*******/
-def mBaseApk="${bakPath}/${baseApkDir}/app-release.apk"
+def mBaseApk="${bakPath}/${baseApkDir}/app-debug.apk"
 /******对应tinker插件applyMapping*******/
-def mBaseApkProguardMapping="${bakPath}/${baseApkDir}/app-release-mapping.txt"
+def mBaseApkProguardMapping="${bakPath}/${baseApkDir}/app-debug-mapping.txt"
 /******对应tinker插件applyResourceMapping*******/
-def mBaseApkResourceMapping="${bakPath}/${baseApkDir}/app-release-R.txt"
+def mBaseApkResourceMapping="${bakPath}/${baseApkDir}/app-debug-R.txt"
 
 /**
  * 对于插件各参数的详细解析请参考

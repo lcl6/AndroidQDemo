@@ -236,7 +236,7 @@ class _homeWidget extends State<StatefulWidget> {
 
                 _text(
                     child: GestureDetector(
-                      child: Text('测试selector'),
+                      child: Text('测试selector---1111'),
                       onTap: () {
                         //VideoListWidget
                         Navigator.of(context)
