@@ -31,6 +31,8 @@ class EditextRecyclerViewPicActivity : BaseGreyActivity() {
     @BindView(R.id.vg_loadmore)
     var vgLoad: ViewGroup? = null
 
+
+
     var mList: MutableList<String>? = null
     var mAdapter: EditextAdapter? = null
     override fun getGreyLayoutId(): Int {
@@ -58,11 +60,13 @@ class EditextRecyclerViewPicActivity : BaseGreyActivity() {
     }
 
     @ExperimentalStdlibApi
-    @OnClick(R.id.tv_add,R.id.tv_delete)
+    @OnClick(R.id.tv_add,R.id.tv_delete,R.id.tv_change)
     fun click(v :View){
         when(v.id){
             R.id.tv_add->addItem()
             R.id.tv_delete->deleteItem()
+            R.id.tv_change->change()
+
         }
     }
 

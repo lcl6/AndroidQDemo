@@ -118,5 +118,10 @@
             style="@style/main_text"
             android:text="CameraX使用"
             />
+        <TextView
+            android:id="@+id/tv_change_theme"
+            style="@style/main_text"
+            android:text="夜间模式"
+            />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

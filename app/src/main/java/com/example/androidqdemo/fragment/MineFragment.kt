@@ -1,30 +1,28 @@
 package com.example.androidqdemo.fragment
 
-import android.app.Activity
 import android.content.ComponentName
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.androidqdemo.R
-import com.example.androidqdemo.ac.*
-import com.example.androidqdemo.base.ac.BaseGreyActivity
 import com.example.androidqdemo.base.util.ToastUtils
 import com.example.androidqdemo.base.util.UiHandler
+import com.example.androidqdemo.event.BaseEvent
+import com.example.androidqdemo.util.LogicUtils
 import com.lodz.android.pandora.base.fragment.BaseFragment
-import java.io.FileOutputStream
-import java.io.InputStream
+import org.greenrobot.eventbus.EventBus
 
 /**
  *Created by liancl on 2020/11/9 0009.
  */
 
-class MineFragment : BaseFragment() {
+class MineFragment : BaseThemeFragment() {
 
 
     @JvmField
@@ -32,6 +30,7 @@ class MineFragment : BaseFragment() {
     var tvChange: TextView? = null
 
     var  isNight= false;
+    lateinit var mView:View;
 
     companion object{
         fun  getInstance():MineFragment{
@@ -47,6 +46,7 @@ class MineFragment : BaseFragment() {
 
     override fun findViews(view: View, savedInstanceState: Bundle?) {
         super.findViews(view, savedInstanceState)
+        this.mView=view;
         ButterKnife.bind(this,view)
         showStatusLoading()
 
@@ -60,7 +60,7 @@ class MineFragment : BaseFragment() {
     public fun click(view: View){
         when(view.id){
             R.id.tv_change -> changeAll()
-            R.id.tv_change_by_theme -> changeAllByTheme()
+            R.id.tv_change_by_theme -> changeAllByTheme(view)
             R.id.tv_change_icon -> changeAppIcon()
             R.id.tv_back_icon -> setDefaultAppIcon()
         }
@@ -95,8 +95,9 @@ class MineFragment : BaseFragment() {
     /**
      * 通过更改系统属性
      */
-    private fun changeAllByTheme() {
-
+    private fun changeAllByTheme(view: View) {
+        changeTheme();
+        EventBus.getDefault().post(BaseEvent());
     }
 
 

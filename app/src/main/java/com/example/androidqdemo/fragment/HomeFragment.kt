@@ -8,9 +8,11 @@ import butterknife.ButterKnife
 import butterknife.OnClick
 import com.example.androidqdemo.R
 import com.example.androidqdemo.ac.*
+import com.example.androidqdemo.event.BaseEvent
 import com.example.androidqdemo.flutter.base.FlutterBoost
 import com.example.androidqdemo.flutter.route.P
 import com.lodz.android.pandora.base.fragment.BaseFragment
+import org.greenrobot.eventbus.EventBus
 import java.io.FileOutputStream
 import java.io.InputStream
 
@@ -18,7 +20,7 @@ import java.io.InputStream
  *Created by liancl on 2020/11/9 0009.
  */
 
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseThemeFragment() {
 
     companion object{
         fun  getInstance():HomeFragment{
@@ -52,7 +54,7 @@ class HomeFragment : BaseFragment() {
             R.id.tv_ffsj,R.id.tv_cjh,R.id.tv_rxf,R.id.tv_zlgx,
             R.id. tv_viewpager2,R.id.tv_asp,R.id.tv_view,R.id.tv_flutter,
             R.id.tv_webview,R.id.tv_tool_blooth,R.id.tv_zxing,
-            R.id.tv_camarax
+            R.id.tv_camarax,R.id.tv_change_theme
     )
     fun onclick(v: View) {
         when (v.id) {
@@ -77,6 +79,10 @@ class HomeFragment : BaseFragment() {
             R.id.tv_tool_blooth->BluetoothActivity.Companion.start(context)
             R.id.tv_zxing->ZxingScanTestActivity.Companion.start(context)
             R.id.tv_camarax->CameraXTestActivity.Companion.start(context)
+            R.id.tv_change_theme->{
+                changeTheme()
+                EventBus.getDefault().post(BaseEvent());
+            }
         }
     }
 

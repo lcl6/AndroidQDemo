@@ -16,7 +16,7 @@ import java.io.InputStream
  *Created by liancl on 2020/11/9 0009.
  */
 
-class ContentFragment : BaseFragment() {
+class ContentFragment : BaseThemeFragment() {
 
     companion object{
         fun  getInstance():ContentFragment{

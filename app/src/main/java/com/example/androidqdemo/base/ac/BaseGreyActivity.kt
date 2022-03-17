@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.annotation.LayoutRes
 import com.example.androidqdemo.R
+import com.example.androidqdemo.util.LogicUtils
 import com.example.androidqdemo.view.GreyLinearlayout
 import com.lodz.android.corekt.anko.bindView
 import com.lodz.android.pandora.base.activity.AbsActivity
@@ -27,7 +28,7 @@ abstract class BaseGreyActivity : AbsActivity() {
     /**
      * 开启变灰模式
      */
-    private var mOpenGray: Boolean=true
+    private var mOpenGray: Boolean=false
 
 
     /** 内容布局 */
@@ -66,6 +67,16 @@ abstract class BaseGreyActivity : AbsActivity() {
 
     fun openGray(openGray: Boolean){
         this.mOpenGray=openGray;
+    }
+
+    //修改字体夜色为黑色
+    fun change(){
+        val viewGroup = findViewById<ViewGroup>(android.R.id.content)
+        this.let {
+            if (viewGroup != null) {
+                LogicUtils.findChildView(it,viewGroup)
+            }
+        }
     }
 
 //    /**

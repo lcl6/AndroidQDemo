@@ -18,7 +18,7 @@
             android:id="@+id/tv_change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开启夜间模式--自定义颜色"
+            android:text="开启夜间模式--自定义颜色(重建ac)"
             android:layout_margin="@dimen/dp_10"
             />
 
@@ -26,7 +26,7 @@
             android:id="@+id/tv_change_by_theme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开启夜间模式--通过主题属性"
+            android:text="开启夜间模式--(遍历循环修改))"
             android:layout_margin="@dimen/dp_10"
             />
 

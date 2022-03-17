@@ -38,5 +38,16 @@
             android:gravity="center"
             android:text="删除"
             />
+
+        <TextView
+
+            android:id="@+id/tv_change"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center"
+            android:text="修改颜色"
+            />
     </LinearLayout>
 </LinearLayout>
